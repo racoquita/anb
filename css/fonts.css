@@ -4,3 +4,83 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Century';
+  src: url('fonts/Century.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+	font-family: 'icomoon';
+	src: url('fonts/icomoon.eot');
+	src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.svg#icomoon') format('svg'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'HelveticaNeue';
+	src: url('fonts/HelveticaNeue.eot');
+	src: url('fonts/HelveticaNeue.eot?#iefix') format('embedded-opentype'),
+		url('fonts/HelveticaNeue.svg#icomoon') format('svg'),
+		url('fonts/HelveticaNeue.woff') format('woff'),
+		url('fonts/HelveticaNeue.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'HelveticaNeueBold';
+	src: url('fonts/HelveticaNeueBold.eot');
+	src: url('fonts/HelveticaNeueBold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/HelveticaNeueBold.svg#icomoon') format('svg'),
+		url('fonts/HelveticaNeueBold.woff') format('woff'),
+		url('fonts/HelveticaNeueBold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	speak: none;
+}
+.icon-home:before {
+	content: "\21";
+}
+.icon-calendar:before {
+	content: "\22";
+}
+.icon-circle_paw:before {
+	content: "\23";
+}
+.icon-email:before {
+	content: "\24";
+}
+.icon-facebook:before {
+	content: "\25";
+}
+.icon-heart:before {
+	content: "\26";
+}
+.icon-house:before {
+	content: "\27";
+}
+.icon-paw:before {
+	content: "\28";
+}
+.icon-print:before {
+	content: "\29";
+}
+.icon-twitter:before {
+	content: "\2a";
+}
