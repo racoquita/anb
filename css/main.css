@@ -2,6 +2,10 @@ body {
     padding: 0;
     margin: 0;
 }
+#header {
+    width: 960px;
+    margin: 0 auto;
+}
 #logo {
     width: 100px;
     display: inline-block;
@@ -15,34 +19,41 @@ body {
 }
 #admin {
     float: right;
-    color: #6D6E71;
-    font-family: "Century";
-    font-size: 14px;
     height: 100px;
     line-height: 150px;
     margin-right: 20px;
 }
+#admin a {
+    color: #6D6E71;
+    font-family: "Century";
+    font-size: 14px;
+    text-decoration: none;
+}
+#admin a:hover {
+    text-decoration: underline;
+}
 #footer {
-    width: 100%;
+    width: 960px;
     height: 40px;
-    border-top: 1px dashed #ccc;
-    margin-top: 20px;
+    border-top: 1px dashed #CCC;
+    margin: 20px auto 0px auto;
     text-align: center;
     line-height: 40px;
-    color: #cdcccc;
+    color: #CDCCCC;
     font-family: "HelveticaNeue";
     font-size: 13px;
+    position: relative;
 }
 #copyright {
     position: absolute;
     height: 40px;
     left: 0;
     right: 50%;
+    text-align: left;
 }
 #social {
     position: absolute;
     height: 40px;
-    left: 50%;
     right: 0;
 }
 #social a {
