@@ -20,7 +20,6 @@ body {
     width: 350px;
     height: 100px;
     display: inline-block;
-    margin-left: -45px;
 }
 #admin {
     float: right;

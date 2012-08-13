@@ -4,5 +4,7 @@ define(function (require) {
     // like:
     // var util = require('./util');
 
+    var Backbone = require('backbone');
+
     console.log('Hello world');
 });
