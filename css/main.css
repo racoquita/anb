@@ -69,6 +69,16 @@ body {
     background: linear-gradient(to bottom,  #3094bf 0%,#cae2eb 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3094bf', endColorstr='#cae2eb',GradientType=0 );
 }
+#pets {
+    width: 392px;
+    height: 223px;
+    background: url(../images/pets.svg) no-repeat;
+    background-position: bottom center;
+    position: absolute;
+    bottom: -2px;
+    z-index: 10;
+    left: 35%;
+}
 
 /* ------------------------------ nav ------------------------------ */
 
