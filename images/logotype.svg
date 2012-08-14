@@ -1,0 +1,21 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     width="330px" height="80px" viewBox="0 0 145.75 39.371" enable-background="new 0 0 145.75 39.371" xml:space="preserve">
+    <text transform="matrix(1 0 0 1 13.9385 18.0894)" fill="#F38630" font-family="'Century'" font-size="12">a</text>
+    <text transform="matrix(1 0 0 1 21.0015 18.0894)" fill="#F38630" font-family="'Century'" font-size="18">New</text>
+    <text transform="matrix(1 0 0 1 1.001 32.8687)">
+        <tspan x="0" y="0" fill="#F38630" font-family="'Century'" font-size="18">B</tspan>
+        <tspan x="13.071" y="0" fill="#F38630" font-family="'Century'" font-size="18">e</tspan>
+        <tspan x="22.071" y="0" fill="#F38630" font-family="'Century'" font-size="18">g</tspan>
+        <tspan x="31.649" y="0" fill="#F38630" font-family="'Century'" font-size="18">inning</tspan></text>
+    <rect y="0" fill="none" width="128.89" height="39.371"/>
+    <text transform="matrix(1 0 0 1 90.0039 32.8687)">
+        <tspan x="0" y="0" fill="#F38630" font-family="'HelveticaNeue'" font-size="8">P</tspan>
+        <tspan x="4.984" y="0" fill="#F38630" font-family="'HelveticaNeue'" font-size="8">et</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 102.501 32.8687)">
+        <tspan x="0" y="0" fill="#F38630" font-family="'HelveticaNeue'" font-size="8">R</tspan>
+        <tspan x="5.512" y="0" fill="#F38630" font-family="'HelveticaNeue'" font-size="8">escue</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 130.8896 32.8687)" fill="#F38630" font-family="'HelveticaNeue'" font-size="8">Inc</text>
+    <rect y="0" fill="none" width="330" height="80"/>
+</svg>
