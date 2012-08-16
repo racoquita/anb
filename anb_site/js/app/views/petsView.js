@@ -11,15 +11,13 @@ define(function (require) {
     var petsTemplate = require('text!templates/petsTemplate.html');
 	
 	var petsView = Backbone.View.extend({
-        el: $('#container'),
+        el: $('#test'),
 
         initialize: function(){
             this.render();
         },
 
         render: function(){
-            console.log('rendered pets view');
-
             $(this.el).html(petsTemplate);
         }
 
