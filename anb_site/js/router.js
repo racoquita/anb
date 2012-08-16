@@ -4,18 +4,32 @@ define(function (require) {
     // like:
     var $ = require('jquery');
     var _ = require('underscore');
-    var Backbone = require('backbone');
-    var directory = require('../app/collections/petDirectory')
-    
+    var Backbone = require('backbone');    
 
 	var PetRouter = Backbone.Router.extend({
 		routes: {
 		
-			//"splash" : ""
+			'search': 'loadSearch',
+			'pets': 'loadPets'
+		},
+
+		loadSearch: function(){
+			new (require('views/searchView'));
+		},
+
+		loadPets: function(){
+			new (require('views/petsView'));
 		}
 	
 	
-	})
+	});
 
+	var initialize = function(options){
+		masterView = options.masterView;
+        var router = new PetRouter(options);
 
-})    
+        Backbone.history.start();
+	};
+
+	return {initialize:initialize};
+});

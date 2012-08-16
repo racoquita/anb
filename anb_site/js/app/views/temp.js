@@ -5,22 +5,25 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
+
+    var petCollection = require('collections/petCollection');
+    var petItemView = require('views/petItemView');
 	
 	var DirectoryView = Backbone.View.extend({
 	
-		el: $("#pets"),
+		el: $("#container"),
         
         initialize: function () {
             
             var self= this;
             
-            this.collection = new Directory();
+            this.collection = new petCollection();
             
             this.collection.fetch({data:{ type: "pets" }, success: function(){
             	
             	self.$el.find('#filter').append(self.createSelect());
             	
-            	self.render();
+            	self.render();            
             }});
        
             this.on("click:filterAnimal", this.filterByAnimal, this);
@@ -41,8 +44,7 @@ define(function (require) {
         },
         renderPet: function (item) {
         
-            var petView = new PetView({
-            
+            var petView = new pet_view({
                 model: item
             });
             
@@ -110,9 +112,9 @@ define(function (require) {
         	
         		/* this.collection.reset(); */
         		
-        		petsRouter.navigate("filter/all");
+        		/*petsRouter.navigate("filter/all");*/
         		
-        	}else{
+        	} else {
         		
         		this.collection.reset(this.collection.models, {silent: true});
         		
@@ -126,7 +128,7 @@ define(function (require) {
         		
         		this.collection.reset(filtered);
         		
-        		petsRouter.navigate("filter/"+filterAnimal);
+        		/*petsRouter.navigate("filter/"+filterAnimal);*/
         	}
         }
 

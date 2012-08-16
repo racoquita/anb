@@ -5,8 +5,10 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
+
+    var searchTemplate = require('text!templates/searchTemplate.html');
 	
-	var MasterView = Backbone.View.extend({
+	var searchView = Backbone.View.extend({
 		el: $('#container'),
 		
 		initialize: function(){		
@@ -14,11 +16,11 @@ define(function (require) {
 		},
 
 		render: function(){
-			console.log('master view loaded');
+			$(this.el).html(searchTemplate);
 		}
 	
 	});
 	
-	return MasterView
+	return searchView
    
 });

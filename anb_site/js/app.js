@@ -7,7 +7,10 @@ requirejs.config({
     baseUrl: 'js/lib',
     paths: {
         app: '../app',
-        templates: '../templates'
+        templates: '../../templates',
+        views: '../app/views',
+        collections: '../app/collections',
+        models: '../app/models'
     }
 });
 
@@ -16,9 +19,7 @@ requirejs.config({
 requirejs(['app/main', '../router', 'backbone'], function(MasterView, Router, Backbone){
 
 
-
-	masterView = new MasterView();
-	
+	masterView = new MasterView();	
 	Router.initialize({masterView: masterView});
 
 
