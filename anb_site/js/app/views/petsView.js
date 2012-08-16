@@ -6,8 +6,8 @@ define(function (require) {
     var _ = require('underscore');
     var Backbone = require('backbone');
 
-    /*var petCollection = require('collections/petCollection');
-    var petItemView = require('views/petItemView');*/
+    var petCollection = require('collections/petCollection');
+    var petItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
 	
 	var petsView = Backbone.View.extend({
