@@ -4,6 +4,33 @@ body {
     background: url(../images/bg_texture.jpg) repeat;
     background-size: 45px 45px;
 }
+h2 {
+    color: #65BCB7;
+    font-family: "Century";
+    font-size: 24px;
+    margin: 0px;
+    height: 40px;
+    line-height: 40px;
+}
+
+/* ------------------------------ classes ------------------------------ */
+
+.icon {
+    color: #BEBEC1;
+    font-family: "icomoon";
+    font-size: 55px;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    height: 40px;
+    line-height: 40px;
+}
+.copy {
+    font-family: "Century";
+    font-size: 13px;
+    color: #6D6E71;
+    line-height: 18px;
+}
 
 /* ------------------------------ header ------------------------------ */
 
@@ -58,6 +85,7 @@ body {
 /* ------------------------------ welcome area ------------------------------ */
 
 #welcome {
+    position: relative;
     width: 100%;
     height: 400px;
     background: #cae2eb;
@@ -69,15 +97,51 @@ body {
     background: linear-gradient(to bottom,  #3094bf 0%,#cae2eb 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3094bf', endColorstr='#cae2eb',GradientType=0 );
 }
+#who_we_are {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#who_info {
+    width: 960px;
+    height: 85%;
+    margin: 2% auto;
+}
+#who_info_window {
+    position: relative;
+    z-index: 11;
+    width: 270px;
+    height: 90%;
+    border-radius: 10px;
+    background: url(../images/pattern-bg.jpg) repeat;
+    padding: 2%;
+}
+#welcome_image {
+    position: relative;
+    height: 100%;
+}
 #pets {
+    position: absolute;
+    bottom: -18px;
+    left: 35%;
     width: 392px;
     height: 223px;
     background: url(../images/pets.svg) no-repeat;
     background-position: bottom center;
-    position: absolute;
-    bottom: -2px;
     z-index: 10;
-    left: 35%;
+}
+#clouds {
+    position: absolute;
+    bottom: 0;
+    left: 17%;
+    width: 832px;
+    height: 277px;
+    background: url(../images/clouds.svg) no-repeat;
+    background-position: bottom center;
+    background-size: 832px 277px;
+    z-index: 9;
 }
 
 /* ------------------------------ nav ------------------------------ */
@@ -87,7 +151,6 @@ body {
     width: 100%;
     height: 35px;
     border: 1px solid #d4d5d4;
-    -webkit-box-shadow: inset 0px 0px 1px 1px #fff;
     box-shadow: inset 0px 0px 1px 1px #fff;
     background: #ffffff;
     background: -moz-linear-gradient(top,  #ffffff 0%, #e7e7e7 100%); 
@@ -96,6 +159,7 @@ body {
     background: -o-linear-gradient(top,  #ffffff 0%,#e7e7e7 100%);
     background: -ms-linear-gradient(top,  #ffffff 0%,#e7e7e7 100%);
     background: linear-gradient(to bottom,  #ffffff 0%,#e7e7e7 100%);
+    -webkit-box-shadow: inset 0px 0px 1px 1px #fff;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7e7e7',GradientType=0 );
 }
 #nav_list {
