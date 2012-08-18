@@ -12,6 +12,16 @@ h2 {
     height: 40px;
     line-height: 40px;
 }
+h3 {
+    color: #65BCB7;
+    font-weight: normal;
+    font-family: "Century";
+    font-size: 16px;
+    margin: 0;
+    height: 37px;
+    line-height: 37px;
+    padding: 0;
+}
 
 /* ------------------------------ classes ------------------------------ */
 
@@ -25,11 +35,22 @@ h2 {
     height: 40px;
     line-height: 40px;
 }
+.heading_container .icon {
+    font-size: 35px;
+    margin: 0px 5px;
+}
 .copy {
     font-family: "Century";
     font-size: 13px;
     color: #6D6E71;
     line-height: 18px;
+}
+.btn_icon {
+    font-family: "icomoon";
+    font-size: 65px;
+    vertical-align: -15px;
+    text-shadow: 0px -2px 1px #fa7414;
+    filter: dropshadow(color=#fa7414, offx=0, offy=-2);
 }
 
 /* ------------------------------ header ------------------------------ */
@@ -117,6 +138,7 @@ h2 {
     border-radius: 10px;
     background: url(../images/pattern-bg.jpg) repeat;
     padding: 2%;
+    float: left;
 }
 #welcome_image {
     position: relative;
@@ -142,6 +164,36 @@ h2 {
     background-position: bottom center;
     background-size: 832px 277px;
     z-index: 9;
+}
+#adopt_btn {
+    float: right;
+    height: 98%;position: relative;
+    bottom: -74%;
+    z-index: 11;
+}
+#adopt_btn div {
+    display: inline-block;
+    width: 240px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #fb9042;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: "Century";
+    text-shadow: 0px -2px 1px #fa7414;
+    text-transform: uppercase;
+    filter: dropshadow(color=#fa7414, offx=0, offy=-1);
+    background: rgb(255,255,255); 
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(251,117, 19,1) 75%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(75%,rgba(251,117, 19,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(251,117, 19,1) 75%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(251,117, 19,1) 75%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(251,117, 19,1) 75%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(251,117, 19,1) 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fb7513',GradientType=0 );
 }
 
 /* ------------------------------ nav ------------------------------ */
@@ -266,4 +318,40 @@ h2 {
     background-size: 20px 20px;
     background-position: center left;
     padding-left: 30px;
+}
+
+/* ------------------------------ container ------------------------------ */
+
+#container {
+    width: 960px;
+    height: 100%;
+    margin: 20px auto 0px auto;
+    overflow: hidden;
+}
+#adoptions, #events, #help {
+    width: 298px;
+    height: 398px;
+    float: left;
+    border: 1px solid #d4d5d4;
+    border-radius: 10px;
+    -webkit-box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);        
+    box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);
+}
+.heading_container {
+    border-bottom: 1px solid #d4d5d4;
+    background: url(../images/pattern-bg.jpg) repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.heading_container div {
+    padding: 5px 0px;
+}
+#adoptions {
+    margin: 15px 15px 15px 15px;
+}
+#events {
+    margin: 15px 0px;
+}
+#help {
+    margin: 15px 15px 15px 15px;
 }
