@@ -9,6 +9,7 @@ define(function (require) {
     var petCollection = require('collections/petCollection');
     var petItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
+    var petItemTemplate = require('text!templates/petItemTemplate.html')
 	
 	var petsView = Backbone.View.extend({
         el: $('#test'),
@@ -18,38 +19,38 @@ define(function (require) {
         	
         	var self = this;
             this.collection  = new petCollection();
-            this.collection.fetch({data:{ type: "pets" }, success: function(){
-            	
-            	alert("successfully fetched data")
-            	//self.$el.find('#filter').append(self.createSelect());
-            	
-            	self.render();            
-            }});
             
+           	 this.collection.fetch({ 
+        		data: {type: "pets"},
+        		success: function () {
+         		 
+         		 self.render();
+        
+        		}
+        	});
             this.collection.on("reset", self.render, self);
            
         },
 
         render: function(){
         
+        	this.$el.find("article").remove();
+        
             $(this.el).html(petsTemplate);
-            var that = this
-           	//console.log(this.collection.models);
+       
             _.each(this.collection.models, function (item) {
               
-              //	console.log(item)
-                that.renderPet(item)
+                this.renderPet(item)
                 
             }, this);
         },
         renderPet: function(item){
 	      
-	      petItemView = new petItemView({
+	      var petItem = new petItemView({
 	        	model: item
 	        
 	      })
-	        
-        	this.$el.append(petItemView.render().el);
+	      petItemView.render();
         
         }
 

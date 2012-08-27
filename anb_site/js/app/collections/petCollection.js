@@ -9,8 +9,8 @@ define(function (require) {
 	
 		model: petModel,
         url: 'xhr/get_shelter.php',
-    	parse: function(response){
-    	console.log(response)
+    	parse: function(response, xhr){
+    	console.log(response, xhr)
     		
     		return response.pets.pet;
     	}   
