@@ -7,24 +7,25 @@ define(function (require) {
     var Backbone = require('backbone');
 	var petItemTemplate = require('text!templates/petItemTemplate.html');
 
-	var PetView =  Backbone.View.extend({
+	var PetItemView =  Backbone.View.extend({
 	
-	
+		el: $('#test'),
+		
 		tagName: "article",
         
         className: "contact-container",
         
-        template: petItemTemplate,
+        template: $("petTemplate").html(),
         
         render: function () {
-            
+          
            var tmpl = _.template(this.template);
-            
-           //$(this.el).html(tmpl(this.model.toJSON()));
+           
+           $(this.el).html(tmpl(this.model.toJSON()));
             
            return this;
         }
 	});
 
-    return PetView
+    return PetItemView
 });
