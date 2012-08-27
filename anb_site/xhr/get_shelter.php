@@ -15,7 +15,7 @@ function get_shelter(){
 
 	$params = array(
 		'key'	=> '3eabe8f8401bab71f5a49fa27935fef1',
-		'id'	=> 'FL1146',
+		'id'	=> 'FL163',
 	);
 	
 	$encoded_params = array();
@@ -34,7 +34,7 @@ function get_shelter_pets(){
 
 	$params = array(
 		'key'	=> '3eabe8f8401bab71f5a49fa27935fef1',
-		'id'	=> 'FL1146',
+		'id'	=> 'FL163',
 	);
 	
 	$encoded_params = array();
