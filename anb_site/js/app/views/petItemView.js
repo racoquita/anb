@@ -13,20 +13,10 @@ define(function (require) {
 		
 		tagName: "article",
         
-        className: "contact-container",
+        className: "pet-container",
         
-       // template: $("#petTemplate").html(),
         template: petItemTemplate,
         
-        render: function() {
-          
-           var tmpl = _.template(this.template);
-         
-           console.log(tmpl)
-           $(this.el).html(tmpl(this.model.toJSON()));
-            
-           return this;
-        }
 	});
 
     return petItemView
