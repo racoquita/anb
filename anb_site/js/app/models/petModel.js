@@ -37,14 +37,10 @@ define(function (require){
     			email: data.contact.email
     		
     		}
-    		if(data.media.photos)
-    		{
-    			obj.photo = data.media.photos.photo[0]
-    		}
-
+    		if(data.media.photos) obj.photo = data.media.photos.photo[0]
+    		
     		return obj
     	}
-	
 	});
 
 	return petModel;

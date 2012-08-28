@@ -12,7 +12,8 @@ define(function (require) {
 			'search': 'loadSearch',
 			'pets': 'loadPets',
 			'about' : 'loadAbout',
-			//'donations' : 'loadDonations'
+			'donate' : 'loadDonate',
+			'volunteer': 'loadVolunteer'
 		},
 
 		loadSearch: function(){
@@ -26,8 +27,11 @@ define(function (require) {
 		
 			new (require('views/aboutView'))
 		},
-		loadDonation: function(){
-			new (require('views/donationView'))
+		loadDonate: function(){
+			new (require('views/donateView'))
+		},
+		loadVolunteer: function(){
+			new (require('views/volunteerView'))
 		}
 	
 	

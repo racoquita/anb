@@ -23,6 +23,7 @@ define(function (require) {
         		data: {type: "pets"},
         		success: function () {
          			 
+         			 self.$el.find('div#filter').append(self.createFilter());
          			 self.render();
         		}
         	});
@@ -52,8 +53,34 @@ define(function (require) {
 	      	
 	      	this.$el.append(petItemView.render().el)
         
+        },
+        getAnimals: function(){
+        	
+        	return _.uniq(this.collection.pluck('animal'), false, function(animal){
+        	
+        		return animal.toLowerCase();
+        	});
+        
+        },
+        createFilter: function(){
+        	var self = this;
+        
+        	var filterOptions = $("<div/>", {
+        	
+        		html: '<button type="button" class="selected" value="all">All</button>'
+        	
+        	});
+        	
+        	_.each(self.getAnimals(), function(item){
+        		var option = $('<button/', {
+        			value: item.toLowerCase(),
+        			text: item
+        		
+        		}).appendTo('filterOptions')
+        		
+        	});
+        	return filterOptions;
         }
-
     });
 
     return petsView;
