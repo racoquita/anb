@@ -5,7 +5,7 @@ define(function (require) {
 	var Backbone = require('backbone');
 	var petModel = require('models/petModel');
   
-	var Directory = Backbone.Collection.extend({
+	var PetCollection = Backbone.Collection.extend({
 	
 		model: petModel,
         url: 'xhr/get_shelter.php',
@@ -17,6 +17,6 @@ define(function (require) {
 	
 	});
 	
-	return Directory;
+	return PetCollection;
     
 });

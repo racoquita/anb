@@ -4,12 +4,11 @@ define(function (require){
 	var _ = require('underscore');
 	var Backbone = require('backbone');
 
-
-	
-	var PetModel = Backbone.Model.extend({
+	var petModel = Backbone.Model.extend({
 	
 		defaults: {
-    		photo: '../../../img/placeholder.png',
+    		
+    		photo: 'images/placeholder.png',
     		age: "",
 			animal: "",
 			id: "",
@@ -25,9 +24,10 @@ define(function (require){
 
     	},
     	parse: function(data){
-    		//console.log(data)
+    		
+    		//console.log(data.media.photos.photo[0])
     		obj = {
-    			//photo: data.media.photos.photo,
+ 				
     			age: data.age,
     			animal: data.animal,
     			id: data.id,
@@ -37,11 +37,12 @@ define(function (require){
     			email: data.contact.email
     		
     		}
+    		if(data.media.photos) obj.photo = data.media.photos.photo[0]
+    		
     		return obj
     	}
-	
 	});
 
-	return PetModel;
+	return petModel;
 
 });

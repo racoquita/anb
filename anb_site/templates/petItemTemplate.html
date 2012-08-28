@@ -1,13 +1,27 @@
-<script id="petTemplate" type="text/template">
+<div class="pet-container">
+<img src="<%= photo %>" height="100" alt="<%= name %>" />
+<h1><%= name %><span><%= animal %></span></h1>
+<div><%= age %></div>
+<dl>
+	<dt>Pet Id: </dt><dd><%= id %></dd>
+    <dt>Sex: </dt><dd><%= sex %></dd>
+    <dt>Size:</dt><dd><%= size %></dd>
+    <dt>Contact: </dt><dd><a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a></dd>
+</dl>
+</div>
 
-    <img src="<%= photo %>" height="100" alt="<%= age %>" />
-    <h1><%= name %><span><%= animal %></span></h1>
-    <div><%= age %></div>
-    <dl>
-    	<dt>Pet Id: </dt><dd><%= id %></dd>
-        <dt>Sex: </dt><dd><%= sex %></dd>
-        <dt>Size:</dt><dd><%= size %></dd>
-        <dt>Contact:</dt><dd><a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a></dd>
-    </dl>
+<!--
 
-</script>
+<div class="heading">
+   <span class="name"><%= name %></span>
+   <span class="type">Type</span>
+</div>
+   <div class="info">
+   	<img src="<%= photo %>" alt="<%= name %>" />
+    <div class="details">
+	    <span>Animal: <%= animal %></span>
+	    <span>Age: <%= age %></span>
+	    <span>Sex: <%= sex %></span>
+   	</div>
+</div>
+-->

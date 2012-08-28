@@ -7,20 +7,80 @@ define(function (require) {
     var Backbone = require('backbone');
 
     var petCollection = require('collections/petCollection');
-    var petItemView = require('views/petItemView');
+    var PetItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
+    var petItemTemplate = require('text!templates/petItemTemplate.html')
 	
 	var petsView = Backbone.View.extend({
-        el: $('#test'),
+        el: $('#container'),
 
         initialize: function(){
-            this.render();
+        	
+        	
+        	var self = this;
+            this.collection  = new petCollection();
+           	this.collection.fetch({ 
+        		data: {type: "pets"},
+        		success: function () {
+         			 
+         			 self.$el.find('div#filter').append(self.createFilter());
+         			 self.render();
+        		}
+        	});
+        	
+            this.collection.on("reset", self.render, self);
+           
         },
-
+        
         render: function(){
+        	var self = this;
+        	
             $(this.el).html(petsTemplate);
+       
+            _.each(this.collection.models, function(item) {
+                
+                self.renderPet(item)
+            
+            }, this);
+        },
+        
+        renderPet: function(item){
+        	
+        	var petItemView = new PetItemView({ model: item })
+	        //console.log(item.attributes);
+	      	//var tmpl = _.template(petItemTemplate);
+	      	//$(this.el).append(tmpl(item.attributes));
+	      	
+	      	this.$el.append(petItemView.render().el)
+        
+        },
+        getAnimals: function(){
+        	
+        	return _.uniq(this.collection.pluck('animal'), false, function(animal){
+        	
+        		return animal.toLowerCase();
+        	});
+        
+        },
+        createFilter: function(){
+        	var self = this;
+        
+        	var filterOptions = $("<div/>", {
+        	
+        		html: '<button type="button" class="selected" value="all">All</button>'
+        	
+        	});
+        	
+        	_.each(self.getAnimals(), function(item){
+        		var option = $('<button/', {
+        			value: item.toLowerCase(),
+        			text: item
+        		
+        		}).appendTo('filterOptions')
+        		
+        	});
+        	return filterOptions;
         }
-
     });
 
     return petsView;

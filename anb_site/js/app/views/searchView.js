@@ -9,7 +9,7 @@ define(function (require) {
     var searchTemplate = require('text!templates/searchTemplate.html');
 	
 	var searchView = Backbone.View.extend({
-		el: $('#container'),
+		el: $('#changeable_container'),
 		
 		initialize: function(){		
 			this.render();

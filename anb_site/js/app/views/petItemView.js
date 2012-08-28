@@ -5,25 +5,24 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
+	var petItemTemplate = require('text!templates/petItemTemplate.html');
+	var petModel = require('models/petModel');
 
-	var PetView =  Backbone.View.extend({
+	var petItemView =  Backbone.View.extend({
 	
-	
-		tagName: "article",
         
-        className: "contact-container",
+        template: petItemTemplate,
         
-        template: $("#petTemplate").html(),
+        render: function(){
         
-        render: function () {
-            
-           var tmpl = _.template(this.template);
-            
-           $(this.el).html(tmpl(this.model.toJSON()));
-            
-           return this;
+        	
+       	 //$(this.el).append(petItemTemplate);
+        	var tmpl = _.template(this.template);
+        	$(this.el).append(tmpl(this.model.toJSON()));
+        	
+        	return this;
         }
 	});
 
-    return PetView
+    return petItemView
 });
