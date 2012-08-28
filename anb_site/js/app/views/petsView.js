@@ -12,7 +12,7 @@ define(function (require) {
     var petItemTemplate = require('text!templates/petItemTemplate.html')
 	
 	var petsView = Backbone.View.extend({
-        el: $('#body'),
+        el: $('#container'),
 
         initialize: function(){
         	

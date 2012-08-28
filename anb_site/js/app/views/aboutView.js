@@ -5,11 +5,11 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
-	var searchTemplate = require('text!templates/searchTemplate.html');
+	var aboutTemplate = require('text!templates/aboutTemplate.html');
 
 
 	var AboutView =  Backbone.View.extend({
-	
+		el: $("#container"),
         
         initialize: function(){
         
@@ -18,7 +18,7 @@ define(function (require) {
         },
         
         render: function(){
-        	$(this.el).html(searchTemplate);
+        	$(this.el).html(aboutTemplate);
         
         }
 	});
