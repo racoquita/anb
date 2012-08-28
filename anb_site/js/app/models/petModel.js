@@ -6,11 +6,11 @@ define(function (require){
 
 
 	
-	var PetModel = Backbone.Model.extend({
+	var petModel = Backbone.Model.extend({
 	
 		defaults: {
+    		//photo: 'images/placeholder.png',
     		photo: 'images/placeholder.png',
-    		//photo: "",
     		age: "",
 			animal: "",
 			id: "",
@@ -26,10 +26,10 @@ define(function (require){
 
     	},
     	parse: function(data){
-    		//sconsole.log(data.media.photos.photo[0])
+    		
+    		//console.log(data.media.photos.photo[0])
     		obj = {
-    			//photo: data.media.photos.photo[0],
-    			//photo: data.media.photos.photo[0],
+ 				
     			age: data.age,
     			animal: data.animal,
     			id: data.id,
@@ -39,11 +39,21 @@ define(function (require){
     			email: data.contact.email
     		
     		}
+    		if(data.media.photos)
+    		{
+    			obj.photo = data.media.photos.photo[0]
+    		}
+    		else{
+    			
+    		}
+    		
+    	
+    		
     		return obj
     	}
 	
 	});
 
-	return PetModel;
+	return petModel;
 
 });

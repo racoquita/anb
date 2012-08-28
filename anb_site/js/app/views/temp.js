@@ -37,6 +37,7 @@ define(function (require) {
 
             _.each(this.collection.models, function (item) {
                 
+                console.log(item);
                 this.renderPet(item)
                 
             }, this);

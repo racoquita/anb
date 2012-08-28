@@ -28,3 +28,6 @@ body {
 .pet-container dt, .pet-container dd { margin:0; float:left; }
 .pet-container dt { width:50px; clear:left; }
 button.selected { background-color: aqua; }
+
+
+/* -------------------------------------------------  Pet TAG ------------------------------------------- */

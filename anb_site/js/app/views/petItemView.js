@@ -10,13 +10,18 @@ define(function (require) {
 
 	var petItemView =  Backbone.View.extend({
 	
-		
-		tagName: "article",
-        
-        className: "pet-container",
         
         template: petItemTemplate,
         
+        render: function(){
+        
+        	
+       	 //$(this.el).append(petItemTemplate);
+        	var tmpl = _.template(this.template);
+        	$(this.el).append(tmpl(this.model.toJSON()));
+        	
+        	return this;
+        }
 	});
 
     return petItemView

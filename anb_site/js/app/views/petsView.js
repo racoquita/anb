@@ -7,7 +7,7 @@ define(function (require) {
     var Backbone = require('backbone');
 
     var petCollection = require('collections/petCollection');
-    var petItemView = require('views/petItemView');
+    var PetItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html')
 	
@@ -22,6 +22,7 @@ define(function (require) {
            	this.collection.fetch({ 
         		data: {type: "pets"},
         		success: function () {
+         			 
          			 self.render();
         		}
         	});
@@ -43,12 +44,13 @@ define(function (require) {
         },
         
         renderPet: function(item){
-        
-        	//console.log(item);
         	
-	      	var tmpl = _.template(petItemTemplate);
-	      
-	      	$(this.el).append(tmpl(item.attributes));
+        	var petItemView = new PetItemView({ model: item })
+	        //console.log(item.attributes);
+	      	//var tmpl = _.template(petItemTemplate);
+	      	//$(this.el).append(tmpl(item.attributes));
+	      	
+	      	this.$el.append(petItemView.render().el)
         
         }
 
