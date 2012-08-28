@@ -7,7 +7,7 @@ define(function (require) {
     var Backbone = require('backbone');
 	
 	var MasterView = Backbone.View.extend({
-		el: $('#container'),
+		el: $('#changeable_container'),
 		
 		initialize: function(){		
 			this.render();

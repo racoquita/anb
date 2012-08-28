@@ -4,12 +4,10 @@ define(function (require){
 	var _ = require('underscore');
 	var Backbone = require('backbone');
 
-
-	
 	var petModel = Backbone.Model.extend({
 	
 		defaults: {
-    		//photo: 'images/placeholder.png',
+    		
     		photo: 'images/placeholder.png',
     		age: "",
 			animal: "",
@@ -43,12 +41,7 @@ define(function (require){
     		{
     			obj.photo = data.media.photos.photo[0]
     		}
-    		else{
-    			
-    		}
-    		
-    	
-    		
+
     		return obj
     	}
 	

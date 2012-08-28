@@ -10,7 +10,9 @@ define(function (require) {
 		routes: {
 		
 			'search': 'loadSearch',
-			'pets': 'loadPets'
+			'pets': 'loadPets',
+			'about' : 'loadAbout',
+			//'donations' : 'loadDonations'
 		},
 
 		loadSearch: function(){
@@ -19,6 +21,13 @@ define(function (require) {
 
 		loadPets: function(){
 			new (require('views/petsView'));
+		},
+		loadAbout: function(){
+		
+			new (require('views/aboutView'))
+		},
+		loadDonation: function(){
+			new (require('views/donationView'))
 		}
 	
 	
