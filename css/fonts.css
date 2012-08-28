@@ -84,3 +84,9 @@
 .icon-twitter:before {
 	content: "\2a";
 }
+.icon-up_arrow:before {
+	content: "\2b";
+}
+.icon-down_arrow:before {
+	content: "\2c";
+}

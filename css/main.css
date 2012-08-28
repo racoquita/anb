@@ -17,7 +17,17 @@ h3 {
     font-weight: normal;
     font-family: "Century";
     font-size: 16px;
-    margin: 0;
+    margin: 0px 0px 0px 10px;
+    height: 37px;
+    line-height: 37px;
+    padding: 0;
+}
+h4 {
+    color: #65BCB7;
+    font-weight: normal;
+    font-family: "Century";
+    font-size: 16px;
+    margin: 0px 0px 0px 10px;
     height: 37px;
     line-height: 37px;
     padding: 0;
@@ -28,12 +38,15 @@ h3 {
 .icon {
     color: #BEBEC1;
     font-family: "icomoon";
-    font-size: 55px;
+    font-size: 35px;
     display: block;
     float: left;
     margin-right: 5px;
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
+}
+.right {
+
 }
 .heading_container .icon {
     font-size: 35px;
@@ -51,6 +64,13 @@ h3 {
     vertical-align: -15px;
     text-shadow: 0px -2px 1px #fa7414;
     filter: dropshadow(color=#fa7414, offx=0, offy=-2);
+}
+.white_container {
+    background-color: white;
+    border: 1px solid #d4d5d4;
+    border-radius: 10px;
+    -webkit-box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);        
+    box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);
 }
 
 /* ------------------------------ header ------------------------------ */
@@ -344,9 +364,6 @@ h3 {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-.heading_container div {
-    padding: 5px 0px;
-}
 #adoptions {
     margin: 15px 15px 15px 15px;
 }
@@ -364,10 +381,6 @@ h3 {
     height: 398px;
     margin: 0px 15px;
     float: right;
-    border: 1px solid #d4d5d4;
-    border-radius: 10px;
-    -webkit-box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);        
-    box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);
 }
 #about_menu {
     float: left;
@@ -376,14 +389,23 @@ h3 {
 }
 #about_menu span {
     display: block;
-    height: 65px;
+    height: 50px;
     color: #2c92be;
     font-family: "Rockwell";
     font-size: 18capx;
-    line-height: 65px;
+    line-height: 50px;
     margin: 12px;
 }
 #about_menu span:hover {
     background: url(../images/about_indicator.svg) no-repeat;
     background-position: center right;
+}
+
+/* ------------------------------ adopt ------------------------------ */
+
+#filter_menu {
+
+}
+#filters {
+
 }

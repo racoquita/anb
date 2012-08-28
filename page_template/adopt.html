@@ -8,33 +8,12 @@
         <script type="text/javascript">
         	$(document).ready(function(){
 
-                $('#nav_list li a').on('click', function(e){
-                    var nav_items = $('#nav_list li'),
-                        clicked_item = $(e.target).closest('li'),
-                        index = nav_items.index(clicked_item) - 2,
-                        diff = $('#nav_list').position().left + (index * 140);
-                    
-                    $('.radial_shadow').css({
-                        '-moz-transform':'translateX('+ diff +'px)',
-                        '-webkit-transform':'translateX('+ diff +'px)',
-                        '-o-transform':'translateX('+ diff +'px)',
-                        '-ms-transform':'translateX('+ diff +'px)',
-                        'transform':'translateX('+ diff +'px)'
-                    });
-                });
 
-                $('#about_menu span').on('mouseenter', function(e){
-                    $('#about h3').text($(e.target).text());
-                });
-
-                $('#about_menu').on('mouseleave', function(){
-                    $('#about h3').text('About');
-                });
 
         	});
         </script>
 
-        <title>About</title>
+        <title>Adopt</title>
 
         <link rel="stylesheet" type="text/css" href="../css/fonts.css">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
@@ -62,18 +41,11 @@
         </div>
 
         <div id="container">
-            <div id="about_menu">
-                <span class="about_menu_item">What We Do</span>
-                <span class="about_menu_item">Our Mission</span>
-                <span class="about_menu_item">Our Veternarians</span>
-                <span class="about_menu_item">Volunteering</span>
-                <span class="about_menu_item">Statistics</span>
-                <span class="about_menu_item">About This Website</span>
-            </div>
-            <div id="about" class="white_container">
+            <div id="filter_menu" class="white_container">
                 <div class="heading_container">
-                    <div><span class="icon">#</span><h3>About</h3></div>
+                    <div><h4>Filter your Results</h4><span class="icon right">,</span></div>
                 </div>
+                <div id="filters">Filters</div>
             </div>
         </div>
 
