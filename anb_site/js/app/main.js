@@ -14,7 +14,7 @@ define(function (require) {
 		},
 
 		render: function(){
-			console.log('master view loaded');
+			window.location.hash = "#home";
 		}
 	
 	});

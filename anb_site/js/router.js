@@ -9,15 +9,15 @@ define(function (require) {
 	var PetRouter = Backbone.Router.extend({
 		routes: {
 		
-			'search': 'loadSearch',
+			'home': 'loadHome',
 			'pets': 'loadPets',
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
 			'volunteer': 'loadVolunteer'
 		},
 
-		loadSearch: function(){
-			new (require('views/searchView'));
+		loadHome: function(){
+			new (require('views/homeView'));
 		},
 
 		loadPets: function(){
