@@ -24,6 +24,7 @@ define(function (require) {
 
         changeHeading: function(e){
             $('#about h3').text($(e.target).text());
+            
         },
 
         revertHeading: function(){

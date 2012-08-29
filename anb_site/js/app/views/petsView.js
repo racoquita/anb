@@ -23,8 +23,11 @@ define(function (require) {
         		data: {type: "pets"},
         		success: function () {
          			 
-         			 self.$el.find('div#filter').append(self.createFilter());
-         			 self.render();
+         			
+         			
+
+         		
+         			self.render();
         		}
         	});
         	
@@ -42,6 +45,9 @@ define(function (require) {
                 self.renderPet(item)
             
             }, this);
+            self.$el.find('#filters').append(self.createFilter());
+            
+
         },
         
         renderPet: function(item){
@@ -55,16 +61,18 @@ define(function (require) {
         
         },
         getAnimals: function(){
+        	//console.log('getting animals')
+        	//console.log(this.collection.pluck('animal'))
         	
         	return _.uniq(this.collection.pluck('animal'), false, function(animal){
         	
+        		//console.log(animal)
         		return animal.toLowerCase();
         	});
         
         },
         createFilter: function(){
         	var self = this;
-        
         	var filterOptions = $("<div/>", {
         	
         		html: '<button type="button" class="selected" value="all">All</button>'
@@ -72,13 +80,19 @@ define(function (require) {
         	});
         	
         	_.each(self.getAnimals(), function(item){
-        		var option = $('<button/', {
-        			value: item.toLowerCase(),
+        	
+        		console.log(item);
+        		var option = $("<button/>", {
+        			value: item,
         			text: item
         		
-        		}).appendTo('filterOptions')
-        		
+        		}).appendTo(filterOptions)
+     			console.log(option)
+     			
         	});
+        	
+        	
+        	console.log(filterOptions)
         	return filterOptions;
         }
     });

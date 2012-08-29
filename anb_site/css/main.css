@@ -412,6 +412,7 @@ h4 {
 #about_menu span:hover {
     background: url(../images/about_indicator.svg) no-repeat;
     background-position: center right;
+    cursor: pointer;
 }
 
 /* ------------------------------ adopt ------------------------------ */
