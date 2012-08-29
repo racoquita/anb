@@ -46,30 +46,85 @@ define(function (require) {
             
             }, this);
             self.$el.find('#filters').append(self.createFilter());
+            self.$el.find('#filters').append(self.createAgeFilter());
+            self.$el.find('#filters').append(self.createSexFilter());
+
             
 
         },
         
         renderPet: function(item){
         	
-        	var petItemView = new PetItemView({ model: item })
-	        //console.log(item.attributes);
-	      	//var tmpl = _.template(petItemTemplate);
-	      	//$(this.el).append(tmpl(item.attributes));
+        	var petItemView = new PetItemView({ model: item });
 	      	
 	      	this.$el.append(petItemView.render().el)
         
         },
         getAnimals: function(){
-        	//console.log('getting animals')
-        	//console.log(this.collection.pluck('animal'))
-        	
+        
         	return _.uniq(this.collection.pluck('animal'), false, function(animal){
         	
-        		//console.log(animal)
         		return animal.toLowerCase();
         	});
         
+        },
+        getAnimalsAge: function(){
+        
+        	return _.uniq(this.collection.pluck('age'), false, function(age){
+        	
+        	
+        		return age.toLowerCase();
+        	});
+        },
+        getAnimalsSex: function(){
+        
+        	return _.uniq(this.collection.pluck('sex'), false, function(sex){
+        	
+        	
+        		return sex.toLowerCase();
+        	});
+        },
+        createAgeFilter: function(){
+        	var self = this;
+        	var filterAgeOptions = $("<div/>", {
+        	
+        		html: '<button type="button" class="selected" value="all">All</button>'
+        	
+        	});
+        	
+        	_.each(self.getAnimalsAge(), function(item){
+        	
+        		
+        		var option = $("<button/>", {
+        			value: item.toLowerCase(),
+        			text: item
+        		
+        		}).appendTo(filterAgeOptions)
+     			
+        	});        	
+
+        	return filterAgeOptions;
+        },
+        createSexFilter: function(){
+        	var self = this;
+        	var filterSexOptions = $("<div/>", {
+        	
+        		html: '<button type="button" class="selected" value="all">All</button>'
+        	
+        	});
+        	
+        	_.each(self.getAnimalsSex(), function(item){
+        	
+        		
+        		var option = $("<button/>", {
+        			value: item.toLowerCase(),
+        			text: item
+        		
+        		}).appendTo(filterSexOptions)
+     			
+        	});        	
+
+        	return filterSexOptions;
         },
         createFilter: function(){
         	var self = this;
@@ -83,16 +138,13 @@ define(function (require) {
         	
         		console.log(item);
         		var option = $("<button/>", {
-        			value: item,
+        			value: item.toLowerCase(),
         			text: item
         		
         		}).appendTo(filterOptions)
-     			console.log(option)
      			
-        	});
-        	
-        	
-        	console.log(filterOptions)
+        	});        	
+
         	return filterOptions;
         }
     });
