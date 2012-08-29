@@ -13,7 +13,8 @@ define(function (require) {
 			'pets': 'loadPets',
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
-			'volunteer': 'loadVolunteer'
+			'volunteer': 'loadVolunteer',
+			'filter/animal': 'filterAnimal'
 		},
 
 		loadHome: function(){
@@ -32,6 +33,10 @@ define(function (require) {
 		},
 		loadVolunteer: function(){
 			new (require('views/volunteerView'))
+		},
+		filterAnimal: function(animal){
+			console.log(animal + "filtering")
+			
 		}
 	
 	

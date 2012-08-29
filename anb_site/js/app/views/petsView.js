@@ -23,15 +23,12 @@ define(function (require) {
         		data: {type: "pets"},
         		success: function () {
          			 
-         			
-         			
-
-         		
          			self.render();
         		}
         	});
         	
             this.collection.on("reset", self.render, self);
+            this.on("click:filterAnimal", self.filterAnimal, self)
            
         },
         
@@ -48,8 +45,7 @@ define(function (require) {
             self.$el.find('#filters').append(self.createFilter());
             self.$el.find('#filters').append(self.createAgeFilter());
             self.$el.find('#filters').append(self.createSexFilter());
-
-            
+            self.$el.find('#filters').append(self.createSizeFilter());
 
         },
         
@@ -82,6 +78,14 @@ define(function (require) {
         	
         	
         		return sex.toLowerCase();
+        	});
+        },
+        getAnimalsSize: function(){
+        
+        	return _.uniq(this.collection.pluck('size'), false, function(size){
+        	
+        	
+        		return size.toLowerCase();
         	});
         },
         createAgeFilter: function(){
@@ -126,6 +130,27 @@ define(function (require) {
 
         	return filterSexOptions;
         },
+        createSizeFilter: function(){
+        	var self = this;
+        	var filterSizeOptions = $("<div/>", {
+        	
+        		html: '<button type="button" class="selected" value="all">All</button>'
+        	
+        	});
+        	
+        	_.each(self.getAnimalsSize(), function(item){
+        	
+        		
+        		var option = $("<button/>", {
+        			value: item.toLowerCase(),
+        			text: item
+        		
+        		}).appendTo(filterSizeOptions)
+     			
+        	});        	
+
+        	return filterSizeOptions;
+        },
         createFilter: function(){
         	var self = this;
         	var filterOptions = $("<div/>", {
@@ -146,7 +171,21 @@ define(function (require) {
         	});        	
 
         	return filterOptions;
+        },
+        events:{
+        
+        	"click #filters button" : "setAnimalFilter"
+        },
+        setAnimalFilter: function(e){
+        
+        	this.filterAnimal = e.currentTarget;
+        },
+        filterByAnimal: function(){
+        
+        	console.log(this.filterAnimal);
+        
         }
+        
     });
 
     return petsView;
