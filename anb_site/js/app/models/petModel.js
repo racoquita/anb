@@ -39,7 +39,7 @@ define(function (require){
     		}
     		if(data.media.photos) obj.photo = data.media.photos.photo[0]
     		
-    		return obj
+    		return obj;
     	}
 	});
 
