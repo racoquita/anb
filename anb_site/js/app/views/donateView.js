@@ -21,5 +21,5 @@ define(function (require) {
         }
 	});
 
-    return DonateView
+    return DonateView;
 });

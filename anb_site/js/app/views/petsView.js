@@ -161,7 +161,7 @@ define(function (require) {
         	
         	_.each(self.getAnimals(), function(item){
         	
-        		console.log(item);
+        		//console.log(item);
         		var option = $("<button/>", {
         			value: item.toLowerCase(),
         			text: item
@@ -178,11 +178,19 @@ define(function (require) {
         },
         setAnimalFilter: function(e){
         
-        	this.filterAnimal = e.currentTarget;
+        	
+        
+        	this.filterAnimal = e.target;
+        	window.location.hash = '#pets/' + this.filterAnimal.value;
+        	
+        	//this.trigger("click:filterAnimal")
+        	//console.log(this.filterAnimal.value)
         },
         filterByAnimal: function(){
         
-        	console.log(this.filterAnimal);
+        	//console.log(this.filterAnimal);
+        	var petsRouter = new PetRouter();
+        	petsRouter.navigate("/filter/"+filterAnimal)
         
         }
         

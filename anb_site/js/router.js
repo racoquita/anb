@@ -14,7 +14,7 @@ define(function (require) {
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
 			'volunteer': 'loadVolunteer',
-			'filter/animal': 'filterAnimal'
+			'pets/:animal': 'filterAnimal'
 		},
 
 		loadHome: function(){
@@ -35,7 +35,7 @@ define(function (require) {
 			new (require('views/volunteerView'))
 		},
 		filterAnimal: function(animal){
-			console.log(animal + "filtering")
+			console.log(animal + " filtering")
 			
 		}
 	
