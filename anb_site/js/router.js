@@ -1,7 +1,5 @@
 define(function (require) {
-    // Load any app-specific modules
-    // with a relative require call,
-    // like:
+ 
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');    
@@ -10,11 +8,13 @@ define(function (require) {
 		routes: {
 		
 			'home': 'loadHome',
+
 			'pets': 'loadPets',
+			'pets/:animal': 'filterAnimal',
+			
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
-			'volunteer': 'loadVolunteer',
-			'pets/:animal': 'filterAnimal'
+			'foster': 'loadFoster'
 		},
 
 		loadHome: function(){
@@ -24,30 +24,29 @@ define(function (require) {
 		loadPets: function(){
 			new (require('views/petsView'));
 		},
+
 		loadAbout: function(){
 		
 			new (require('views/aboutView'))
 		},
+
 		loadDonate: function(){
 			new (require('views/donateView'))
 		},
-		loadVolunteer: function(){
-			new (require('views/volunteerView'))
+
+		loadFoster: function(){
+			new (require('views/fosterView'))
 		},
+
 		filterAnimal: function(animal){
 			console.log(animal + " filtering")
 			
 		}
 	
-	
 	});
 
-	var initialize = function(options){
-		masterView = options.masterView;
-        var router = new PetRouter(options);
+	Router = new PetRouter();
+    Backbone.history.start();
 
-        Backbone.history.start();
-	};
-
-	return {initialize:initialize};
+	return Router;
 });

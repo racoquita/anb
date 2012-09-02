@@ -1,21 +1,15 @@
-.pet-container { width:400px; padding:10px; border:1px solid #aaa; margin:0 10px 10px 0; float:left; font-family:sans-serif; color:#333; background-color:#eee; }
-.pet-container h1 { margin:0; font-weight:normal; }
-.pet-container h1 span { float:right; font-size:14px; line-height:24px; font-weight:normal; }
-.pet-container img { border-width:1px; border-style:solid; border-color:#fff; border-right-color:#aaa; border-bottom-color:#aaa; margin-right:10px; float:left; }
-.pet-container div { margin-bottom:24px; font-size:14px; }
-.pet-container a { color:#333;}
-.pet-container dl { margin:0; float:left; font-size:14px; }
-.pet-container dt, .pet-container dd { margin:0; float:left; }
-.pet-container dt { width:50px; clear:left; }
-button.selected { background-color: aqua; }
-
-/* ------------------------------ temporary ------------------------------ */
-
 body {
     padding: 0;
     margin: 0;
     background: url(../images/bg_texture.jpg) repeat;
     background-size: 45px 45px;
+}
+#wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 h2 {
     color: #65BCB7;
@@ -59,7 +53,7 @@ h4 {
     line-height: 35px;
 }
 .right {
-
+    float: right;
 }
 .heading_container .icon {
     font-size: 35px;
@@ -288,6 +282,7 @@ h4 {
     position: relative;
     z-index: -1;
     top: -28px;
+    left: -280px;
     background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 75%, rgba(255,255,255,0) 100%);
     background: -webkit-gradient(
         radial, center center, 0px, center center, 100%, 
@@ -416,11 +411,33 @@ h4 {
     cursor: pointer;
 }
 
-/* ------------------------------ adopt ------------------------------ */
+/* ------------------------------ pets ------------------------------ */
 
 #filter_menu {
 
 }
 #filters {
-
+    padding: 10px;
+    overflow: hidden;
 }
+#filters div {
+    margin-right: 20px;
+    float: left;
+}
+#results_container {
+    border: 1px solid indianRed;
+    height: 1000px;
+    margin-top: 20px;
+}
+
+.pet-container { width:400px; padding:10px; border:1px solid #aaa; margin:0 10px 10px 0; float:left; font-family:sans-serif; color:#333; background-color:#eee; }
+.pet-container h1 { margin:0; font-weight:normal; }
+.pet-container h1 span { float:right; font-size:14px; line-height:24px; font-weight:normal; }
+.pet-container img { border-width:1px; border-style:solid; border-color:#fff; border-right-color:#aaa; border-bottom-color:#aaa; margin-right:10px; float:left; }
+.pet-container div { margin-bottom:24px; font-size:14px; }
+.pet-container a { color:#333;}
+.pet-container dl { margin:0; float:left; font-size:14px; }
+.pet-container dt, .pet-container dd { margin:0; float:left; }
+.pet-container dt { width:50px; clear:left; }
+button.selected { background-color: aqua; }
+

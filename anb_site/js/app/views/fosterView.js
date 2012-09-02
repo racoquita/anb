@@ -3,10 +3,10 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
-	var volunteerTemplate = require('text!templates/volunteerTemplate.html');
+	var fosterTemplate = require('text!templates/fosterTemplate.html');
 
 
-	var VolunteerView =  Backbone.View.extend({
+	var FosterView =  Backbone.View.extend({
 		el: $("#container"),
         
         initialize: function(){
@@ -16,10 +16,10 @@ define(function (require) {
         },
         
         render: function(){
-        	$(this.el).html(volunteerTemplate);
+        	$(this.el).html(fosterTemplate);
         
         }
 	});
 
-    return VolunteerView
+    return FosterView
 });

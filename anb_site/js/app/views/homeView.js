@@ -14,8 +14,7 @@ define(function (require) {
         },
         
         render: function(){
-        	$(this.el).html(homeTemplate);
-        
+        	$(this.el).html(homeTemplate);        
         }
 	});
 

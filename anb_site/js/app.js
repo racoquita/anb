@@ -1,8 +1,3 @@
-// For any third party dependencies, like jQuery, place them in the lib folder.
-
-// Configure loading modules from the lib directory,
-// except for 'app' ones, which are in a sibling
-// directory.
 requirejs.config({
     baseUrl: 'js/lib',
     paths: {
@@ -14,16 +9,31 @@ requirejs.config({
     }
 });
 
-// Start loading the main app file. Put all of
-// your application logic in there.
 requirejs(['app/main', '../router', 'backbone'], function(MasterView, Router, Backbone){
 
+    _.extend(Backbone.View.prototype, {
+            unload: function(){
+                var self = this;
 
-	masterView = new MasterView();	
-	Router.initialize({masterView: masterView});
+                $(self.el).css({
+                    '-webkit-transition':'all 1s ease-out',
+                    'opacity':'0'
+                });
+            },
 
+            load: function(){
+                var self = this;
 
+                requestTimeout(function(){
+                    $(self.el).css({
+                        '-webkit-transition':'all 1s ease-out',
+                        'opacity':'1'
+                    });
+                }, 1000);
+            }
+        });
 
+	masterView = new MasterView();
 
 });
 

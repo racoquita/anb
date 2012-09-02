@@ -1,6 +1,5 @@
 define(function (require) {
-    // Load any app-specific modules
-    
+
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
