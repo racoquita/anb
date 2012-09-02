@@ -17,7 +17,16 @@ define(function (require) {
         
         render: function(){
         	$(this.el).html(fosterTemplate);
-        
+        },
+
+        events: {
+            "click #choose a.blue_button" : "changeForm"
+        },
+
+        changeForm: function(e){
+            e.preventDefault();
+            
+            $("#choose a.blue_button").toggleClass("selected");
         }
 	});
 
