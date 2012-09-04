@@ -1,7 +1,5 @@
 define(function (require) {
-    // Load any app-specific modules
-    // with a relative require call,
-    // like:
+
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
@@ -30,6 +28,12 @@ define(function (require) {
             }
 
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
+        },
+
+        test: function(){
+            $('#welcome, #top_bar').css({'display':0}).slideUp(0, function(){
+
+            });
         },
         
         render: function(){

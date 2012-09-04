@@ -27,7 +27,7 @@ define(function (require) {
 		},
 
 		render: function(){			
-			Router.navigate('#home');
+			Router.navigate(h);
 		},
 
 		events: {

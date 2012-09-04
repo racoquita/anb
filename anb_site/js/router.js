@@ -6,7 +6,8 @@ define(function (require) {
 
 	var PetRouter = Backbone.Router.extend({
 		initialize: function(){
-			this.loadHome();
+			h = window.location.hash.replace(/#/, '');
+			this.routes.h = h;
 		},
 
 		routes: {
@@ -24,11 +25,12 @@ define(function (require) {
 		},
 
 		loadHome: function(){
-			new (require('views/homeView'));
+			loadedView = new (require('views/homeView'));
 		},
 
 		loadPets: function(){
-			new (require('views/petsView'));
+			loadedView = new (require('views/petsView'));
+			loadedView.test();
 		},
 
 		loadAbout: function(){
