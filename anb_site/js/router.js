@@ -14,9 +14,8 @@ define(function (require) {
 			
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
-			'volunteer': 'loadVolunteer',
 			'pets/:animal': 'filterByAnimal',
-			'pets/:age': 'filterByAge'
+			'pets/:age': 'filterByAge',
 			'foster': 'loadFoster'
 		},
 
