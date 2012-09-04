@@ -14,7 +14,9 @@ define(function (require) {
 			'about' : 'loadAbout',
 			'donate' : 'loadDonate',
 			'volunteer': 'loadVolunteer',
-			'pets/:animal': 'filterAnimal'
+			'pets/:animal': 'filterByAnimal',
+			'pets/:age': 'filterByAge'
+			
 		},
 
 		loadHome: function(){
@@ -34,9 +36,16 @@ define(function (require) {
 		loadVolunteer: function(){
 			new (require('views/volunteerView'))
 		},
-		filterAnimal: function(animal){
+		filterByAnimal: function(animal){
 			console.log(animal + " filtering")
+			var pview = new (require('views/petsView'));
 			
+			pview.filterAnimal = animal;
+			pview.trigger('click:filterAnimal')
+		},
+		filterByAge: function(age){
+			console.log(age);
+		
 		}
 	
 	

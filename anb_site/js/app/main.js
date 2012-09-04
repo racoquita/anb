@@ -18,7 +18,8 @@ define(function (require) {
 		},
 		events: {
 			
-			"click #nav_list li a" : "moveShadowNav"
+			"click #nav_list li a" : "moveShadowNav",
+			"click #nav_list li a:not(:eq(0))" : "toggleGraphic"
 
 		},
 		moveShadowNav: function(e){
@@ -36,8 +37,11 @@ define(function (require) {
                   'transform':'translateX('+ diff +'px)'
             });
 		
+		},
+		toggleGraphic: function(){
+			$('#welcome, #top_bar').slideToggle(500);
+		
 		}
-	
 	});
 	
 	return MasterView;

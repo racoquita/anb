@@ -1,7 +1,6 @@
 define(function (require) {
     // Load any app-specific modules
-    // with a relative require call,
-    // like:
+  
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
@@ -10,13 +9,12 @@ define(function (require) {
 
 	var petItemView =  Backbone.View.extend({
 	
+        tagName: 'article',
         
         template: petItemTemplate,
         
         render: function(){
         
-        	
-       	 //$(this.el).append(petItemTemplate);
         	var tmpl = _.template(this.template);
         	$(this.el).append(tmpl(this.model.toJSON()));
         	
