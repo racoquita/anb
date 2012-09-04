@@ -22,7 +22,6 @@ define(function (require) {
            	this.collection.fetch({ 
         		data: {type: "pets"},
         		success: function () {
-         			 
          			self.render();
         		}
         	});
@@ -42,9 +41,7 @@ define(function (require) {
        		this.$el.find(".pet-container").remove(); 
             
             _.each(this.collection.models, function(item) {
-                
                 self.renderPet(item)
-            
             }, this);
             
             self.$el.find('#filters').append(self.createFilter());
@@ -59,7 +56,7 @@ define(function (require) {
         	
         	var petItemView = new PetItemView({ model: item });
 	      	
-	      	this.$el.append(petItemView.render().el)
+	      	$(this.el).find('#results_container').append(petItemView.render().el)
         
         },
         getAnimals: function(){
@@ -156,6 +153,7 @@ define(function (require) {
 
         	return filterSizeOptions;
         },
+
         createFilter: function(){
         	var self = this;
         	
@@ -179,10 +177,17 @@ define(function (require) {
 
         	return filterOptions;
         },
+
         events:{
-        
-        	"click #filters button" : "setAnimalFilter"
+        	"click #filters button" : "setAnimalFilter",
+            "click #filter_menu h4" : "toggleFilters"
         },
+
+        toggleFilters: function(){
+            $(this.el).find('#filters').toggleClass('open').slideToggle(250);
+            $('#filters').hasClass('open') ? $('h4 span').text(',') : $('h4 span').text('+');
+        },
+
         setAnimalFilter: function(e){
         	
         	//console.log(e.target)
@@ -211,6 +216,7 @@ define(function (require) {
         	window.location.hash = '#pets/' + this.filterAnimal.value;
 
         },
+
         filterByAnimal: function(){
         	
         	var self = this;

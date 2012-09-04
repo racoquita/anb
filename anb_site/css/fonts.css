@@ -54,39 +54,60 @@
 	font-style: normal;
 	speak: none;
 }
-.icon-home:before {
+.icon-baby:before {
 	content: "\21";
 }
-.icon-calendar:before {
+.icon-adult:before {
 	content: "\22";
 }
-.icon-circle_paw:before {
+.icon-paw:before {
 	content: "\23";
 }
-.icon-email:before {
+.icon-other:before {
 	content: "\24";
 }
-.icon-facebook:before {
+.icon-male:before {
 	content: "\25";
 }
-.icon-heart:before {
+.icon-female:before {
 	content: "\26";
 }
-.icon-house:before {
+.icon-dog:before {
 	content: "\27";
 }
-.icon-paw:before {
+.icon-cat:before {
 	content: "\28";
-}
-.icon-print:before {
-	content: "\29";
-}
-.icon-twitter:before {
-	content: "\2a";
 }
 .icon-up_arrow:before {
 	content: "\2b";
 }
 .icon-down_arrow:before {
 	content: "\2c";
+}
+.icon-twitter:before {
+	content: "\2a";
+}
+.icon-print:before {
+	content: "\29";
+}
+.icon-paw-2:before {
+	content: "\2d";
+}
+.icon-house:before {
+	content: "\2e";
+}
+.icon-heart:before {
+	content: "\2f";
+}
+.icon-facebook:before {
+	content: "\30";
+}
+.icon-email:before {
+	content: "\31";
+}
+.icon-circle_paw:before {
+	content: "\32";
+}
+.icon-calendar:before {
+	content: "\33";
 }

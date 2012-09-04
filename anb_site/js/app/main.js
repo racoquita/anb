@@ -1,32 +1,44 @@
 define(function (require) {
-    // Load any app-specific modules
-    // with a relative require call,
-    // like:
+
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
 	
 	var MasterView = Backbone.View.extend({
-		el: $('body'),
+		el: $('#wrapper'),
 		
-		initialize: function(){		
+		initialize: function(){
 			this.render();
 		},
 
-		render: function(){
-			window.location.hash = "#home";
+		render: function(){			
+			Router.navigate('#home', true);
 		},
-		events: {
-			
-			"click #nav_list li a" : "moveShadowNav",
-			"click #nav_list li a:not(:eq(0))" : "toggleGraphic"
 
+		events: {
+			"click #nav_list li a" : "moveShadowNav",
+			"click #nav_list li a:not(:eq(0))" : "closeMainWindow",
+			"click #nav_list li a:eq(0)" : "openMainWindow",
 		},
+
+		closeMainWindow: function(){
+			if($('#nav').hasClass('open')){
+				$('#nav').removeClass('open');
+				$('#welcome, #top_bar').stop().slideToggle(500);
+			}
+		},
+
+		openMainWindow: function(){
+			if(!$('#nav').hasClass('open')){
+				$('#nav').addClass('open');
+				$('#welcome, #top_bar').stop().slideToggle(500);
+			}
+		},
+
 		moveShadowNav: function(e){
-		
 			var nav_items = $('#nav_list li'),
 			clicked_item = $(e.target).closest('li'),
-            index = nav_items.index(clicked_item) - 2,
+            index = nav_items.index(clicked_item),
         	diff = $('#nav_list').position().left + (index * 140);
         	
         	$('.radial_shadow').css({
@@ -37,13 +49,8 @@ define(function (require) {
                   'transform':'translateX('+ diff +'px)'
             });
 		
-		},
-		toggleGraphic: function(){
-			$('#welcome, #top_bar').slideToggle(500);
-		
 		}
 	});
 	
 	return MasterView;
-   
 });
