@@ -6,7 +6,7 @@ define(function (require) {
     var _ = require('underscore');
     var Backbone = require('backbone');
 
-    var petCollection = require('collections/petCollection');
+    
     var PetItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html')
@@ -15,32 +15,31 @@ define(function (require) {
         el: $('#container'),
 
         initialize: function(){
-        	
-        	
-        	var self = this;
-            this.collection  = new petCollection();
-           	this.collection.fetch({ 
-        		data: {type: "pets"},
-        		success: function () {
-         			self.render();
-        		}
-        	});
-        	
-            this.collection.on("reset", self.render, self);
-            this.on("click:filterAnimal", self.filterByAnimal, self);
-            
-           
+            var self = this;
+
+            if(pfc.length != 0) {
+                self.render();
+            } else {
+                pfc.fetch({
+                    data: {type: "pets"},
+                    success: function (response) {
+                        pfc = response;
+                        self.render();
+                    }
+                });
+            }
+
+            /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
         },
         
         render: function(){
         	var self = this;
-        	
         
             $(this.el).html(petsTemplate);
-       
+
        		this.$el.find(".pet-container").remove(); 
             
-            _.each(this.collection.models, function(item) {
+            _.each(pfc.models, function(item) {
                 self.renderPet(item)
             }, this);
             
@@ -61,7 +60,7 @@ define(function (require) {
         },
         getAnimals: function(){
         
-        	return _.uniq(this.collection.pluck('animal'), false, function(animal){
+        	return _.uniq(pfc.pluck('animal'), false, function(animal){
         	
         		return animal.toLowerCase();
         	});
@@ -69,21 +68,21 @@ define(function (require) {
         },
         getAnimalsAge: function(){
         
-        	return _.uniq(this.collection.pluck('age'), false, function(age){
+        	return _.uniq(pfc.pluck('age'), false, function(age){
        
         		return age.toLowerCase();
         	});
         },
         getAnimalsSex: function(){
         
-        	return _.uniq(this.collection.pluck('sex'), false, function(sex){
+        	return _.uniq(pfc.pluck('sex'), false, function(sex){
 
         		return sex.toLowerCase();
         	});
         },
         getAnimalsSize: function(){
         
-        	return _.uniq(this.collection.pluck('size'), false, function(size){
+        	return _.uniq(pfc.pluck('size'), false, function(size){
         	
         	
         		return size.toLowerCase();
@@ -223,17 +222,17 @@ define(function (require) {
         	
         	if(self.filterAnimal !== "all"){
         	
-        		self.collection.reset(self.collection.models, {silent: true});
+        		pfc.reset(pfc.models, {silent: true});
         		
         		var filterAnimal = self.filterAnimal,
-        			filtered = _.filter(self.collection.models, function(item){
+        			filtered = _.filter(pfc.models, function(item){
         				
         				return item.get("age").toLowerCase() === filterAnimal
         				
         			});
         		console.log(filterAnimal)
         		
-        		this.collection.reset(filtered)
+        		pfc.reset(filtered)
         	}
         }
         

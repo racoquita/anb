@@ -5,6 +5,10 @@ define(function (require) {
     var Backbone = require('backbone');    
 
 	var PetRouter = Backbone.Router.extend({
+		initialize: function(){
+			this.loadHome();
+		},
+
 		routes: {
 		
 			'home': 'loadHome',
