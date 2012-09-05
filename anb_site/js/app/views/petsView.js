@@ -7,7 +7,10 @@ define(function (require) {
     
     var PetItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
-    var petItemTemplate = require('text!templates/petItemTemplate.html')
+    var petItemTemplate = require('text!templates/petItemTemplate.html');
+    var petCollection = require('collections/petCollection');
+
+    pfc = new petCollection();
 	
 	var petsView = Backbone.View.extend({
         el: $('#container'),
@@ -15,25 +18,18 @@ define(function (require) {
         initialize: function(){
             var self = this;
 
-            if(pfc.length != 0) {
-                self.render();
-            } else {
-                pfc.fetch({
-                    data: {type: "pets"},
-                    success: function (response) {
-                        pfc = response;
-                        self.render();
-                    }
-                });
-            }
+            pfc.fetch({
+                data: {type: "pets"},
+                success: function (response) {
+                    self.render();
+                    self.load();
+                    pfc = response;
+                }
+            });
+
+            $(pfc).on("reset", self.render, self);
 
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
-        },
-
-        test: function(){
-            $('#welcome, #top_bar').css({'display':0}).slideUp(0, function(){
-
-            });
         },
         
         render: function(){

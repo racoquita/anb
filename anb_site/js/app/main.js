@@ -4,10 +4,6 @@ define(function (require) {
     var _ = require('underscore');
     var Backbone = require('backbone');
 
-    var petCollection = require('collections/petCollection');
-
-    pfc = new petCollection();
-	
 	var MasterView = Backbone.View.extend({
 		el: $('#wrapper'),
 		
@@ -15,19 +11,10 @@ define(function (require) {
 			var self = this;
 
 			this.render();
-
-			pfc.fetch({
-	    		data: {type: "pets"},
-	    		success: function (response) {
-	     			pfc = response;
-	    		}
-	    	});
-
-	    	$(pfc).on("reset", self.render, self);
 		},
 
 		render: function(){			
-			Router.navigate(h);
+			Router.navigate('home');
 		},
 
 		events: {

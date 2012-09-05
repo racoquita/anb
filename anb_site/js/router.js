@@ -1,49 +1,31 @@
 define(function (require) {
  
-    var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');    
 
 	var PetRouter = Backbone.Router.extend({
 		initialize: function(){
-			h = window.location.hash.replace(/#/, '');
-			this.routes.h = h;
+			window.location.hash = "home";
 		},
 
 		routes: {
 		
-			'home': 'loadHome',
+			'*actions' : 'loadPage'
 
-			'pets': 'loadPets',
-			'pets/:animal': 'filterAnimal',
-			
-			'about' : 'loadAbout',
-			'donate' : 'loadDonate',
+			/*'pets/:animal': 'filterAnimal',
 			'pets/:animal': 'filterByAnimal',
-			'pets/:age': 'filterByAge',
-			'foster': 'loadFoster'
+			'pets/:age': 'filterByAge'*/
 		},
 
-		loadHome: function(){
-			loadedView = new (require('views/homeView'));
-		},
-
-		loadPets: function(){
-			loadedView = new (require('views/petsView'));
-			loadedView.test();
-		},
-
-		loadAbout: function(){
-		
-			new (require('views/aboutView'))
-		},
-
-		loadDonate: function(){
-			new (require('views/donateView'))
-		},
-
-		loadFoster: function(){
-			new (require('views/fosterView'))
+		loadPage: function(actions){
+			requirejs(['views/' + actions + 'View'], function(returnedView){
+				if(typeof loadedView != 'undefined'){
+					loadedView.unload();
+				}
+				if(typeof returnedView != 'undefined') {
+					loadedView = new returnedView();
+				}
+	        });
 		},
 
 		filterAnimal: function(animal){

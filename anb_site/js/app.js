@@ -13,5 +13,22 @@ requirejs(['app/main', '../router', 'backbone'], function(MasterView, Router, Ba
 
 	masterView = new MasterView();
 
+	_.extend(Backbone.View.prototype, {
+	        load: function(){
+	        	var self = this;
+
+	        	$(self.el).css({'display':'none'});
+	        	$(self.el).fadeIn(500);
+	        },
+
+	        unload: function(){
+	        	setTimeout(function(){
+	        		$(self.el).fadeOut(500);
+	        	}, 500);
+	        	
+	        }
+
+    	});
+
 });
 

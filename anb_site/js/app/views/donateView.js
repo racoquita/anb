@@ -10,8 +10,8 @@ define(function (require) {
 		el: $("#container"),
         
         initialize: function(){
-        
         	this.render();
+            this.load();
         
         },
         
