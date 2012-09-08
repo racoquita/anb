@@ -41,7 +41,7 @@ define(function (require) {
 			var nav_items = $('#nav_list li'),
 			clicked_item = $(e.target).closest('li'),
             index = nav_items.index(clicked_item),
-        	diff = $('#nav_list').position().left + (index * 140);
+        	diff = $('#nav_list').position().left + (index * 188);
         	
         	$('.radial_shadow').css({
                   '-moz-transform':'translateX('+ diff +'px)',
