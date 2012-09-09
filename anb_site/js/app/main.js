@@ -18,23 +18,7 @@ define(function (require) {
 		},
 
 		events: {
-			"click #nav_list li a" : "moveShadowNav",
-			"click #nav_list li a:not(:eq(0))" : "closeMainWindow",
-			"click #nav_list li a:eq(0)" : "openMainWindow",
-		},
-
-		closeMainWindow: function(){
-			if($('#nav').hasClass('open')){
-				$('#nav').removeClass('open');
-				$('#welcome, #top_bar').stop().slideToggle(500);
-			}
-		},
-
-		openMainWindow: function(){
-			if(!$('#nav').hasClass('open')){
-				$('#nav').addClass('open');
-				$('#welcome, #top_bar').stop().slideToggle(500);
-			}
+			"click #nav_list li a" : "moveShadowNav"
 		},
 
 		moveShadowNav: function(e){

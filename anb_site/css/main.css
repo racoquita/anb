@@ -209,7 +209,7 @@ label {
 
 /* ------------------------------ top bar ------------------------------ */
 
-#top_bar {
+.bar {
     width: 100%;
     height: 20px;
     border: 1px solid #d4d5d4;
@@ -227,6 +227,11 @@ label {
 
 /* ------------------------------ welcome area ------------------------------ */
 
+#welcome_container {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
 #welcome {
     position: relative;
     width: 100%;
@@ -324,6 +329,7 @@ label {
     position: relative;
     width: 100%;
     height: 35px;
+    margin-bottom: 15px;
     border: 1px solid #d4d5d4;
     box-shadow: inset 0px 0px 1px 1px #fff;
     background: #ffffff;
@@ -447,10 +453,12 @@ label {
 /* ------------------------------ container ------------------------------ */
 
 #container {
+    width: 100%;
+}
+#inner_container {
     width: 960px;
-    margin: 15px auto 0px auto;
+    margin: 0px auto 0px auto;
     overflow: hidden;
-    padding: 15px;
 }
 #adoptions, #events, #help {
     width: 298px;
@@ -519,22 +527,63 @@ label {
     float: left;
 }
 #results_container {
-    border: 1px solid indianRed;
     height: 508px;
     margin-top: 20px;
     overflow: hidden;
 }
 
-.pet-container { width:400px; padding:10px; border:1px solid #aaa; margin:0 10px 10px 0; float:left; font-family:sans-serif; color:#333; background-color:#eee; }
-.pet-container h1 { margin:0; font-weight:normal; }
-.pet-container h1 span { float:right; font-size:14px; line-height:24px; font-weight:normal; }
-.pet-container img { border-width:1px; border-style:solid; border-color:#fff; border-right-color:#aaa; border-bottom-color:#aaa; margin-right:10px; float:left; }
-.pet-container div { margin-bottom:24px; font-size:14px; }
-.pet-container a { color:#333;}
-.pet-container dl { margin:0; float:left; font-size:14px; }
-.pet-container dt, .pet-container dd { margin:0; float:left; }
-.pet-container dt { width:50px; clear:left; }
-button.selected { background-color: aqua; }
+/* ------------------------------ pet item template ------------------------------ */
+
+.pet_container {
+    position: relative;
+    width: 215px;
+    height: 130px;
+    background: url(../images/dog_tag.svg) no-repeat;
+    background-position: center center;
+    float: left;
+    margin-left: 25px;
+}
+.pet_container img {
+    position: absolute;
+    bottom: 4px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #80807E;
+}
+.pet_container .heading {
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    width: 150px;
+}
+.pet_container .heading span {
+    color: #6D6E71;
+}
+.pet_container .name {
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    float: left;
+}
+.pet_container .type {
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    float: right;
+}
+.pet_container .info {
+    height: 55px;
+    position: absolute;
+    width: 145px;
+    top: 50px;
+    left: 35px;
+}
+.pet_container .details {
+    width: 72px;
+    float: right;
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    color: #6d6e71;
+    padding-top: 6px;
+}
 
 /* ------------------------------ foster ------------------------------ */
 
