@@ -24,19 +24,16 @@ define(function (require){
 
     	},
     	parse: function(data){
-    		
-    		//console.log(data.media.photos.photo[0])
     		obj = {
- 				
     			age: data.age,
     			animal: data.animal,
     			id: data.id,
     			name: data.name,
-    			sex: data.sex,
+    			sex: data.sex == 'M' ? 'Male' : 'Female',
     			size: data.size,
     			email: data.contact.email
-    		
     		}
+
     		if(data.media.photos) obj.photo = data.media.photos.photo[0]
     		
     		return obj;
