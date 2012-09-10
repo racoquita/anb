@@ -35,7 +35,8 @@ function get_shelter_pets(){
 	$params = array(
 		'key'	=> '3eabe8f8401bab71f5a49fa27935fef1',
 		'id'	=> 'FL163',
-		'count' => '50'
+		'count' => '50',
+		'output' => 'full'
 	);
 	
 	$encoded_params = array();
