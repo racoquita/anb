@@ -10,15 +10,16 @@ define(function (require) {
 
 		routes: {
 		
-			'*actions' : 'loadPage'
+			":page":"loadPage",
+            ":page/:section": "loadSection",
 
 			/*'pets/:animal': 'filterAnimal',
 			'pets/:animal': 'filterByAnimal',
 			'pets/:age': 'filterByAge'*/
 		},
 
-		loadPage: function(actions){
-			requirejs(['views/' + actions + 'View'], function(returnedView){
+		loadPage: function(page){
+			requirejs(['views/' + page + 'View'], function(returnedView){
 				if(typeof loadedView != 'undefined'){
 					loadedView.unload();
 				}
@@ -26,6 +27,10 @@ define(function (require) {
 					loadedView = new returnedView();
 				}
 	        });
+		},
+
+		loadSection: function(page, section){
+			loadedView.renderSection(section);
 		},
 
 		filterAnimal: function(animal){

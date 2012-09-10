@@ -8,6 +8,7 @@ define(function (require) {
     var PetItemView = require('views/petItemView');
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html');
+    var petDetailTemplate = require('text!templates/petDetailTemplate.html');
     var petCollection = require('collections/petCollection');
 
     pfc = new petCollection();
@@ -46,6 +47,20 @@ define(function (require) {
             }, this);
 
             $(self.el).find('#filters').append(self.createFilters());
+        },
+
+        renderSection: function(section){
+            console.log(section + ' render this section');
+
+            var thispet = _.find(pfc.models, function(item){
+                return item.id == section;
+            }, this);
+
+            console.log(thispet.attributes);
+
+            var tmpl = _.template(petDetailTemplate);
+            $('#results_container').html(tmpl(thispet.attributes));
+
         },
 
         renderPet: function(item){
@@ -89,7 +104,12 @@ define(function (require) {
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
-        	"click #filters button" : "setAnimalFilter"
+        	"click #filters button" : "setAnimalFilter",
+            "click article" : "loadPet"
+        },
+
+        loadPet: function(e){
+            window.location.hash = '#pets/' + $(e.target).closest('.pet_container').attr('data-id');
         },
 
         toggleFilters: function(){

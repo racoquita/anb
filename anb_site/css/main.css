@@ -539,6 +539,12 @@ label {
     background-position: center right;
     cursor: pointer;
 }
+.about_content {
+    display: none;
+}
+.about_content.active {
+    display: block;
+}
 
 /* ------------------------------ pets ------------------------------ */
 
