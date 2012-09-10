@@ -298,6 +298,10 @@ label {
     bottom: -74%;
     z-index: 11;
 }
+#adopt_btn:hover{
+    cursor: pointer;
+
+}
 #adopt_btn div {
     display: inline-block;
     width: 240px;
@@ -483,6 +487,21 @@ label {
 }
 #help {
     margin: 15px 15px 15px 15px;
+}
+
+/* ------------------------------ Home ------------------------------ */
+
+#inner_container h5{
+
+    margin: 15px 10px ;
+    color:orange;
+
+}
+#inner_container .sec_content{
+    font: 13px/1.2em Helvetica, arial sans-serif;
+    color: gray;
+    margin: 10px 10px auto 10px;
+
 }
 
 /* ------------------------------ about ------------------------------ */
