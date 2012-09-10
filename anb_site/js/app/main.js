@@ -18,7 +18,8 @@ define(function (require) {
 		},
 
 		events: {
-			"click #nav_list li a" : "moveShadowNav"
+			"click #nav_list li a" : "moveShadowNav",
+			"click #adopt_btn": "goToPetsView"
 		},
 
 		moveShadowNav: function(e){
@@ -35,6 +36,9 @@ define(function (require) {
                   'transform':'translateX('+ diff +'px)'
             });
 		
+		},
+		goToPetsView: function  () {
+			window.location.hash = "pets";
 		}
 	});
 	
