@@ -12,6 +12,7 @@ define(function (require) {
 		
 			":page":"loadPage",
             ":page/:section": "loadSection",
+            ":page/:section/:sub": "loadSub"
 
 			/*'pets/:animal': 'filterAnimal',
 			'pets/:animal': 'filterByAnimal',
@@ -31,6 +32,13 @@ define(function (require) {
 
 		loadSection: function(page, section){
 			loadedView.renderSection(section);
+		},
+		loadSub: function(page, section, sub){
+			console.log(page + section + sub)
+			loadedView.page = sub
+			loadedView.renderSub(sub);
+
+			
 		},
 
 		filterAnimal: function(animal){
