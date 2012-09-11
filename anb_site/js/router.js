@@ -33,10 +33,10 @@ define(function (require) {
 		loadSection: function(page, section){
 			loadedView.renderSection(section);
 		},
-		loadSub: function(page, section, sub){
-			console.log(page + section + sub)
-			loadedView.page = sub
-			loadedView.renderSub(sub);
+		loadSub: function(search, page, num){
+			console.log(search + page + num)
+			loadedView.page = num
+			loadedView.renderSub(num);
 
 			
 

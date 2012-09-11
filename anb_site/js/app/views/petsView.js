@@ -21,16 +21,17 @@ define(function (require) {
 	
 	var petsView = Backbone.View.extend({
         el: $('#container'),
-        page: 1,
+      
 
         initialize: function(){
-            var self = this;
 
+            var self = this;
+          
             this.available_filters = [];
 
             pfc.fetch({
                 data: {type: "pets"},
-                page: self.page,
+                
                 success: function (response) {
                     self.render();
                     self.load();
@@ -44,7 +45,8 @@ define(function (require) {
         },
         
         render: function(){
-        	var self = this;
+        	
+            var self = this;
         
             $(this.el).html(petsTemplate);
 
@@ -56,19 +58,14 @@ define(function (require) {
             }, this);
 
             $(self.el).find('#filters').append(self.createFilters());
-            console.log(this.options.page)
-
-            var pets = pfc.models;
-            var len = pets.length;
-            var startPos = (this.options.page - 1) * 16;
-            var endPos = Math.min(startPos + 16, len);
             
-            $(self.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
+
+            
+            $(self.el).append(new paginator().render().el);
 
            
         },
-       
-
+       //renders pet details
         renderSection: function(section){
             console.log(section + ' render this section');
 
@@ -88,10 +85,16 @@ define(function (require) {
         },
 
         renderSub: function(pageNum){
+          console.log(pfc.pageInfo())
            // console.log(pageNum)
-            var p = pageNum ? parseInt(pageNum, 10) : 1;
-            //console.log(pfc.models);
+           // var p = pageNum ? parseInt(pageNum, 10) : 1;
+           
+           // console.log(this.options.page);
 
+           // var pets = pfc.models;
+           // var len = pets.length;
+           // var startPos = (this.options.page - 1) * 16;
+           // var endPos = Math.min(startPos + 16, len);
             
 
             
