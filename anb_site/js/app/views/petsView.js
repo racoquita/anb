@@ -6,13 +6,16 @@ define(function (require) {
 
     
     var PetItemView = require('views/petItemView');
+    var PetDetailView = require('views/petDetailView');
+    var paginator = require('views/paginator')
+    
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html');
     var petDetailTemplate = require('text!templates/petDetailTemplate.html');
-    var PetDetailView = require('views/petDetailView');
+
 
     var petCollection = require('collections/petCollection');
-    var paginator = require('views/paginator')
+    
 
     pfc = new petCollection();
 	
@@ -53,10 +56,18 @@ define(function (require) {
             }, this);
 
             $(self.el).find('#filters').append(self.createFilters());
-            $(self.el).append(new paginator({model: this.model, page: self.options.page}).render().el);
+            console.log(this.options.page)
+
+            var pets = pfc.models;
+            var len = pets.length;
+            var startPos = (this.options.page - 1) * 16;
+            var endPos = Math.min(startPos + 16, len);
+            
+            $(self.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
 
            
         },
+       
 
         renderSection: function(section){
             console.log(section + ' render this section');
@@ -65,11 +76,9 @@ define(function (require) {
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
                
-
             });
-            self.renderPetDetail(thispet)
-            //console.log(thispet)
-            //console.log(thispet.attributes);
+            self.renderPetDetail(thispet);
+
         },
         renderPetDetail: function(item){
             
@@ -78,10 +87,12 @@ define(function (require) {
 
         },
 
-        renderSub: function(sub){
-            console.log(sub)
-            var p = sub ? parseInt(sub, 10) : 1;
-            console.log(pfc.models);
+        renderSub: function(pageNum){
+           // console.log(pageNum)
+            var p = pageNum ? parseInt(pageNum, 10) : 1;
+            //console.log(pfc.models);
+
+            
 
             
         },

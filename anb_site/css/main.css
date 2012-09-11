@@ -565,6 +565,41 @@ label {
     overflow: hidden;
 }
 
+
+.pagination-centered {
+    text-align: center;
+}
+
+.pagination {
+    height: 36px;
+    margin: 18px 0;
+}
+.pagination ul{
+    padding-left: 600px;
+    font: 13px/1.2em Helvetica, arial sans-serif;
+
+}
+.pagination li {
+    display: inline;
+}
+.pagination li:first-child a {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.pagination a {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid #DDD;
+    border-left-width: 0;
+}
+.pagination .active a {
+    color: #999;
+    cursor: default;
+}
 /* ------------------------------ pet item template ------------------------------ */
 
 .pet_container {

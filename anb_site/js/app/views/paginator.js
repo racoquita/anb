@@ -9,9 +9,9 @@ define(function (require) {
         className: "pagination pagination-centered",
 
         initialize:function () {
-            var self = this
-            // this.model.bind("reset", this.render, this);
-            self.render();
+           
+            //this.model.bind("reset", this.render, this);
+            this.render();
         },
 
         render:function () {

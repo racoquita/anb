@@ -39,6 +39,8 @@ define(function (require) {
 			loadedView.renderSub(sub);
 
 			
+
+			
 		},
 
 		filterAnimal: function(animal){
