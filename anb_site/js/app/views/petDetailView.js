@@ -7,7 +7,6 @@ define( function (require) {
    
    var PetDetailView = Backbone.View.extend({
 
-
 	    template: petDetailTemplate,
         
         initialize: function(){
