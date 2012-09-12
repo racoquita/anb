@@ -556,9 +556,13 @@ label {
     padding: 20px;
 
 }
-#statistics table{ color: gray; font: 9px/1.2em Helvetica, arial sans-serif;}
+.about_content ul{
+    font: 1em/1.2em Helvetica, arial sans-serif;
+    color: gray;
+}
+.about_content table{ color: gray; font: 9px/1.2em Helvetica, arial sans-serif;}
 
-#statistics table tr{ height: 25px;}
+.about_content table tr{ height: 25px;}
 
 /* ------------------------------ pets ------------------------------ */
 
@@ -587,11 +591,10 @@ label {
 .pagination {
     height: 36px;
     margin: 18px 0;
+    font: 13px/1.2em Helvetica, arial sans-serif;
 }
 .pagination ul{
     padding-left: 600px;
-    font: 13px/1.2em Helvetica, arial sans-serif;
-
 }
 .pagination li {
     display: inline;

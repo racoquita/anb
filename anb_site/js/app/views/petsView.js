@@ -15,23 +15,20 @@ define(function (require) {
 
 
     var petCollection = require('collections/petCollection');
-    
 
     pfc = new petCollection();
 	
 	var petsView = Backbone.View.extend({
         el: $('#container'),
-      
-
+    
         initialize: function(obj){
 
             var self = this;
-            console.log('initialize')
-            console.log(obj)
+            //console.log('initialize')
+            //console.log(obj)
           
             this.available_filters = [];
-            
-            //Old Stuff
+
             pfc.fetch({
                 data: {type: "pets"},
                 
@@ -55,14 +52,12 @@ define(function (require) {
             $(this.el).html(petsTemplate);
 
             $(this.el).find('#filters').append(self.createFilters());
-            console.log(this.options.page)
+            //console.log(this.options.page)
             
-            //This is the new stuff
             var pets = pfc.models;
             var len = pets.length;
             var startPos = (this.options.page - 1) * 16;
             var endPos = Math.min(startPos + 16, len);
-
 
             for (var i = startPos; i < endPos; i++) {
                 
@@ -70,7 +65,6 @@ define(function (require) {
             }
 
             $(this.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
-
             return this;
            
            
@@ -91,7 +85,7 @@ define(function (require) {
         renderPetDetail: function(item){
             
             var petDetailView = new PetDetailView({model : item}) 
-            $('#results_container').html(petDetailView.render().el);
+            $(this.el).find('#results_container').html(petDetailView.render().el);
 
         },
 

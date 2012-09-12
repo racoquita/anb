@@ -10,7 +10,6 @@ define(function (require) {
 
         initialize:function () {
            
-            //this.model.bind("reset", this.render, this);
             this.render();
         },
 
@@ -27,8 +26,11 @@ define(function (require) {
 
                 $('ul', this.el).append("<li" + ((i + 1) === this.options.page ? " class='active'" : "") + "><a href='#pets/page/"+(i+1)+"'>" + (i+1) + "</a></li>");
             }
-
-            $(this.el).append('<div><a id="prev" href="">Previous</a> &nbsp;<a href="" id="next">Next</a> </div>')
+            //console.log(pageCount);
+            
+            // var currentPage = this.options.page ? this.options.page <= pageCount  ;
+            // console.log(currentPage)
+            $(this.el).append('<div><a id="prev" href="#pets/page/'+(this.options.page - 1)+'">Previous</a> &nbsp;<a href="#pets/page/'+ (this.options.page + 1) +'" id="next">Next</a> </div>')
 
             return this;
         }

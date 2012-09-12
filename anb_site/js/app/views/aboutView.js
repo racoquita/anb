@@ -26,7 +26,7 @@ define(function (require) {
         changeHeading: function(e){
             var sectionName = $(e.target).text();
             sectionName = sectionName.toLowerCase();
-            sectionName=sectionName.replace(/ /g,"");
+            sectionName = sectionName.replace(/ /g,"");
 
             var aboutContentDiv = $(this.el).find('#'+sectionName);
             
@@ -36,7 +36,6 @@ define(function (require) {
 
             aboutContentDiv.siblings().removeClass('active');
             aboutContentDiv.toggleClass('active');
-            //$('.about_content').toggleClass('active');
             
         },
 
