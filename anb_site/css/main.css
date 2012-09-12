@@ -184,6 +184,9 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#898989',GradientType=0 );
     
 }
+.green_button:hover{
+    cursor: pointer;
+}
 .blue_button.selected {
     border: 1px solid #3094bf;
     text-shadow: 0px -1px 1px #3094bf;
