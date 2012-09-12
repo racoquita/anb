@@ -26,7 +26,6 @@ define(function (require) {
             var self = this;
             //console.log('initialize')
             //console.log(obj)
-          
             this.available_filters = [];
 
             pfc.fetch({
@@ -131,9 +130,7 @@ define(function (require) {
         loadPet: function(e){
             var petId = $(e.target).closest('.pet_container').attr('data-id')
             Router.navigate('#pets/'+ petId, {trigger: true})
-            //window.location.hash = '#pets/' + $(e.target).closest('.pet_container').attr('data-id');
-            //window.location.hash = '#pets/page/'+this.options.page + '/'+ $(e.target).closest('.pet_container').attr('data-id')
-           this.renderSection(petId)
+            this.renderSection(petId)
         },
 
         toggleFilters: function(){
