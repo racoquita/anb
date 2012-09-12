@@ -23,24 +23,27 @@ define(function (require) {
         el: $('#container'),
       
 
-        initialize: function(){
+        initialize: function(obj){
 
             var self = this;
+            console.log('initialize')
+            console.log(obj)
           
             this.available_filters = [];
             
             //Old Stuff
-            // pfc.fetch({
-            //     data: {type: "pets"},
+            pfc.fetch({
+                data: {type: "pets"},
                 
-            //     success: function (response) {
-            //         self.render();
-            //         self.load();
-            //         pfc = response;
-            //     }
-            // });
+                success: function (response) {
+                    self.render();
+                    self.load();
+                    pfc = response;
+                }
+            });
 
             //self.render();
+            //this.render()
             //self.load()
             $(pfc).on("reset", self.render, self);
 
@@ -81,7 +84,7 @@ define(function (require) {
         },
        //renders pet details
         renderSection: function(section){
-            console.log(section + ' render this section');
+            alert(section + ' render this section');
 
             var self = this;
 
@@ -151,7 +154,7 @@ define(function (require) {
 
         loadPet: function(e){
             var petId = $(e.target).closest('.pet_container').attr('data-id')
-            Router.navigate('pets/'+ petId, {trigger: true})
+            Router.navigate('#pets/'+ petId, {trigger: true})
             //window.location.hash = '#pets/' + $(e.target).closest('.pet_container').attr('data-id');
             //window.location.hash = '#pets/page/'+this.options.page + '/'+ $(e.target).closest('.pet_container').attr('data-id')
            this.renderSection(petId)

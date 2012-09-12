@@ -2,10 +2,13 @@ define(function (require) {
  
     var _ = require('underscore');
     var Backbone = require('backbone');    
-    var petsView = require('views/petsView')
+    var petsView = require('views/petsView');
+    var PetCollection =require('collections/PetCollection')
+  
 	var PetRouter = Backbone.Router.extend({
 		initialize: function(){
 			window.location.hash = "home";
+
 		},
 
 		routes: {
@@ -35,25 +38,28 @@ define(function (require) {
 			//console.log(search + page + num)
 			//NEW STUFF 
 			var p = num ? parseInt(num, 10) : 1;
-        
-	       	pfc.fetch({
-	       		data: {type: "pets"},
+        	// the only thing i need from here is page: p
+        	//if we find a way to pase the page into the loaded view i dont have to fetch
+	       	
+	       	// pfc.fetch({
+	       	//  	data: {type: "pets"},
                 
-                success: function (response) {
-                    //loadedView.render();
-                    //self.load();
-                    pfc = response;
-                    var pview = new petsView({model: pfc, page: p});
-                    pview.render()
+         //         success: function (response) {
+         //             //loadedView.render();
+         //             //self.load();
+         //             pfc = response;
+                      new petsView({page: p});
+                      //pview.render()
 
-                }
-	        });
+         //         }
+	        // });
 
 			
 		},
-		loadSection: function(id){
-			console.log(id)
-			loadedView.renderSection(item);
+		loadSection: function(page, id){
+			console.log(page, id)
+			loadedView.unload()
+			loadedView.renderSection(id);
 		},
 
 		filterAnimal: function(animal){
