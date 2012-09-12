@@ -679,6 +679,30 @@ label {
     padding-top: 6px;
 }
 
+/* ------------------------------ Pet Details  ------------------------------ */
+
+
+.white_container .pDetails{
+    font-family: "Century Gothic";
+    color: gray;
+    padding-left: 20px;
+    overflow: hidden;
+
+}
+.white_container .pDetails .thumbs{
+    float: left;
+}
+.pGlanceDetail{
+    clear: both;
+    float: left;
+    width: 30%;
+    padding-top: 20px;
+}
+.pImage{
+
+    float: left;
+    width: 50%;
+}
 /* ------------------------------ foster ------------------------------ */
 
 #foster .foster_info a {

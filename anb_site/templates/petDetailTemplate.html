@@ -1,17 +1,37 @@
 <div  class="inner_container" id="<%= id %>">
-<div class="heading_container">
-	<span class="icon">2</span>
-	<h3>Pet Details </h3>
+	<div class="heading_container">
+		<span class="icon">2</span>
+		<h3>Pet Details </h3>
 
-</div>
-
-
+	</div>
 	<div class="white_container">
-		<div><img src="<%= photo %>" /></div>
-		<div><%= name %><div>
-		<div><%= description %><div>
-		<div><span><%= size %></span><span><%= age %></span><div>	
+		<div class="pDetails">
+			<div class="pImage">
+				<p class="pName"><%= name %></p>
+				<p><img src="<%= photo %>" height="200" /><p>
+				<div class="thumbs">
+					<img src="<%= photos[1] %>" height="50" />
+					<img src="<%= photos[5] ? photos[5] : photos[2] %>" height="50" />
+				</div>		
 
+			</div>
+			<div class="pGlanceDetail">
+				<span><%= size %></span> | <span><%= age %></span> | <span><%= sex %></span>
+			</div>
+			<div class="pDescription">
+				<h4>Pet Description: </h4>
+				<p ><%= description %></p>
+			</div>
+			<div class="pContact">
+				<h4>Pet Contact Info: </h4>
+				<p class="pContact"><a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a></p>
+
+			</div>
+			<div class="pBreeds">
+				<h4>Pet Breeds: </h4>
+				<p ><%= breeds[0] %></p>
+				<p ><%= breeds[1] %></p>
+			</div>			
 		</div>
-
+	</div>
 </div>

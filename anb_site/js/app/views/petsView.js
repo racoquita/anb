@@ -50,10 +50,8 @@ define(function (require) {
             var self = this;
         
             $(this.el).html(petsTemplate);
-
             $(this.el).find('#filters').append(self.createFilters());
-            //console.log(this.options.page)
-            
+
             var pets = pfc.models;
             var len = pets.length;
             var startPos = (this.options.page - 1) * 16;
@@ -63,37 +61,28 @@ define(function (require) {
                 
                 this.renderPet(pets[i]);
             }
-
             $(this.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
-            return this;
-           
-           
+            
+            return this;        
         },
-       //renders pet details
+       //renders petDetailsPage as a section of this (i'll explain why as a section)
         renderSection: function(section){
-            alert(section + ' render this section');
-
-            var self = this;
 
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
                
             });
-            self.renderPetDetail(thispet);
+            this.renderPetDetail(thispet);
+            console.log(thispet)
 
         },
         renderPetDetail: function(item){
             
             var petDetailView = new PetDetailView({model : item}) 
+            
             $(this.el).find('#results_container').html(petDetailView.render().el);
 
         },
-
-        renderSub: function(pageNum){
-          $('#results_container').html(pfc.pageInfo(pageNum))
-   
-        },
-
         renderPet: function(item){
         	var petItemView = new PetItemView({ model: item });
 	      	
@@ -160,9 +149,7 @@ define(function (require) {
             console.log(this.available_filters);
 
         	/*this.$el.find('button').removeClass('selected');
-           	
            	this.$el.find(e.currentTarget).attr('class', "selected");
-           	
         	this.filterAnimal = e.target;*/
         	/*window.location.hash = '#pets/' + this.filterAnimal.value;*/
 

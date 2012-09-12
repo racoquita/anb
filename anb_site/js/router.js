@@ -42,9 +42,10 @@ define(function (require) {
          	loadedView.options.page = p
          	loadedView.render();
 		},
+
 		//this is supposed to load the pet detail view 
 		loadSection: function(page, id){
-			//console.log(page, id)
+			
 			loadedView.unload()
 			loadedView.renderSection(id);
 		},

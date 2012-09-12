@@ -9,13 +9,14 @@ define(function (require){
 		defaults: {
     		
     		photo: 'images/placeholder.png',
+    		photos : '',
     		age: "",
 			animal: "",
 			id: "",
 			sex: "",
 			name: "",
 			size: "",
-			description: "",
+			description: "No description available at this time",
 			contact: "",
 			mix: "",
 			status: "",
@@ -32,10 +33,15 @@ define(function (require){
     			name: data.name,
     			sex: data.sex == 'M' ? 'Male' : 'Female',
     			size: data.size,
-    			email: data.contact.email
+    			email: data.contact.email,
+    			breeds: data.breeds.breed,
+
     		}
 
-    		if(data.media.photos) obj.photo = data.media.photos.photo[0]
+    		if(data.media.photos) {
+    			obj.photo = data.media.photos.photo[0]
+    			obj.photos = data.media.photos.photo
+    		}
     		
     		return obj;
     	}

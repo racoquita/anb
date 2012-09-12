@@ -8,7 +8,6 @@ define(function (require) {
 		el: $('#wrapper'),
 		
 		initialize: function(){
-			var self = this;
 
 			this.render();
 		},
