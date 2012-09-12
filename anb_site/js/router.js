@@ -34,21 +34,17 @@ define(function (require) {
 				}
 	        });
 		},
+		//this loads the pets page results dont erase
 		loadResults: function(search, page, num){
-			//console.log(search + page + num)
-			//NEW STUFF 
+			
 			var p = num ? parseInt(num, 10) : 1;
-			console.log(search + ' ' + page + ' ' + num )
-         	
+			//console.log(search + ' ' + page + ' ' + num )
          	loadedView.options.page = p
          	loadedView.render();
-
-
-
-			
 		},
+		//this is supposed to load the pet detail view 
 		loadSection: function(page, id){
-			console.log(page, id)
+			//console.log(page, id)
 			loadedView.unload()
 			loadedView.renderSection(id);
 		},
@@ -63,7 +59,6 @@ define(function (require) {
 		
 		filterByAge: function(age){
 			console.log(age);
-		
 		}
 	
 	});

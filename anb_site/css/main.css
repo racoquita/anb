@@ -14,6 +14,7 @@ body {
 h2 {
     color: #65BCB7;
     font-family: "Century Gothic";
+    font-weight: normal;
     font-size: 24px;
     margin: 0px;
     height: 40px;
@@ -297,6 +298,7 @@ label {
     position: relative;
     bottom: -74%;
     z-index: 11;
+
 }
 #adopt_btn:hover{
     cursor: pointer;
@@ -313,7 +315,7 @@ label {
     color: white;
     text-decoration: none;
     font-size: 30px;
-    font-family: "Century";
+    font-family: "Century Gothic";
     text-shadow: 0px -2px 1px #fa7414;
     text-transform: uppercase;
     filter: dropshadow(color=#fa7414, offx=0, offy=-1);
@@ -595,6 +597,7 @@ label {
 }
 .pagination ul{
     padding-left: 600px;
+
 }
 .pagination li {
     display: inline;
@@ -612,10 +615,13 @@ label {
     text-decoration: none;
     border: 1px solid #DDD;
     border-left-width: 0;
+    background-color: white;
 }
 .pagination .active a {
     color: #999;
     cursor: default;
+    font-weight: bold;
+    background-color: white;
 }
 /* ------------------------------ pet item template ------------------------------ */
 
