@@ -15,7 +15,7 @@ define(function (require) {
         },
 
         render:function () {
-
+            var self = this;
             var items = pfc.models;
             var len = items.length;
             
@@ -28,7 +28,7 @@ define(function (require) {
                 $('ul', this.el).append("<li" + ((i + 1) === this.options.page ? " class='active'" : "") + "><a href='#pets/page/"+(i+1)+"'>" + (i+1) + "</a></li>");
             }
 
-            $(this.el).append('<div><a href="">Previous</a> &nbsp;<a href="">Next</a> </div>')
+            $(this.el).append('<div><a id="prev" href="">Previous</a> &nbsp;<a href="" id="next">Next</a> </div>')
 
             return this;
         }

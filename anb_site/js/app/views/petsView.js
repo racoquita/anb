@@ -39,12 +39,13 @@ define(function (require) {
                     self.render();
                     self.load();
                     pfc = response;
+                    Router.navigate('pets/page/1', {trigger: true})
                 }
             });
 
-            //self.render();
-            //this.render()
-            //self.load()
+
+
+
             $(pfc).on("reset", self.render, self);
 
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
@@ -54,15 +55,10 @@ define(function (require) {
         	
             var self = this;
         
-             $(this.el).html(petsTemplate);
-
-        //old stuff commented in case you want to change it
-         //    _.each(pfc.models, function(item) {
-         //        self.renderPet(item)
-
-         //    }, this);
+            $(this.el).html(petsTemplate);
 
             $(this.el).find('#filters').append(self.createFilters());
+            console.log(this.options.page)
             
             //This is the new stuff
             var pets = pfc.models;
@@ -73,7 +69,7 @@ define(function (require) {
 
             for (var i = startPos; i < endPos; i++) {
                 
-                self.renderPet(pets[i]);
+                this.renderPet(pets[i]);
             }
 
             $(this.el).append(new paginator({model: this.model, page: this.options.page}).render().el);

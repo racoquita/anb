@@ -38,21 +38,12 @@ define(function (require) {
 			//console.log(search + page + num)
 			//NEW STUFF 
 			var p = num ? parseInt(num, 10) : 1;
-        	// the only thing i need from here is page: p
-        	//if we find a way to pase the page into the loaded view i dont have to fetch
-	       	
-	       	// pfc.fetch({
-	       	//  	data: {type: "pets"},
-                
-         //         success: function (response) {
-         //             //loadedView.render();
-         //             //self.load();
-         //             pfc = response;
-                      new petsView({page: p});
-                      //pview.render()
+			console.log(search + ' ' + page + ' ' + num )
+         	
+         	loadedView.options.page = p
+         	loadedView.render();
 
-         //         }
-	        // });
+
 
 			
 		},
