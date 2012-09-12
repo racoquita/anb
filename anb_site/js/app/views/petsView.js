@@ -43,9 +43,6 @@ define(function (require) {
                 }
             });
 
-
-
-
             $(pfc).on("reset", self.render, self);
 
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */

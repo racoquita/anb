@@ -539,12 +539,26 @@ label {
     background-position: center right;
     cursor: pointer;
 }
+#about_menu span.active{
+    background: url(../images/about_indicator.svg) no-repeat;
+    background-position: center right;
+}
 .about_content {
     display: none;
 }
 .about_content.active {
     display: block;
 }
+
+.about_content p{
+    font: 13px/1.2em Helvetica, arial sans-serif;
+    color: gray;
+    padding: 20px;
+
+}
+#statistics table{ color: gray; font: 9px/1.2em Helvetica, arial sans-serif;}
+
+#statistics table tr{ height: 25px;}
 
 /* ------------------------------ pets ------------------------------ */
 

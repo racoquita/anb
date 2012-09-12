@@ -18,17 +18,30 @@ define(function (require) {
         },
 
         events: {
-            'mouseenter #about_menu span':'changeHeading',
-            'mouseleave #about_menu':'revertHeading'
+            //'mouseenter #about_menu span':'changeHeading',
+            //'mouseleave #about_menu':'revertHeading',
+            'click #about_menu span': 'changeHeading'
         },
 
         changeHeading: function(e){
+            var sectionName = $(e.target).text();
+            sectionName = sectionName.toLowerCase();
+            sectionName=sectionName.replace(/ /g,"");
+
+            var aboutContentDiv = $(this.el).find('#'+sectionName);
+            
             $('#about h3').text($(e.target).text());
+            $(e.target).siblings().removeClass('active');
+            $(e.target).toggleClass('active');
+
+            aboutContentDiv.siblings().removeClass('active');
+            aboutContentDiv.toggleClass('active');
+            //$('.about_content').toggleClass('active');
             
         },
 
         revertHeading: function(){
-            $('#about h3').text('About');
+            $('#about h3').text('What we Do');
         }
 	});
 
