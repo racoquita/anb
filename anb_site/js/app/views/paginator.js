@@ -28,6 +28,8 @@ define(function (require) {
                 $('ul', this.el).append("<li" + ((i + 1) === this.options.page ? " class='active'" : "") + "><a href='#pets/page/"+(i+1)+"'>" + (i+1) + "</a></li>");
             }
 
+            $(this.el).append('<div><a href="">Previous</a> &nbsp;<a href="">Next</a> </div>')
+
             return this;
         }
     });

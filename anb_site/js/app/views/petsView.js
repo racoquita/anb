@@ -28,17 +28,20 @@ define(function (require) {
             var self = this;
           
             this.available_filters = [];
-
-            pfc.fetch({
-                data: {type: "pets"},
+            
+            //Old Stuff
+            // pfc.fetch({
+            //     data: {type: "pets"},
                 
-                success: function (response) {
-                    self.render();
-                    self.load();
-                    pfc = response;
-                }
-            });
+            //     success: function (response) {
+            //         self.render();
+            //         self.load();
+            //         pfc = response;
+            //     }
+            // });
 
+            //self.render();
+            //self.load()
             $(pfc).on("reset", self.render, self);
 
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
@@ -48,21 +51,32 @@ define(function (require) {
         	
             var self = this;
         
-            $(this.el).html(petsTemplate);
+             $(this.el).html(petsTemplate);
 
-       		this.$el.find(".pet-container").remove(); 
+        //old stuff commented in case you want to change it
+         //    _.each(pfc.models, function(item) {
+         //        self.renderPet(item)
+
+         //    }, this);
+
+            $(this.el).find('#filters').append(self.createFilters());
             
-            _.each(pfc.models, function(item) {
-                self.renderPet(item)
+            //This is the new stuff
+            var pets = pfc.models;
+            var len = pets.length;
+            var startPos = (this.options.page - 1) * 16;
+            var endPos = Math.min(startPos + 16, len);
 
-            }, this);
 
-            $(self.el).find('#filters').append(self.createFilters());
-            
+            for (var i = startPos; i < endPos; i++) {
+                
+                self.renderPet(pets[i]);
+            }
 
-            
-            $(self.el).append(new paginator().render().el);
+            $(this.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
 
+            return this;
+           
            
         },
        //renders pet details
@@ -70,6 +84,7 @@ define(function (require) {
             console.log(section + ' render this section');
 
             var self = this;
+
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
                
@@ -85,19 +100,8 @@ define(function (require) {
         },
 
         renderSub: function(pageNum){
-          console.log(pfc.pageInfo())
-           // console.log(pageNum)
-           // var p = pageNum ? parseInt(pageNum, 10) : 1;
-           
-           // console.log(this.options.page);
-
-           // var pets = pfc.models;
-           // var len = pets.length;
-           // var startPos = (this.options.page - 1) * 16;
-           // var endPos = Math.min(startPos + 16, len);
-            
-
-            
+          $('#results_container').html(pfc.pageInfo(pageNum))
+   
         },
 
         renderPet: function(item){
@@ -142,11 +146,15 @@ define(function (require) {
         events:{
             "click #filter_menu h4" : "toggleFilters",
         	"click #filters button" : "setAnimalFilter",
-            "click article" : "loadPet"
+            "click #results_container article" : "loadPet"
         },
 
         loadPet: function(e){
-            window.location.hash = '#pets/' + $(e.target).closest('.pet_container').attr('data-id');
+            var petId = $(e.target).closest('.pet_container').attr('data-id')
+            Router.navigate('pets/'+ petId, {trigger: true})
+            //window.location.hash = '#pets/' + $(e.target).closest('.pet_container').attr('data-id');
+            //window.location.hash = '#pets/page/'+this.options.page + '/'+ $(e.target).closest('.pet_container').attr('data-id')
+           this.renderSection(petId)
         },
 
         toggleFilters: function(){
