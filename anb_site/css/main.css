@@ -503,6 +503,7 @@ label {
     border-radius: 10px;
     -webkit-box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);        
     box-shadow:  0px 4px 10px 1px rgba(0, 0, 0, .25);
+    background-color: white;
 }
 .heading_container {
     border-bottom: 1px solid #d4d5d4;
@@ -591,6 +592,14 @@ label {
     padding-right: 5px;
 }
 
+.green_note{
+    background-color: #c9e1eb;
+    border-radius: 5px;
+    padding: 10px;
+    margin:10px;
+    
+
+}
 
 /* ------------------------------ about ------------------------------ */
 
