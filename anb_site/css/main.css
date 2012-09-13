@@ -172,16 +172,17 @@ label {
     width: 100%;
     border-radius: 5px;
     line-height: 50px;
-    border: 1px solid #3094bf;
+    border: 1px solid #aadad7;
     text-shadow: 0px -1px 1px #898989;
-    background: #3094bf; 
-    background: -moz-linear-gradient(top,  #cae2eb 0%, #3094bf 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3094bf), color-stop(100%,#3094bf));
-    background: -webkit-linear-gradient(top,  #cae2eb 0%,#3094bf 100%);
-    background: -o-linear-gradient(top,  #cae2eb 0%,#3094bf 100%);
-    background: -ms-linear-gradient(top,  #cae2eb 0%,#3094bf 100%);
-    background: linear-gradient(to bottom,  #cae2eb 0%,#3094bf 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#898989',GradientType=0 );
+     background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #aadad7 56%, #aadad7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(56%,#aadad7), color-stop(100%,#aadad7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#aadad7 56%,#aadad7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#aadad7 56%,#aadad7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#aadad7 56%,#aadad7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#aadad7 56%,#aadad7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#aadad7',GradientType=0 ); /* IE6-9 */
+    adientType=0 ); /* IE6-9 */
     
 }
 .green_button:hover{
@@ -689,12 +690,14 @@ label {
     border: 1px solid #DDD;
     border-left-width: 0;
     background-color: white;
+    color: #2D93BF
 }
 .pagination .active a {
     color: #999;
     cursor: default;
     font-weight: bold;
     background-color: white;
+
 }
 /* ------------------------------ pet item template ------------------------------ */
 
