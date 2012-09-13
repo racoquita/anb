@@ -4,6 +4,7 @@ define(function (require) {
     var _ = require('underscore');
     var Backbone = require('backbone');
 	var aboutTemplate = require('text!templates/aboutTemplate.html');
+    var aboutContentDiv;
 
 	var AboutView =  Backbone.View.extend({
 		el: $("#container"),
@@ -11,6 +12,7 @@ define(function (require) {
         initialize: function(){
         	this.render();
             this.load();
+            console.log('init about')
         },
 
         render: function(){	
@@ -24,6 +26,7 @@ define(function (require) {
         },
 
         changeHeading: function(e){
+            console.log('changing')
             var sectionName = $(e.target).text();
             sectionName = sectionName.toLowerCase();
             sectionName = sectionName.replace(/ /g,"");
@@ -35,7 +38,7 @@ define(function (require) {
             $(e.target).toggleClass('active');
 
             aboutContentDiv.siblings().removeClass('active');
-            aboutContentDiv.toggleClass('active');
+            aboutContentDiv.addClass('active');    
             
         },
 
