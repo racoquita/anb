@@ -168,10 +168,10 @@ label {
     font-family: "Century Gothic";
     font-size: 1.2em;
     text-transform: uppercase;
-    height: 50px;
+    height: 60px;
     width: 100%;
     border-radius: 5px;
-    line-height: 50px;
+    line-height: 60px;
     border: 1px solid #aadad7;
     text-shadow: 0px -1px 1px #898989;
      background: #ffffff; /* Old browsers */
@@ -548,10 +548,14 @@ label {
     padding: 20px;
 
 }
+
 .special_event{
-    border-bottom: 1px dotted gray;
+
     overflow: hidden;
     padding-bottom: 10px;
+}
+#events .special_event:not(:last-child){
+    border-bottom: 1px dotted gray;
 
 }
 .event_date{
@@ -696,7 +700,7 @@ label {
     color: #999;
     cursor: default;
     font-weight: bold;
-    background-color: white;
+    background-color: #ddd;
 
 }
 /* ------------------------------ pet item template ------------------------------ */
