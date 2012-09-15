@@ -7,7 +7,7 @@ define(function (require) {
 
 
 	var FosterView =  Backbone.View.extend({
-		el: $("#container"),
+		id: 'foster_view',
         
         initialize: function(){
         	this.render();

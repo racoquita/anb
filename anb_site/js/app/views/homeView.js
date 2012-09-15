@@ -7,7 +7,7 @@ define(function (require) {
 	var homeTemplate = require('text!templates/homeTemplate.html');
 
 	var HomeView =  Backbone.View.extend({
-		el: $("#container"),
+		id: 'home_view',
         
         initialize: function(){
         	this.render();
@@ -17,6 +17,7 @@ define(function (require) {
         render: function(){
         	$(this.el).html(homeTemplate);        
         }
+
 	});
 
     return HomeView;

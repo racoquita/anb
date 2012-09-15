@@ -19,7 +19,7 @@ define(function (require) {
     pfc = new petCollection();
 	
 	var petsView = Backbone.View.extend({
-        el: $('#container'),
+        id: 'pets_view',
     
         initialize: function(obj){
 
@@ -35,7 +35,7 @@ define(function (require) {
                     self.render();
                     self.load();
                     pfc = response;
-                    Router.navigate('pets/page/1', {trigger: true})
+                    Router.navigate('pets/page/1', {trigger: true});
                 }
             });
 

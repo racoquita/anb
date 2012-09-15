@@ -4,11 +4,14 @@ define(function (require) {
     var _ = require('underscore');
     var Backbone = require('backbone');
 
+    var helper_model = require('models/helperModel');
+
 	var MasterView = Backbone.View.extend({
 		el: $('#wrapper'),
 		
 		initialize: function(){
-
+            helper = new helper_model();
+            
 			this.render();
 		},
 
@@ -40,6 +43,33 @@ define(function (require) {
 			window.location.hash = "pets";
 		}
 	});
+
+	window.requestAnimFrame = (function() {
+        return  window.requestAnimationFrame       || 
+                window.webkitRequestAnimationFrame || 
+                function(callback, element){
+                    window.setTimeout(callback, 500 / 60);
+                };
+    })();
+
+    window.requestTimeout = function(fn, delay) {
+        if( !window.requestAnimationFrame       && 
+            !window.webkitRequestAnimationFrame)
+                return window.setTimeout(fn, delay);
+
+        var start = new Date().getTime(),
+            handle = new Object();
+
+        function loop(){
+            var current = new Date().getTime(),
+                delta = current - start;
+
+            delta >= delay ? fn.call() : handle.value = requestAnimFrame(loop);
+        };
+
+        handle.value = requestAnimFrame(loop);
+        return handle;
+    };
 	
 	return MasterView;
 });

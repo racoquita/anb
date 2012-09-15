@@ -7,7 +7,7 @@ define(function (require) {
     var aboutContentDiv;
 
 	var AboutView =  Backbone.View.extend({
-		el: $("#container"),
+		id: 'about_view',
         
         initialize: function(){
         	this.render();
