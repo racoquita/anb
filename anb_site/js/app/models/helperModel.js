@@ -10,6 +10,10 @@ define(function (require){
 	
         initFooter: function(){
             return footer;
+        },
+
+        showSpinner: function(){
+        	return '<div class="spinner"><img src="images/loader.gif" /></div>';
         }
 
 	});

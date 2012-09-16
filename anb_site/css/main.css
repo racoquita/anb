@@ -234,6 +234,14 @@ label {
 
 /* ------------------------------ classes ------------------------------ */
 
+.spinner {
+    position: absolute;
+    z-index: 201;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+}
 .icon {
     color: #BEBEC1;
     font-family: "icomoon";
@@ -418,29 +426,17 @@ label {
     padding: 2%;
     float: left;
 }
-#welcome_image {
-    position: relative;
-    height: 100%;
-}
-#pets {
+#animals {
     position: absolute;
     bottom: -18px;
     left: 35%;
-    width: 392px;
-    height: 223px;
-    background: url(../images/pets.svg) no-repeat;
-    background-position: bottom center;
+    display: block;
     z-index: 10;
 }
 #clouds {
     position: absolute;
     bottom: 0;
     left: 17%;
-    width: 832px;
-    height: 277px;
-    background: url(../images/clouds.svg) no-repeat;
-    background-position: bottom center;
-    background-size: 832px 277px;
     z-index: 9;
 }
 #adopt_btn {
@@ -478,8 +474,6 @@ label {
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(251,117, 19,1) 75%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fb7513',GradientType=0 );
 }
-
-
 
 /* ------------------------------ nav ------------------------------ */
 
@@ -610,7 +604,6 @@ label {
 /* ------------------------------ container ------------------------------ */
 
 #container {
-    width: 100%;
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     -ms-animation-fill-mode: both;
