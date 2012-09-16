@@ -814,7 +814,6 @@ label {
     font: 13px/1.2em Helvetica, arial sans-serif;
 }
 .pagination ul{
-    padding-left: 600px;
 
 }
 .pagination li {
@@ -841,8 +840,11 @@ label {
     cursor: default;
     font-weight: bold;
     background-color: #ddd;
-
 }
+#pet_results {
+    overflow: hidden;
+}
+
 /* ------------------------------ pet item template ------------------------------ */
 
 .pet_container {
@@ -852,7 +854,7 @@ label {
     background: url(../images/dog_tag.svg) no-repeat;
     background-position: center center;
     float: left;
-    margin-left: 25px;
+    margin-left: 20px;
 }
 .pet_container:hover{
     cursor: pointer;

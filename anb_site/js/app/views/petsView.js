@@ -3,7 +3,6 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
-
     
     var PetItemView = require('views/petItemView');
     var PetDetailView = require('views/petDetailView');
@@ -12,58 +11,78 @@ define(function (require) {
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html');
     var petDetailTemplate = require('text!templates/petDetailTemplate.html');
-
-
-    var petCollection = require('collections/petCollection');
-
-    pfc = new petCollection();
 	
 	var petsView = Backbone.View.extend({
         id: 'pets_view',
     
-        initialize: function(obj){
-
+        initialize: function(){
             var self = this;
-            //console.log('initialize')
-            //console.log(obj)
-            this.available_filters = [];
-
-            pfc.fetch({
-                data: {type: "pets"},
-                
-                success: function (response) {
-                    self.render();
-                    self.load();
-                    pfc = response;
-                    Router.navigate('pets/page/1', {trigger: true});
+            
+            self.render();
+            self.load();
+            
+            requestTimeout(function(){
+                if(pfc.length != 0) {
+                    self.renderPetList();
+                } else {
+                    pfc.on("petEvent", self.renderPetList, self);
                 }
-            });
-
-            $(pfc).on("reset", self.render, self);
-
+            }, 500);          
+            
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
         },
         
         render: function(){
-        	
             var self = this;
-        
+            
             $(this.el).html(petsTemplate);
-            $(this.el).find('#filters').append(self.createFilters());
+        },
 
-            var pets = pfc.models;
-            var len = pets.length;
-            var startPos = (this.options.page - 1) * 16;
-            var endPos = Math.min(startPos + 16, len);
+        renderPetList: function(){
+            $(this.el).find('#filters').append(this.createFilters());
+
+            Router.navigate('pets/page/1', true); 
+        },
+
+        pagination: function(number){
+            var num = parseInt(number), pets = pfc.models, len = pets.length, petsHTML = '',
+                startPos = (num - 1) * 16, endPos = Math.min(startPos + 16, len);
+
+            $('#pet_results').empty();
 
             for (var i = startPos; i < endPos; i++) {
-                
-                this.renderPet(pets[i]);
+                petsHTML += this.renderPet(pets[i]);
             }
-            $(this.el).append(new paginator({model: this.model, page: this.options.page}).render().el);
-            
-            return this;        
+
+            $('#pet_results').append(petsHTML);
+
+            $(this.el).find('#pagination').html(new paginator({model: this.model, page: num}).render().el);
+
+            return this;
         },
+
+        renderPet: function(item){
+            var petItemView = new PetItemView({ model: item }), singlePet = petItemView.render().el;
+            return $(singlePet).html();
+        },
+
+        createFilters: function(){
+            var self = this, filterOptions = $("<div/>");
+
+            _.each(self.getAttributes(), function(item){
+                _.each(item, function(attr){
+                    var option = $("<button/>", {
+                        id: attr.toLowerCase(),
+                        value: attr.toLowerCase(),
+                        text: attr,
+                        class: 'selected'
+                    }).appendTo(filterOptions)
+                });
+            });         
+
+            return filterOptions;
+        },
+
        //renders petDetailsPage as a section of this (i'll explain why as a section)
         renderSection: function(section){
 
@@ -82,11 +101,6 @@ define(function (require) {
             $(this.el).find('#results_container').html(petDetailView.render().el);
 
         },
-        renderPet: function(item){
-        	var petItemView = new PetItemView({ model: item });
-	      	
-	      	$(this.el).find('#results_container').append(petItemView.render().el);
-        },
 
         getAttributes: function(){
             var self = this, types = ['animal', 'sex', 'age', 'size'], attributes = {};
@@ -101,36 +115,17 @@ define(function (require) {
             return attributes;
         },
 
-        createFilters: function(){
-            var self = this, filterOptions = $("<div/>");
-
-            _.each(self.getAttributes(), function(item){
-                _.each(item, function(attr){
-
-                    self.available_filters.push(attr);
-
-                    var option = $("<button/>", {
-                        id: attr.toLowerCase(),
-                        value: attr.toLowerCase(),
-                        text: attr,
-                        class: 'selected'
-                    }).appendTo(filterOptions)
-                });
-            });         
-
-            return filterOptions;
-        },
-
         events:{
             "click #filter_menu h4" : "toggleFilters",
         	"click #filters button" : "setAnimalFilter",
-            "click #results_container article" : "loadPet"
+            "click .pet_container" : "loadPet"
         },
 
         loadPet: function(e){
-            var petId = $(e.target).closest('.pet_container').attr('data-id')
-            Router.navigate('#pets/'+ petId, {trigger: true})
-            this.renderSection(petId)
+            console.log(e);
+            var petId = $(e.target).closest('.pet_container').attr('data-id');
+
+            Router.navigate('pets/pet/'+ petId, true);
         },
 
         toggleFilters: function(){

@@ -8,23 +8,16 @@ define(function (require) {
 	var PetRouter = Backbone.Router.extend({
 		initialize: function(){
 			window.location.hash = "home";
-
 		},
 
 		routes: {
 		
 			":page":"loadPage",
-            ":page/:id": "loadSection",
-            ":page/:results/:number": "loadResults",
-            //":page/:results/:number/item": "loadSection"
-
-			/*'pets/:animal': 'filterAnimal',
-			'pets/:animal': 'filterByAnimal',
-			'pets/:age': 'filterByAge'*/
+            ":page/pet/:id": "loadPet",
+            ":page/page/:number": "loadPetResults",
 		},
 
 		loadPage: function(page){
-
 			requirejs(['views/' + page + 'View'], function(returnedView){
 				if(typeof loadedView != 'undefined'){
 					loadedView.unload();
@@ -34,20 +27,18 @@ define(function (require) {
 				}
 	        });
 		},
-		//this loads the pets page results dont erase
-		loadResults: function(search, page, num){
-			
-			var p = num ? parseInt(num, 10) : 1;
-			//console.log(search + ' ' + page + ' ' + num )
-         	loadedView.options.page = p
-         	loadedView.render();
+		
+		//this is supposed to load the pet detail view 
+		loadPet: function(page, id){
+			console.log('load a pet');
+			console.log(page + ' ' + id);
+			/*loadedView.unload()
+			loadedView.renderSection(id);*/
 		},
 
-		//this is supposed to load the pet detail view 
-		loadSection: function(page, id){
-			
-			loadedView.unload()
-			loadedView.renderSection(id);
+		//this loads the pets page results dont erase
+		loadPetResults: function(page, num){
+			loadedView.pagination(num);
 		},
 
 		filterAnimal: function(animal){

@@ -5,18 +5,31 @@ define(function (require) {
     var Backbone = require('backbone');
 
     var helper_model = require('models/helperModel');
+    var petCollection = require('collections/petCollection');
+
+    pfc = new petCollection();
 
 	var MasterView = Backbone.View.extend({
 		el: $('#wrapper'),
 		
 		initialize: function(){
+            var self = this;
+
+            this.render();
+
             helper = new helper_model();
-            
-			this.render();
+
+            pfc.fetch({
+                data: {type: "pets"},
+                success: function (response) {
+                    pfc = response;
+                    pfc.trigger("petEvent");
+                }
+            });
 		},
 
-		render: function(){			
-			Router.navigate('home');
+		render: function(){
+			Router.navigate('home', true);
 		},
 
 		events: {
@@ -39,6 +52,7 @@ define(function (require) {
             });
 		
 		},
+
 		goToPetsView: function  () {
 			window.location.hash = "pets";
 		}
