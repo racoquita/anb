@@ -26,7 +26,7 @@ define(function (require) {
         },
 
         changeHeading: function(e){
-            console.log('changing')
+
             var sectionName = $(e.target).text();
             sectionName = sectionName.toLowerCase();
             sectionName = sectionName.replace(/ /g,"");
