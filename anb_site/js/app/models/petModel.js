@@ -27,7 +27,10 @@ define(function (require){
 
     	},
     	parse: function(data){
-    	console.log(data)
+    	console.log(data);
+
+
+
     		obj = {
     			age: data.age,
     			animal: data.animal,
