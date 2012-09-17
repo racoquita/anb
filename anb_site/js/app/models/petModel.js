@@ -31,6 +31,7 @@ define(function (require){
     		obj = {
     			age: data.age,
     			animal: data.animal,
+                description : data.description,
     			id: data.id,
     			name: data.name,
     			sex: data.sex == 'M' ? 'Male' : 'Female',

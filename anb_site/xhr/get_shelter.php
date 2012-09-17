@@ -48,7 +48,7 @@ function get_shelter_pets(){
 
 	$url = "http://api.petfinder.com/shelter.getPets?".implode('&', $encoded_params);
 	$rsp = simplexml_load_file($url);
-	
+
 	return json_encode($rsp, true);
 }
 
