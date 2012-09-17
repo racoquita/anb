@@ -926,26 +926,28 @@ td{
 /* ------------------------------ Pet Details  ------------------------------ */
 
 
-.white_container .pDetails{
+.white_container .pDetails, .pImage{
     font-family: "Century Gothic";
     color: gray;
     padding-left: 20px;
     overflow: hidden;
 
 }
-.white_container .pDetails .thumbs{
+.pDetails h4{
+    margin-left: 0;
+}
+.white_container  .thumbs{
     float: left;
 }
 .pGlanceDetail{
     clear: both;
     float: left;
-    width: 30%;
     padding-top: 20px;
 }
 .pImage{
 
     float: left;
-    width: 50%;
+    width: 30%;
 }
 /* ------------------------------ foster ------------------------------ */
 

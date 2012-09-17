@@ -1,26 +1,27 @@
-<div  class="inner_container" id="<%= id %>">
+<div  class="inner_container white_container" id="<%= id %>" >
 	<div class="heading_container">
-		<span class="icon">2</span>
-		<h3>Pet Details </h3>
-
+		<span class="icon">2</span><h3>Pet Details </h3>
 	</div>
-	<div class="white_container">
-		<div class="pDetails">
-			<div class="pImage">
-				<p class="pName"><%= name %></p>
-				<p><img src="<%= photo %>" height="200" /><p>
-				<div class="thumbs">
-					<img src="<%= photos[1] %>" height="50" />
-					<img src="<%= photos[5] ? photos[5] : photos[2] %>" height="50" />
-				</div>		
-
+	<div >
+		
+		<div class="pImage">
+			<p class="pName"><%= name %></p>
+			<p><img src="<%= photo %>" height="200" /><p>
+			<div class="thumbs">
+				<img src="<%= photos[1] %>" height="50" />
+				<img src="<%= photos[5] ? photos[5] : photos[2] %>" height="50" />
 			</div>
 			<div class="pGlanceDetail">
-				<span><%= size %></span> | <span><%= age %></span> | <span><%= sex %></span>
+				<span><%= size == "s" ? "Small" : size %></span> | <span><%= age %></span> | <span><%= sex %></span>
 			</div>
+		</div>		
+
+		<div class="pDetails">
+			
 			<div class="pDescription">
 				<h4>Pet Description: </h4>
 				<p ><%= description %></p>
+				
 			</div>
 			<div class="pContact">
 				<h4>Pet Contact Info: </h4>
@@ -31,7 +32,18 @@
 				<h4>Pet Breeds: </h4>
 				<p ><%= breeds[0] %></p>
 				<p ><%= breeds[1] %></p>
-			</div>			
+			</div>
+			<div class="pMix">
+				<h4>Mixed: </h4>
+				<p ><%= mix %></p>
+				
+			</div>
+			<div class="pOptions">
+				<h4>Other Information: </h4>
+				<p ><%= options.option[0] %></p>
+				<p ><%= options.option[1]  %></p>
+				<p ><%= options.option[2] %></p>
+			</div>						
 		</div>
 	</div>
 </div>

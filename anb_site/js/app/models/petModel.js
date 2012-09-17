@@ -20,12 +20,14 @@ define(function (require){
 			contact: "",
 			mix: "",
 			status: "",
-			breeds: "",
-			email: ""
+			breeds: [],
+			email: "",
+            contact: {},
+            options: {}
 
     	},
     	parse: function(data){
-    		
+    	console.log(data)
     		obj = {
     			age: data.age,
     			animal: data.animal,
@@ -35,6 +37,9 @@ define(function (require){
     			size: data.size,
     			email: data.contact.email,
     			breeds: data.breeds.breed,
+                mix: data.mix,
+                contact: data.contact,
+                options: data.options
 
     		}
 
