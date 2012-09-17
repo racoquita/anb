@@ -28,10 +28,19 @@ define(function (require) {
             }
             //console.log(pageCount);
             
-            // var currentPage = this.options.page ? this.options.page <= pageCount  ;
-            // console.log(currentPage)
-            $(this.el).append('<div><a id="prev" href="#pets/page/'+(this.options.page - 1)+'">Previous</a> &nbsp;<a href="#pets/page/'+ (this.options.page + 1) +'" id="next">Next</a> </div>')
+            switch(this.options.page){
+                case 1:
+                    $(this.el).append('<div><a id="next" href="#pets/page/'+(this.options.page + 1)+'">Next</a>');
+                break;
+                case pageCount:
 
+                    $(this.el).append('<div><a id="prev" href="#pets/page/'+(this.options.page - 1)+'">Previous</a>')
+                break;
+                default:
+                    $(this.el).append('<div><a id="prev" href="#pets/page/'+(this.options.page - 1)+'">Previous</a> &nbsp;<a href="#pets/page/'+ (this.options.page + 1) +'" id="next">Next</a> </div>')
+                break;
+
+            }
             return this;
         }
     });

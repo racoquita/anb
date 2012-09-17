@@ -30,10 +30,9 @@ define(function (require) {
 		
 		//this is supposed to load the pet detail view 
 		loadPet: function(page, id){
-			console.log('load a pet');
 			console.log(page + ' ' + id);
-			/*loadedView.unload()
-			loadedView.renderSection(id);*/
+			loadedView.renderSection(id);
+
 		},
 
 		//this loads the pets page results dont erase

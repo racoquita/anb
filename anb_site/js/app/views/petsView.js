@@ -45,8 +45,12 @@ define(function (require) {
         },
 
         pagination: function(number){
-            var num = parseInt(number), pets = pfc.models, len = pets.length, petsHTML = '',
-                startPos = (num - 1) * 16, endPos = Math.min(startPos + 16, len);
+            var num = parseInt(number), 
+                pets = pfc.models, 
+                len = pets.length, 
+                petsHTML = '',
+                startPos = (num - 1) * 16, 
+                endPos = Math.min(startPos + 16, len);
 
             $('#pet_results').empty();
 
