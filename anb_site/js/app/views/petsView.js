@@ -198,7 +198,7 @@ define(function (require) {
         			 	return item.get("animal").toLowerCase() === attrValue
         				
         			});
-        		//pfc.reset(filtered)
+        		pfc.reset(filtered)
                 self.pagination(1)
         	//}
         }
