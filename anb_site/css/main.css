@@ -235,12 +235,7 @@ label {
 /* ------------------------------ classes ------------------------------ */
 
 .spinner {
-    position: absolute;
-    z-index: 201;
-    left: 50%;
-    right: 50%;
-    top: 50%;
-    bottom: 50%;
+    
 }
 .icon {
     color: #BEBEC1;
@@ -556,6 +551,7 @@ label {
 
 #footer {
     margin-top: 20px;
+    padding-bottom: 10px;
     border-top: 1px dashed #CCC;
     line-height: 40px;
     color: #CDCCCC;
@@ -808,9 +804,6 @@ td{
 
 /* ------------------------------ pets ------------------------------ */
 
-#filter_menu {
-
-}
 #filters {
     padding: 10px;
     overflow: hidden;
@@ -823,19 +816,17 @@ td{
     margin-top: 20px;
     overflow: hidden;
 }
-
-
 .pagination-centered {
     text-align: center;
 }
-
 .pagination {
     height: 36px;
     margin: 18px 0;
     font: 13px/1.2em Helvetica, arial sans-serif;
 }
-.pagination ul{
-
+.pagination ul {
+    margin: 0;
+    padding: 0px 25px;
 }
 .pagination li {
     display: inline;
@@ -864,6 +855,13 @@ td{
 }
 #pet_results {
     overflow: hidden;
+    padding: 15px 0px;
+}
+.spinner img {
+    height: 48px;
+    margin: 0 auto;
+    width: 48px;
+    display: block;
 }
 
 /* ------------------------------ pet item template ------------------------------ */
@@ -984,6 +982,7 @@ form {
     margin-left: 5px;
     margin-right: 10px;
     float: left;
+    line-height: 10px;
 }
 #choose a {
     display: inline-block;

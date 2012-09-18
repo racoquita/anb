@@ -14,12 +14,8 @@ define(function (require) {
 		model: petModel,
         url: 'xhr/get_shelter.php',
     	parse: function(response){
-    		console.log(response);
-    		//this.page = response.page;
-    		//this.perPage = response.perPage;
     		this.total = response.pets.pet.length;
     		return response.pets.pet;
-
     	},
     	pageInfo: function(pageNum){
     		var info = {

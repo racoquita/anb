@@ -26,11 +26,8 @@ define(function (require){
             options: {}
 
     	},
+        
     	parse: function(data){
-    	console.log(data);
-
-
-
     		obj = {
     			age: data.age,
     			animal: data.animal,

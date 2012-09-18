@@ -6,8 +6,7 @@ define(function (require) {
     
     var PetItemView = require('views/petItemView');
     var PetDetailView = require('views/petDetailView');
-    var paginator = require('views/paginator')
-    
+    var paginator = require('views/paginator');
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html');
     var petDetailTemplate = require('text!templates/petDetailTemplate.html');
@@ -25,9 +24,10 @@ define(function (require) {
                 if(pfc.length != 0) {
                     self.renderPetList();
                 } else {
+                    $('#pet_results').append(helper.showSpinner());
                     pfc.on("petEvent", self.renderPetList, self);
                 }
-            }, 500);          
+            }, 500);
             
             /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
         },
@@ -39,6 +39,7 @@ define(function (require) {
         },
 
         renderPetList: function(){
+            $('.spinner').remove();
             $(this.el).find('#filters').append(this.createFilters());
 
             Router.navigate('pets/page/1', true); 
