@@ -27,9 +27,9 @@ define(function (require) {
                 $('ul', this.el).append("<li" + ((i + 1) === this.options.page ? " class='active'" : "") + "><a href='#pets/page/"+(i+1)+"'>" + (i+1) + "</a></li>");
             }
             
-            switch(this.options.page){
-                case 1:
-                    $(this.el).append('<div><a id="next" href="#pets/page/'+(this.options.page + 1)+'">Next</a>');
+            switch(this.options.page  ){
+                case 1 :
+                    if(len >= 16) $(this.el).append('<div><a id="next" href="#pets/page/'+(this.options.page + 1)+'">Next</a>');
                 break;
                 case pageCount:
 
@@ -40,6 +40,7 @@ define(function (require) {
                 break;
 
             }
+            
             return this;
         }
     });

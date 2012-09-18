@@ -29,7 +29,7 @@ define(function (require) {
                 }
             }, 500);
             
-            /*this.on("click:filterAnimal", self.filterByAnimal, self);  */
+            //this.on("click:filterAnimal", self.filterByAnimal, self);  
         },
         
         render: function(){
@@ -67,21 +67,34 @@ define(function (require) {
         },
 
         renderPet: function(item){
-            var petItemView = new PetItemView({ model: item }), singlePet = petItemView.render().el;
+            var petItemView = new PetItemView({ model: item }), 
+                singlePet = petItemView.render().el;
+            
             return $(singlePet).html();
         },
 
         createFilters: function(){
-            var self = this, filterOptions = $("<div/>");
-
+            var self = this, 
+                filterOptions = $("<div/>");
+            
+            self.available_filters = []
+            
             _.each(self.getAttributes(), function(item){
+                
+                arg = arguments[1]
                 _.each(item, function(attr){
+
+                    self.available_filters.push(attr.toLowerCase())
+
                     var option = $("<button/>", {
                         id: attr.toLowerCase(),
                         value: attr.toLowerCase(),
                         text: attr,
-                        class: 'selected'
+                        class: 'selected ' + arg 
+
                     }).appendTo(filterOptions)
+
+                    
                 });
             });         
 
@@ -96,7 +109,7 @@ define(function (require) {
                
             });
             this.renderPetDetail(thispet);
-            console.log(thispet)
+            //console.log(thispet)
 
         },
         renderPetDetail: function(item){
@@ -108,7 +121,9 @@ define(function (require) {
         },
 
         getAttributes: function(){
-            var self = this, types = ['animal', 'sex', 'age', 'size'], attributes = {};
+            var self = this, 
+                types = ['animal', 'sex', 'age', 'size'], 
+                attributes = {};
 
             _.each(types, function(type){
                 var obj = _.uniq(pfc.pluck(type), false, function(attr){
@@ -122,7 +137,7 @@ define(function (require) {
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
-        	"click #filters button" : "setAnimalFilter",
+        	"click #filters button.animal" : "setAnimalFilter",
             "click .pet_container" : "loadPet"
         },
 
@@ -139,36 +154,53 @@ define(function (require) {
         },
 
         setAnimalFilter: function(e){
-            var self = this, remove = e.target.value;
+            var self = this, 
+                remove = e.target.value;
+                //indexOfRemove = self.available_filters.indexOf(remove);
+                //console.log(indexOfRemove);
+                //console.log(self.available_filters.splice(indexOfRemove, 1))
 
             $(e.target).toggleClass('selected');
         
-            console.log(this.available_filters);
+            //console.log(self.available_filters);
+           this.filterAnimal = e.target.value ; 
+           this.filterByAnimal(e.currentTarget.value);
+           this.trigger('change:filterAnimal')
 
         	/*this.$el.find('button').removeClass('selected');
            	this.$el.find(e.currentTarget).attr('class', "selected");
         	this.filterAnimal = e.target;*/
         	/*window.location.hash = '#pets/' + this.filterAnimal.value;*/
+            //this.trigger('click:filterAnimal')
 
         },
 
-        filterByAnimal: function(){
+        filterByAnimal: function(attrValue){
         	var self = this;
         	
-        	if(self.filterAnimal !== "all"){
-        	
+            console.log($(this.el).find('.pet_container').children('.info').children('.details'))
+        	//if(this.filterAnimal !== "all"){
+        	   
         		pfc.reset(pfc.models, {silent: true});
+                console.log(pfc.models)
         		
-        		var filterAnimal = self.filterAnimal,
-        			filtered = _.filter(pfc.models, function(item){
-        				
-        				return item.get("age").toLowerCase() === filterAnimal
+        		//var filterAnimal = self.filterAnimal,
+                // _.each(self.getAttributes(), function(attr){
+                //     console.log(arguments[1], attrValue)
+                //     var obj = pfc.pluck(arguments[1]);
+
+                //     console.log(obj == attrValue)
+                //    return obj == attrValue
+
+                // });
+        			 var filtered = _.filter(pfc.models, function(item){
+
+        			 	return item.get("animal").toLowerCase() === attrValue
         				
         			});
-        		console.log(filterAnimal)
-        		
-        		pfc.reset(filtered)
-        	}
+        		//pfc.reset(filtered)
+                self.pagination(1)
+        	//}
         }
     });
 
