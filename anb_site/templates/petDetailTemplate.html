@@ -1,9 +1,9 @@
 <div  class="inner_container" id="<%= id %>" >
 	<div class="heading_container">
-		<span class="icon">2</span><h3>Pet Details </h3>
+		<span class="icon">2</span><h3><%= name %> Details </h3>
 	</div>
 	<div >
-		
+		<p><a href="#pets">Back to our pets</a></p>
 		<div class="pImage">
 			<p class="pName"><%= name %></p>
 			<p class="pPhoto"><img src="<%= photo %>" width="300" /><p>
@@ -16,7 +16,7 @@
 			<div class="pGlanceDetail">
 				<span><%= size == "s" ? "Small" : size %></span> | <span><%= age %></span> | <span><%= sex %></span>
 			</div>
-			
+
 			<div class="pDescription">
 				<h4>Pet Description: </h4>
 				<p ><%= description %></p>
