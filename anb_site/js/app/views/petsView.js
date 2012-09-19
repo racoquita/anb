@@ -29,7 +29,7 @@ define(function (require) {
             requestTimeout(function(){
                 if(pfc.length != 0) {
                     self.renderPetList();
-                    //self.pfc_clone = _.clone(pfc); <-------- Old Cloned 
+                    //self.pfc_clone = _.clone(pfc); <-------- Old Clone
                    
                  } 
                  else {
@@ -125,7 +125,6 @@ define(function (require) {
                
             });
             this.renderPetDetail(thispet);
-            //console.log(thispet)
 
         },
         renderPetDetail: function(item){
@@ -153,7 +152,7 @@ define(function (require) {
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
-        	"click #filters button.animal" : "setFilter",
+            "click #filters button" : "setFilter",
             "click .pet_container" : "loadPet"
         },
 
@@ -169,49 +168,91 @@ define(function (require) {
             $('#filters').hasClass('open') ? $('h4 span').text(',') : $('h4 span').text('+');
         },
 
-        setFilter: function(e){
-            var self = this, remove = e.target.value;
-
+        animalFilter: function(animalSelected){
+            var self = this
+            
             var filtered = _.filter(pfc.models, function(item){
-                return item.get('animal').toLowerCase() != remove;
+                return item.get('animal').toLowerCase() != animalSelected;
             });
 
-            console.log(filtered);
-
             pfc.reset(filtered, {silent: true});
+
             self.pagination(1);
 
-
             requestTimeout(function(){
-                //pfc = self.pfc_clone; <------ what you had. Instead I used "reset" and passed cloned collection models (below)
+                //pfc = self.pfc_clone; <------  Instead I used "reset" and passed cloned collection models (below)
                 
                 pfc.reset(self.clonedCollection.models)
                 self.pagination(1);
             }, 3000);
         },
+        ageFilter: function(ageSelected){
+            var self = this;
 
-        setAnimalFilter: function(e){
+            var filtered = _.filter(pfc.models, function(item){
+                
+                return item.get('age').toLowerCase() != ageSelected;
+            });
+
+            pfc.reset(filtered, {silent: true});
+            self.pagination(1);
+        },
+        sexFilter: function(sexSelected){
+            var self = this;
+
+            var filtered = _.filter(pfc.models, function(item){
+                
+                return item.get('sex').toLowerCase() != sexSelected;
+            });
+
+            pfc.reset(filtered, {silent: true});
+            self.pagination(1);
+        },
+        sizeFilter: function(sizeSelected){
+            var self = this;
+
+            var filtered = _.filter(pfc.models, function(item){
+                
+                return item.get('size').toLowerCase() != sizeSelected;
+            });
+
+            pfc.reset(filtered, {silent: true});
+            self.pagination(1);
+        },
+
+        setFilter: function(e){
             var self = this, 
                 remove = e.target.value;
                 //indexOfRemove = self.available_filters.indexOf(remove);
                 //console.log(indexOfRemove);
-                //console.log(self.available_filters.splice(indexOfRemove, 1))
-
+                //console.log(self.available_filters.splice(indexOfRemove, 1))   
+                
             $(e.target).toggleClass('selected');
-        
-            //console.log(self.available_filters);
+            filter = $(e.target).attr('class');
+            
+            switch(filter){
+                case 'animal':
+                    this.animalFilter(e.target.value);
+                break;
+                case 'age':
+                    this.ageFilter(e.target.value);
+                break;
+                case 'sex':
+                    this.sexFilter(e.target.value);
+                break;
+                case 'size':
+                    this.sizeFilter(e.target.value);
+                break;
+            }
            /*this.filterAnimal = e.target.value ; 
            this.filterByAnimal(e.currentTarget.value);
-           this.trigger('change:filterAnimal')*/
 
         	/*this.$el.find('button').removeClass('selected');
            	this.$el.find(e.currentTarget).attr('class', "selected");
         	this.filterAnimal = e.target;*/
-        	/*window.location.hash = '#pets/' + this.filterAnimal.value;*/
+            
             //this.trigger('click:filterAnimal')
 
-            //console.log(pfc.models);
-            //console.log(this.pfc_clone.models);
         },
 
         filterByAnimal: function(attrValue){
