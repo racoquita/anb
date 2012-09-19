@@ -719,8 +719,9 @@ label {
     border-radius: 5px;
     padding: 10px;
     margin:10px;
-
-
+}
+#inner_container .green_note p.sec_content{
+    color: white;
 }
 
 /* ------------------------------ about ------------------------------ */
@@ -767,9 +768,13 @@ label {
     padding: 20px;
 
 }
+
 .about_content ul{
     font: 1em/1.2em Helvetica, arial sans-serif;
     color: gray;
+}
+.about_content ul li{
+    list-style-type: none;
 }
 .about_content table{ 
     color: gray; 
@@ -933,19 +938,35 @@ td{
 /* ------------------------------ Pet Details  ------------------------------ */
 
 
-.white_container .pDetails, .pImage{
-    font-family: "Century Gothic";
+.pDetails, .pImage{
+    font-family: "HelveticaNeue";
     color: gray;
     padding-left: 20px;
     overflow: hidden;
 
 }
-.pDetails h4{
+.pDetails h4, .pDescription h4{
     margin-left: 0;
 }
-.white_container  .thumbs{
-    float: left;
+.pImage  .thumbs{
+    float: right;
+    border: 1px solid red;
+    width: 30%;
 }
+.thumbs li{
+    list-style-type: none;
+}
+.pImage .pPhoto{
+    border: 1px solid black;
+    width: 60%;
+    float: left;
+    margin-top: 0px;
+}
+.pDescription{
+    clear: both;
+    margin-right: 10px;
+}
+
 .pGlanceDetail{
     clear: both;
     float: left;
@@ -954,7 +975,7 @@ td{
 .pImage{
 
     float: left;
-    width: 30%;
+    width: 60%;
 }
 /* ------------------------------ foster ------------------------------ */
 
