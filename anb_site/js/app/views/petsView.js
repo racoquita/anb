@@ -10,7 +10,7 @@ define(function (require) {
     var petsTemplate = require('text!templates/petsTemplate.html');
     var petItemTemplate = require('text!templates/petItemTemplate.html');
     var petDetailTemplate = require('text!templates/petDetailTemplate.html');
-	
+
 	var petsView = Backbone.View.extend({
         id: 'pets_view',
     
@@ -19,16 +19,24 @@ define(function (require) {
             
             self.render();
             self.load();
+            this.clonedCollection = new Backbone.Collection;
+
+            //this is just to let us know when the collection is beign cloned
+            self.clonedCollection.on("add", function(pModel) {
+                    console.log("adding " + pModel.get("name") + "to the cloned collection"); 
+            });
             
             requestTimeout(function(){
                 if(pfc.length != 0) {
                     self.renderPetList();
-                    self.pfc_clone = _.clone(pfc);
-                } else {
-                    $('#pet_results').append(helper.showSpinner());
-                    pfc.on("petEvent", self.renderPetList, self);
-                    self.pfc_clone = _.clone(pfc);
-                }
+                    //self.pfc_clone = _.clone(pfc); <-------- Old Cloned 
+                   
+                 } 
+                 else {
+                     $('#pet_results').append(helper.showSpinner());
+                     pfc.on("petEvent", self.renderPetList, self);
+                     //self.pfc_clone = _.clone(pfc);  <----- this is the old clone
+                 }
             }, 500);
             
             //this.on("click:filterAnimal", self.filterByAnimal, self);  
@@ -42,6 +50,11 @@ define(function (require) {
 
         renderPetList: function(){
             var self = this;
+            //Here I looped thru the models of the original pfc and added them to the cloned Collection
+            _.each(pfc.models, function(pModel){
+                        
+                self.clonedCollection.add(pModel);
+            })
 
             $('.spinner').remove();
             $(this.el).find('#filters').append(this.createFilters());
@@ -165,11 +178,14 @@ define(function (require) {
 
             console.log(filtered);
 
-            pfc.reset(filtered);
+            pfc.reset(filtered, {silent: true});
             self.pagination(1);
 
+
             requestTimeout(function(){
-                pfc = self.pfc_clone;
+                //pfc = self.pfc_clone; <------ what you had. Instead I used "reset" and passed cloned collection models (below)
+                
+                pfc.reset(self.clonedCollection.models)
                 self.pagination(1);
             }, 3000);
         },
@@ -194,8 +210,8 @@ define(function (require) {
         	/*window.location.hash = '#pets/' + this.filterAnimal.value;*/
             //this.trigger('click:filterAnimal')
 
-            console.log(pfc.models);
-            console.log(this.pfc_clone.models);
+            //console.log(pfc.models);
+            //console.log(this.pfc_clone.models);
         },
 
         filterByAnimal: function(attrValue){
