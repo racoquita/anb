@@ -950,14 +950,18 @@ td{
 }
 .pImage  .thumbs{
     float: right;
-    border: 1px solid red;
     width: 30%;
+    margin-top: 0;
+    height: 300px;
+
 }
 .thumbs li{
     list-style-type: none;
+     
+     display: inline-block;
 }
 .pImage .pPhoto{
-    border: 1px solid black;
+ 
     width: 60%;
     float: left;
     margin-top: 0px;
@@ -965,17 +969,24 @@ td{
 .pDescription{
     clear: both;
     margin-right: 10px;
+    border-top: 1px dotted gray;
+    margin-top: 5px;
+}
+.pDescription center{
+    text-align: left;
 }
 
 .pGlanceDetail{
     clear: both;
     float: left;
     padding-top: 20px;
+    margin-bottom: 5px;
 }
 .pImage{
 
     float: left;
     width: 60%;
+    border-bottom: 1px dotted gray;
 }
 /* ------------------------------ foster ------------------------------ */
 

@@ -9,13 +9,14 @@
 			<p class="pPhoto"><img src="<%= photo %>" width="300" /><p>
 			
 			<ul class="thumbs">
-				<li><img src="<%= photos[1] %>" height="60" /></li>
-				<li><img src="<%= photos[5] ? photos[5] : photos[2] %>" height="60" /></li>
+				<li><img src="<%= photos[1] %>" width="150" /></li>
+				<li><img src="<%= photos[5] ? photos[5] : photos[2] %>" width="150" /></li>
 			</ul>	
-		
+			
 			<div class="pGlanceDetail">
 				<span><%= size == "s" ? "Small" : size %></span> | <span><%= age %></span> | <span><%= sex %></span>
 			</div>
+			
 			<div class="pDescription">
 				<h4>Pet Description: </h4>
 				<p ><%= description %></p>
