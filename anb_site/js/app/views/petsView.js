@@ -181,8 +181,7 @@ define(function (require) {
 
             requestTimeout(function(){
                 //pfc = self.pfc_clone; <------  Instead I used "reset" and passed cloned collection models (below)
-                
-                pfc.reset(self.clonedCollection.models)
+                pfc.reset(self.clonedCollection.models);
                 self.pagination(1);
             }, 3000);
         },
@@ -244,43 +243,10 @@ define(function (require) {
                     this.sizeFilter(e.target.value);
                 break;
             }
-           /*this.filterAnimal = e.target.value ; 
-           this.filterByAnimal(e.currentTarget.value);
-
-        	/*this.$el.find('button').removeClass('selected');
-           	this.$el.find(e.currentTarget).attr('class', "selected");
-        	this.filterAnimal = e.target;*/
-            
+            //this.filterByAnimal(e.currentTarget.value);
+            //this.$el.find('button').removeClass('selected');
+           	//this.$el.find(e.currentTarget).attr('class', "selected");
             //this.trigger('click:filterAnimal')
-
-        },
-
-        filterByAnimal: function(attrValue){
-        	var self = this;
-        	
-            /*console.log($(this.el).find('.pet_container').children('.info').children('.details'))*/
-        	//if(this.filterAnimal !== "all"){
-        	   
-        		pfc.reset(pfc.models, {silent: true});
-                /*console.log(pfc.models)*/
-        		
-        		//var filterAnimal = self.filterAnimal,
-                // _.each(self.getAttributes(), function(attr){
-                //     console.log(arguments[1], attrValue)
-                //     var obj = pfc.pluck(arguments[1]);
-
-                //     console.log(obj == attrValue)
-                //    return obj == attrValue
-
-                // });
-        			 /*var filtered = _.filter(pfc.models, function(item){
-
-        			 	return item.get("animal").toLowerCase() === attrValue
-        				
-        			});
-        		pfc.reset(filtered)
-                self.pagination(1)*/
-        	//}
         }
     });
 

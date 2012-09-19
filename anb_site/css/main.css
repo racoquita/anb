@@ -814,8 +814,9 @@ td{
 }
 #filters button.selected{
     padding: 5px;
+    height: 25px;
     background-color: rgba(170, 218, 215, .7);
-    border: 1px solid rgba(170, 218, 215, 1);;
+    border: 1px solid rgba(170, 218, 215, 1);
 }
 #filters .animal:last-child{
     margin-right: 15px;
