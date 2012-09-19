@@ -23,9 +23,11 @@ define(function (require) {
             requestTimeout(function(){
                 if(pfc.length != 0) {
                     self.renderPetList();
+                    self.pfc_clone = _.clone(pfc);
                 } else {
                     $('#pet_results').append(helper.showSpinner());
                     pfc.on("petEvent", self.renderPetList, self);
+                    self.pfc_clone = _.clone(pfc);
                 }
             }, 500);
             
@@ -34,11 +36,13 @@ define(function (require) {
         
         render: function(){
             var self = this;
-            
+
             $(this.el).html(petsTemplate);
         },
 
         renderPetList: function(){
+            var self = this;
+
             $('.spinner').remove();
             $(this.el).find('#filters').append(this.createFilters());
 
@@ -94,7 +98,6 @@ define(function (require) {
 
                     }).appendTo(filterOptions)
 
-                    
                 });
             });         
 
@@ -137,7 +140,7 @@ define(function (require) {
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
-        	"click #filters button.animal" : "setAnimalFilter",
+        	"click #filters button.animal" : "setFilter",
             "click .pet_container" : "loadPet"
         },
 
@@ -153,6 +156,24 @@ define(function (require) {
             $('#filters').hasClass('open') ? $('h4 span').text(',') : $('h4 span').text('+');
         },
 
+        setFilter: function(e){
+            var self = this, remove = e.target.value;
+
+            var filtered = _.filter(pfc.models, function(item){
+                return item.get('animal').toLowerCase() != remove;
+            });
+
+            console.log(filtered);
+
+            pfc.reset(filtered);
+            self.pagination(1);
+
+            requestTimeout(function(){
+                pfc = self.pfc_clone;
+                self.pagination(1);
+            }, 3000);
+        },
+
         setAnimalFilter: function(e){
             var self = this, 
                 remove = e.target.value;
@@ -163,9 +184,9 @@ define(function (require) {
             $(e.target).toggleClass('selected');
         
             //console.log(self.available_filters);
-           this.filterAnimal = e.target.value ; 
+           /*this.filterAnimal = e.target.value ; 
            this.filterByAnimal(e.currentTarget.value);
-           this.trigger('change:filterAnimal')
+           this.trigger('change:filterAnimal')*/
 
         	/*this.$el.find('button').removeClass('selected');
            	this.$el.find(e.currentTarget).attr('class', "selected");
@@ -173,16 +194,18 @@ define(function (require) {
         	/*window.location.hash = '#pets/' + this.filterAnimal.value;*/
             //this.trigger('click:filterAnimal')
 
+            console.log(pfc.models);
+            console.log(this.pfc_clone.models);
         },
 
         filterByAnimal: function(attrValue){
         	var self = this;
         	
-            console.log($(this.el).find('.pet_container').children('.info').children('.details'))
+            /*console.log($(this.el).find('.pet_container').children('.info').children('.details'))*/
         	//if(this.filterAnimal !== "all"){
         	   
         		pfc.reset(pfc.models, {silent: true});
-                console.log(pfc.models)
+                /*console.log(pfc.models)*/
         		
         		//var filterAnimal = self.filterAnimal,
                 // _.each(self.getAttributes(), function(attr){
@@ -193,13 +216,13 @@ define(function (require) {
                 //    return obj == attrValue
 
                 // });
-        			 var filtered = _.filter(pfc.models, function(item){
+        			 /*var filtered = _.filter(pfc.models, function(item){
 
         			 	return item.get("animal").toLowerCase() === attrValue
         				
         			});
         		pfc.reset(filtered)
-                self.pagination(1)
+                self.pagination(1)*/
         	//}
         }
     });
