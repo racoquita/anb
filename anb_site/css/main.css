@@ -64,7 +64,8 @@ input[type="text"] {
     -webkit-appearance: none;
     -webkit-box-shadow: inset 0px 1px 2px 0px rgba(128, 130, 133, .5);
     box-shadow: inset 0px 1px 2px 0px rgba(128, 130, 133, .5);
-    margin: 5px 20px 5px 0px;
+    margin: 5px 10px 5px 0px;
+    padding-left: 10px;
 }
 input[type="submit"] {
     color: white;
@@ -93,6 +94,9 @@ input[type="checkbox"] {
     box-shadow: inset 0px 1px 2px 0px rgba(128, 130, 133, .5);
     vertical-align: middle;
     -webkit-appearance: none;
+}
+input[type="radio"] {
+    color: green;
 }
 label {
     color: #808285;
@@ -1020,15 +1024,22 @@ form {
 #choose h5 {
     font-size: 14px;
     font-family: "Century";
-    margin-left: 5px;
-    margin-right: 10px;
+    margin: 0px 25px 0px 5px;
     float: left;
-    line-height: 10px;
 }
-#choose a {
+#form_container a {
     display: inline-block;
     text-decoration: none;
-    margin-right: 10px;
+    color: #2D93BF;
+}
+#form_container .sec_content {
+    margin: 0;
+}
+#choose label {
+    width: 50px;
+}
+#adopt_choice {
+    margin-right: 30px;
 }
 #submit_container {
     width: 400px;
@@ -1038,6 +1049,12 @@ label[for="agree"] {
     width: 200px;
     height: 40px;
     line-height: 40px;
+}
+label[for="petname"] {
+    width: 185px;
+}
+#email {
+    width: 300px;
 }
 #submit {
     float: right;

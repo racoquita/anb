@@ -4,20 +4,27 @@
             <div><span class="icon">2</span><h3>A New Beginning Pet Rescue Inc “Sponsor-A-Pet” Program</h3></div>
         </div>
         <div class="foster_info">
-        	<p class="copy">Support our “Sponsor-A-Pet” program and make one animal a little more comfortable. If you aren’t able to adopt from us, for only $25.00, you can help support one of our loving rescued pets. Your sponsorship donation will go toward caring for homeless pets and supporting those that have special needs or medical conditions.</p>
-    		<p class="copy">ANB is a non-profit, no-kill rescue. Your donation is greatly appreciated and tax deductible (Tax ID 59-3749154). For $25.00, you can provide for one of our animals in need for several months. 100% of your donation goes towards caring for the pets, and there is no obligation to renew. However, your continued support is greatly appreciated and tax deductible. This also makes a great gift!</p>
+            <p class="copy">ANB is a non-profit, no-kill rescue. Your donation is greatly appreciated and tax deductible (Tax ID 59-3749154). For $25.00, you can provide for one of our animals in need for several months. 100% of your donation goes towards caring for the pets, and there is no obligation to renew. However, your continued support is greatly appreciated and tax deductible.</p>
+            <p class="copy">Not sure you're ready to adopt?! That's ok, you can help the shelter by fostering a pet until we have found them a new home. Just make sure the "foster" button is check before you submit the following form. Not only will this provide much needed help to our shelter, but it will give you the time to see if your new pet is the right fit for you and your family!</p>
         </div>
         <div id="form_container">
-        	<form action="" method="post">
+        	<form method="post" action="xhr/send_form_email.php">
         		<div id="choose">
         			<h5>I would like to</h5>
-        			<a href="" class="blue_button selected">Foster a Pet</a>
-        			<a href="" class="blue_button">Make a Donate</a>
+                    <label for="adopt_choice">Adopt</label>
+                    <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"></input>
+                    <label for="foster_choice">Foster</label>
+        			<input id="foster_choice" type="radio" name="choice" value="foster"></input>
         		</div>
+                <fieldset>
+                    <label for="petname" id="petname_label">The pet I want to adopt is</label>
+                    <input type="text" id="petname"></input>
+                    <p class="sec_content">Haven't found your pet yet? <a href="#pets">Click here</a> to browser our shelters pets!</p>
+                </fieldset>
         		<fieldset>
-        			<label for="firstname">Firstname</label>
+        			<label for="firstname">First Name</label>
         			<input type="text" id="firstname"></input>
-        			<label for="lastname">Lastname</label>
+        			<label for="lastname">Last Name</label>
         			<input type="text" id="lastname"></input><br>
         		</fieldset>
         		<fieldset>
@@ -31,20 +38,16 @@
         			<input type="text" id="zip"></input>
         		</fieldset>
         		<fieldset>
-        			<label for="inmemory">In Memory Of: </label>
-        			<input type="text" id="inmemory"></input>
+        			<label for="phone">Contact #</label>
+        			<input type="text" id="phone" value="xxx-xxx-xxxx"></input><br>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" value="example@domain.com"></input>
         		</fieldset>
         		<div id="submit_container">
-    	    		<label for="agree">Yes, I want to Sponsor-A-Pet!</label>
-    	    		<input type="checkbox" name="agree" value="agree">
     	    		<input type="submit" value="Submit" id="submit"/>
     	    	</div>
         	</form>
         </div>
-        <div class="foster_info">
-    		<p class="copy">Visit our pets online at <a href="#pets">A New Beginning<a/> if you would like to choose the pet you’d like to sponsor!<br>
-    			Indicate the pet’s name here: <input type="text" id="petname"></p>
-    		<p class="copy">Please make checks payable to “A New Beginning Pet Care and Rescue”</p>
-    	</div>
+        <div class="foster_info"></div>
     </div>
 </div>
