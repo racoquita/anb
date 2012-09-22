@@ -1059,6 +1059,17 @@ label[for="petname"] {
 #submit {
     float: right;
 }
+#response_info {
+    font-family: "Century Gothic";
+    font-size: 13px;
+    color: #6D6E71
+}
+#response_info .error {
+    color: #8E2323;
+}
+#response_info .success {
+    color: #8A9B0F;
+}
 
 
 

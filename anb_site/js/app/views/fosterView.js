@@ -36,6 +36,7 @@ define(function (require) {
             e.preventDefault();
 
             var email_obj = {
+                'choice':$("input:radio[name=choice]").val(),
                 'petname': $('#petname').val(),
                 'firstname': $('#firstname').val(),
                 'lastname':$('#lastname').val(),
@@ -52,7 +53,21 @@ define(function (require) {
                 type: "POST",
                 data: email_obj,
                 success: function(response){
-                    console.log(response);
+                    response = $.parseJSON(response);
+                    if(response.status == 0) {
+                        $('#response_info').html('<p class="error">' + response.message + '</p>');
+                    } else if(response.status == 1) {
+                        $('#response_info').html('<p class="success">' + response.message + '</p>');
+                        $('#submit_container').remove();
+                    } else {
+                        $('#response_info').html(
+                            '<div>' +
+                                '<p>' + response.error_1 + '</p>' +
+                                '<p class="error">' + response.error_msg + '</p>' +
+                                '<p>' + response.error_2 + '</p>' +
+                            '</div>'
+                        );
+                    }
                 }
             });
         }
