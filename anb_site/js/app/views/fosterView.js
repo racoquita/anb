@@ -38,7 +38,13 @@ define(function (require) {
             var email_obj = {
                 'petname': $('#petname').val(),
                 'firstname': $('#firstname').val(),
-                'lastname':$('#lastname').val()
+                'lastname':$('#lastname').val(),
+                'email':$('#email').val(),
+                'phone':$('#phone').val(),
+                'address':$('#address').val(),
+                'city':$('#city').val(),
+                'state':$('#state').val(),
+                'zip':$('#zip').val()
             };
             
             $.ajax({
