@@ -33,8 +33,22 @@ define(function (require) {
         },
 
         submitForm: function(e){
-            /*e.preventDefault();*/
-            console.log($(e.target));
+            e.preventDefault();
+
+            var email_obj = {
+                'petname': $('#petname').val(),
+                'firstname': $('#firstname').val(),
+                'lastname':$('#lastname').val()
+            };
+            
+            $.ajax({
+                url: "xhr/send_form_email.php",
+                type: "POST",
+                data: email_obj,
+                success: function(response){
+                    console.log(response);
+                }
+            });
         }
 	});
 

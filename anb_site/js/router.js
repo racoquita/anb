@@ -14,7 +14,7 @@ define(function (require) {
 		
 			":page":"loadPage",
             ":page/pet/:id": "loadPet",
-            ":page/page/:number": "loadPetResults",
+            ":page/page/:number": "loadPetResults"
 		},
 
 		loadPage: function(page){
