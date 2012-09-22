@@ -89,6 +89,7 @@
       		return str_replace($bad,"",$string);
     	}
 
+    	$email_message .= "Interested in " .clean_string($choice)."\n"; 
     	$email_message .= "Pet Name: ".clean_string($petname)."\n"; 
     	$email_message .= "First Name: ".clean_string($firstname)."\n";
 		$email_message .= "Last Name: ".clean_string($lastname)."\n";

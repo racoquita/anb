@@ -36,7 +36,7 @@ define(function (require) {
             e.preventDefault();
 
             var email_obj = {
-                'choice':$("input:radio[name=choice]").val(),
+                'choice':$('input[name=choice]:radio:checked').val(),
                 'petname': $('#petname').val(),
                 'firstname': $('#firstname').val(),
                 'lastname':$('#lastname').val(),
@@ -54,6 +54,7 @@ define(function (require) {
                 data: email_obj,
                 success: function(response){
                     response = $.parseJSON(response);
+
                     if(response.status == 0) {
                         $('#response_info').html('<p class="error">' + response.message + '</p>');
                     } else if(response.status == 1) {
