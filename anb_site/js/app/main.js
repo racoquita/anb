@@ -18,6 +18,7 @@ define(function (require) {
             this.render();
 
             helper = new helper_model();
+            helper.initNav();
 
             pfc.fetch({
                 data: {type: "pets"},

@@ -127,8 +127,8 @@ define(function (require) {
             this.renderPetDetail(thispet);
 
         },
-        renderPetDetail: function(item){
-            
+
+        renderPetDetail: function(item){            
             var petDetailView = new PetDetailView({model : item}) 
             
             $(this.el).find('#results_container').html(petDetailView.render().el);
@@ -157,7 +157,6 @@ define(function (require) {
         },
 
         loadPet: function(e){
-            console.log(e);
             var petId = $(e.target).closest('.pet_container').attr('data-id');
 
             Router.navigate('pets/pet/'+ petId, true);

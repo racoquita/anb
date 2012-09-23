@@ -80,7 +80,7 @@
 			died($error_message);
 		}
 
-		$email_subject = "I'm interested in " .$choice. " a pet from your shelter";
+		$email_subject = "I'm interested in " .$choice. "ing a pet from your shelter";
 
 		$email_message = "Form details below.\n\n";
 

@@ -18,9 +18,16 @@ define(function (require) {
         	$(this.el).html(fosterTemplate);
         },
 
+        ifPet: function(pobj){
+            requestTimeout(function(){
+                $('#petname').attr('value', pobj.name);
+                window.scrollTo(0,0);
+            }, 500);
+        },
+
         events: {
             "change input[type='radio']" : "changeForm",
-            "focus input[type='text']" : "clearField",
+            "focus #phone, #email" : "clearField",
             "click #submit" : "submitForm"
         },
 
