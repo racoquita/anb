@@ -12,37 +12,128 @@
         		<div id="choose">
         			<h5>I would like to</h5>
                     <label for="adopt_choice">Adopt</label>
-                    <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"></input>
+                    <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"/>
                     <label for="foster_choice">Foster</label>
-        			<input id="foster_choice" type="radio" name="choice" value="foster"></input>
+        			<input id="foster_choice" type="radio" name="choice" value="foster"/>
         		</div>
                 <fieldset>
                     <label for="petname" id="petname_label">The pet I want to adopt is</label>
-                    <input type="text" id="petname" value=""></input>
+                    <input type="text" id="petname" value=""/>
                     <p class="sec_content">Haven't found your pet yet? <a href="#pets">Click here</a> to browser our shelters pets!</p>
                 </fieldset>
         		<fieldset>
         			<label for="firstname">First Name</label>
-        			<input type="text" id="firstname"></input>
+        			<input type="text" id="firstname"/>
         			<label for="lastname">Last Name</label>
-        			<input type="text" id="lastname"></input><br>
+        			<input type="text" id="lastname"/><br/>
+                    <label for="yourAge">Your Age</label>
+                    <input type="text" id="yourAge"/><br>
         		</fieldset>
         		<fieldset>
         			<label for="address">Address</label>
-        			<input type="text" id="address"></input><br>
+        			<input type="text" id="address"/><br/>
         			<label for="city">City</label>
-        			<input type="text" id="city"></input><br>
+        			<input type="text" id="city"/><br/>
         			<label for="state">State</label>
-        			<input type="text" id="state"></input><br>
+        			<input type="text" id="state"/><br/>
         			<label for="zip">Zip Code</label>
-        			<input type="text" id="zip"></input>
+        			<input type="text" id="zip"/>
+                    <label for="county">County</label>
+                    <input type="text" id="county"/>
         		</fieldset>
         		<fieldset>
         			<label for="phone">Contact #</label>
-        			<input type="text" id="phone" value="xxx-xxx-xxxx"></input><br>
+        			<input type="text" id="phone" value="xxx-xxx-xxxx"/><br/>
                     <label for="email">Email</label>
-                    <input type="text" id="email" value="example@domain.com"></input>
+                    <input type="text" id="email" value="example@domain.com"/>
         		</fieldset>
+                <fieldset>
+                    <ul id="questions">
+                        <li><label for="reference">How did you hear about A New Beginning?</label> 
+                        <textarea name="reference"></textarea></li>
+                        
+                        <li><label for="motivation">What is your motivation for getting a dog?</label> <br/>
+                        <textarea id="motivation"></textarea></li>
+                        
+                        <li><label>Please list the adults in the household and indicate their ages and relationship to you:</label><br/>
+                        <input type="text" value="i.e Husband" /><input type="text" value=" 42 Years Old"/><br />
+                        <input type="text" value="Adult #2" /><input type="text" value="Age of Adult #2"/></li>
+
+                        
+                        <li><label>Number of children and ages living in the home or visiting periodically:</label><br />
+                        <input type="number"/> <input type="text" value="age"/></li>
+                        
+                        <li><label for="allergies">Does anyone in the home have allergies to pet?</label><br/>
+                        <span><input type="radio" value="yes" name="allergies" /> Yes <input type="radio" value="no"  name="allergies" checked="checked"/> No</span><br/></li>
+                        
+                        <li><label>List <strong>all</strong> pets in the household. Please describe type, age and which pets are spayed or neutered:</label><br/>
+                        <textarea></textarea></li>
+                        
+                        <li><label for="previousPets">Have your ever surrendered any animal to a shelter or given an animal away? if so, please explain the circumstances:</label><br/>
+                        <span><input type="radio" value="yes" name="previousPets" /> Yes <input type="radio" value="no"  name="previousPets" checked="checked"/> No</span>
+                        <textarea></textarea></li>
+
+                        <li><label>What veterinatian do you use or have you used for a previous pet? Please include phone number:</label><br/>
+                        <input type="text" name="vetName" value="Your vet Name"><input type="text" value="xxx-xxx-xxxx" name="vetPhone"></li>
+
+                        <li><label>Do you own or rent? </label> <br/>
+                        <span><input type="radio" value="own" name="living" /> Own <input type="radio" value="rent"  name="living" checked="checked"/> Rent</span></li>
+                        
+                        <li><label>If renting, please provide name of property manager and phone number: </label><br/>
+                        <input type="text" name="propManagerName" value="name" /><input type="text" value="xxx-xxx-xxxx"/></li>
+
+                        <li><label>Do you live in a house, apartment, townhouse, or mobile home?</label><br/>
+                        <input type="text" name="housing" value="i.e apartment">
+                        </li>
+
+                        <li><label>How long have you lived at this address?</label><br/>
+                        <input type="text" name="lengthOfHousing" value="i.e 10 years"></li>
+
+                        <li><label>Do you plan to move within the next 6 months?</label><br />
+                        <span><input type="radio" value="yes" name="movingPlan" /> Yes <input type="radio" value="no"  name="movingPlan" checked="checked"/> No</span></li>
+
+                        <li><label>Do you have a fenced yard?</label><br/>
+                        <span><input type="radio" value="yes" name="fencedYard" /> Yes <input type="radio" value="no"  name="fencedYard"/> No</span></li>
+                        <li><label for="fenceType">If yes, what type of fence?</label><br/>
+                        <input type="text" value="" name="fenceType"/></li>
+
+                        <li><label>If no, How will the dog be exercised?</label><br/>
+                        <textarea></textarea></li>
+
+                        <li><label for="ownedDog">Have you ever owned a dog?</label><br />
+                        <span><input type="radio" value="yes" name="ownedDog" /> Yes <input type="radio" value="no"  name="ownedDog"/> No</span></li>
+
+                        <li><label>If <strong>yes</strong> what happened to the dog? (if your dog has passed away, please include age, cause of death, and how long it has been.)</label><br/>
+                        <textarea></textarea></li>
+
+                        <li><label>How long will the dog be alone during the day and / or night? </label><br/>
+                        <textarea></textarea></li>
+
+                        <li><label>Where will the dog be housed when you are not home? </label><br/>
+                        <textarea>i.e : inside or outside</textarea></li>
+
+                        <li><label>How do you feel about crate training and obedience lessons? </label><br/>
+                        <textarea></textarea></li>
+
+                        <li><label for="prevention">Do you plan to use a heartworm preventative (such as Heartguard) and flea/tick preventative (such as Frontline Plus) ? </label><br/>
+                        <span><input type="radio" value="yes" name="prevention" checked="checked" /> Yes <input type="radio" value="no"  name="prevention"/> No</span></li>
+
+                        <li><label>Please describe the primary pet caregiver</label><br />
+                        <span><input type="radio" value="retired" name="caregiver"/> Retired <input type="radio" value="stay home parent"  name="caregiver"/>Stay Home Parent <input type="radio" name="caregiver" value="student" />College Student <input type="radio" name="caregiver" value="child or Teen" />Child / Adolescent</span></li>
+
+                        <li><label>Employment</label><br />
+                        <span><input type="radio" name="employment" value="part"/> Part Time <input type="radio" value="full"  name="employment"/>Full Time</span></li>
+
+                        <li><label>Employer</label><br />
+                        <input type="text" value="name"/></li>
+
+                        <li><label>What will you do with your pet(s) while on vacation or out of town?</label><br />
+                        <textarea></textarea></li>
+
+                        <li><label>Are you prepared for a 10-15 year commitment to a dog?</label><br/>
+                        <span><input type="radio" value="yes" name="commitment" checked="checked" /> Yes <input type="radio" value="no"  name="commitment"/> No</span></li>
+                    </ul>
+                </fieldset>
                 <div id="response_info"></div>
         		<div id="submit_container">
     	    		<input type="submit" value="Submit" id="submit"/>

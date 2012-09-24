@@ -1078,6 +1078,27 @@ label[for="petname"] {
 #response_info .success {
     color: #8A9B0F;
 }
+#questions{
+    padding-left: 0;
+}
+#questions li{
+    list-style-type: none;
+}
+#questions li label{
+    width: 93%;
+}
+#questions span{
+    color: #808285;
+    font-size: 14px;
+    font-family: "Century Gothic";
+    font-weight: lighter;
+}
+#questions textarea{
+    width: 93%;
+    resize: none;
+    border-radius: 3px;
+    border-color: gray;
+}
 
 
 
