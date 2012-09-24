@@ -1,8 +1,10 @@
 <?php 
+print_r($_POST);
+die();
 
 	if(isset($_POST['petname'])) {
 
-		$email_to = "rstovall@me.com";
+		$email_to = "racoquita@me.com";
 
 		function died($error) {
 			echo json_encode(array(
@@ -28,6 +30,7 @@
 	    $city = $_POST['city'];
 	    $state = $_POST['state'];
 	    $zip =$_POST['zip'];
+	    
 
 	    $error_message = "";
 

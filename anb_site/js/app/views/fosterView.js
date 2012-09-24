@@ -46,13 +46,15 @@ define(function (require) {
                 'choice':$('input[name=choice]:radio:checked').val(),
                 'petname': $('#petname').val(),
                 'firstname': $('#firstname').val(),
+                'age': $('#age').val(),
                 'lastname':$('#lastname').val(),
                 'email':$('#email').val(),
                 'phone':$('#phone').val(),
                 'address':$('#address').val(),
                 'city':$('#city').val(),
                 'state':$('#state').val(),
-                'zip':$('#zip').val()
+                'zip':$('#zip').val(),
+                'county': $('#county').val()
             };
             
             $.ajax({
