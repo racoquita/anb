@@ -137,14 +137,15 @@ define(function (require) {
             var self = this, 
                 types = ['animal', 'sex', 'age', 'size'], 
                 attributes = {};
-
+            
             _.each(types, function(type){
                 var obj = _.uniq(pfc.pluck(type), false, function(attr){
                     return attr;
                 });
+
                 attributes[type] = obj;
             });
-
+            
             return attributes;
         },
 
@@ -205,10 +206,11 @@ define(function (require) {
             });
             _.each(filtered, function(fModel){
                 
-                pfc.add(fModel)
+                pfc.add(fModel);
             })   
             
             pfc.reset(pfc.models);
+            
             self.pagination(1);
 
         },
@@ -225,21 +227,19 @@ define(function (require) {
         removeSelectedFilter: function(filter, unselectedValue){
 
             var self = this;
+            
             var filtered = _.filter(pfc.models, function(item){
                 
                 return item.get(filter).toLowerCase() != unselectedValue;
             });
 
             pfc.reset(filtered, {silent: true});
+            
             self.pagination(1);
 
         },
         setFilter: function(e){
-            var self = this, 
-                remove = e.target.value;
-                //indexOfRemove = self.available_filters.indexOf(remove);
-                //console.log(indexOfRemove);
-                //console.log(self.available_filters.splice(indexOfRemove, 1))   
+            var self = this;
                 
             $(e.target).toggleClass('selected');
             filter = $(e.target).attr('class');
@@ -260,24 +260,24 @@ define(function (require) {
                         this.addSizeFilter(e.target.value);
                     break;
                 }
+            }else{
+
+               switch(filter){
+                    case 'animal':
+                        this.animalFilter(e.target.value);
+                    break;
+                    case 'age':
+                        this.ageFilter(e.target.value);
+                    break;
+                    case 'sex':
+                        this.sexFilter(e.target.value);
+                    break;
+                    case 'size':
+                        this.sizeFilter(e.target.value);
+                    break;
+                }
             }
-            switch(filter){
-                case 'animal':
-                    this.animalFilter(e.target.value);
-                break;
-                case 'age':
-                    this.ageFilter(e.target.value);
-                break;
-                case 'sex':
-                    this.sexFilter(e.target.value);
-                break;
-                case 'size':
-                    this.sizeFilter(e.target.value);
-                break;
-            }
-            //this.filterByAnimal(e.currentTarget.value);
-            //this.$el.find('button').removeClass('selected');
-           	//this.$el.find(e.currentTarget).attr('class', "selected");
+         
             //this.trigger('click:filterAnimal')
         }
     });
