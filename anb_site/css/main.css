@@ -821,15 +821,10 @@ td{
     padding: 10px;
     overflow: hidden;
 }
+
 #filters div {
-    margin-right: 20px;
-    float: left;
-}
-#filters button.selected{
-    padding: 5px;
-    height: 25px;
-    background-color: rgba(170, 218, 215, .7);
-    border: 1px solid rgba(170, 218, 215, 1);
+    margin: 0 auto;
+    width: 840px;
 }
 #filters .animal:last-child{
     margin-right: 15px;
@@ -885,6 +880,90 @@ td{
     width: 48px;
     display: block;
 }
+
+/* ------------------------------ filter buttons ------------------------------ */
+
+#filters button {
+    margin: 5px;
+    width: 60px;
+    height: 80px;
+    line-height: 135px;
+    border: none;
+    background: url(../images/buttons_sprite.png) no-repeat;
+}
+#filters #dog {
+    background-position: -300px -85px;
+}
+#filters #dog.selected {
+    background-position: -300px 0px;
+}
+#filters #cat {
+    background-position: -360px -85px;
+}
+#filters #cat.selected {
+    background-position: -360px 0px;
+}
+#filters #rabbit {
+    background-position: -420px -85px;
+}
+#filters #rabbit.selected {
+    background-position: -420px 0px;
+}
+#filters #female {
+    background-position: -240px -85px;
+}
+#filters #female.selected {
+    background-position: -240px 0px;
+}
+#filters #male {
+    background-position: -180px -85px;
+}
+#filters #male.selected {
+    background-position: -180px 0px;
+}
+#filters #senior {
+    background-position: -540px -85px;
+}
+#filters #senior.selected {
+    background-position: -540px 0px;
+}
+#filters #adult {
+    background-position: -540px -85px;
+}
+#filters #adult.selected {
+    background-position: -540px 0px;
+}
+#filters #young {
+    background-position: -480px -85px;
+}
+#filters #young.selected {
+    background-position: -480px 0px;
+}
+#filters #baby {
+    background-position: -480px -85px;
+}
+#filters #baby.selected {
+    background-position: -480px 0px;
+}
+#filters #l {
+    background-position: 0px -85px;
+}
+#filters #l.selected {
+    background-position: 0px 0px;
+}
+#filters #m {
+    background-position: -60px -85px;
+}
+#filters #m.selected {
+    background-position: -60px 0px;
+}
+#filters #s {
+    background-position: -120px -85px;
+}
+#filters #s.selected {
+    background-position: -120px 0px;
+}
+
 
 /* ------------------------------ pet item template ------------------------------ */
 
