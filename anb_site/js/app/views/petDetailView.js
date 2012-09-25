@@ -24,7 +24,8 @@ define( function (require) {
 	    },
 
         events: {
-            'click .detail_adopt':'handleAdopt'
+            'click .detail_adopt':'handleAdopt',
+            'click .backToPets' : 'returnToPets'
         },
 
         handleAdopt: function(e){
@@ -43,6 +44,12 @@ define( function (require) {
             }
 
             fosterView.ifPet(pobj);
+
+        },
+        returnToPets: function(e){
+          e.preventDefault()
+          Router.navigate('#pets', true)
+          pfc.trigger('click:all')
 
         }
 

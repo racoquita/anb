@@ -48,12 +48,12 @@ define(function (require) {
 
         renderPetList: function(){
             var self = this;
-            //Here I looped thru the models of the original pfc and added them to the cloned Collection
+            //Here I looped thru the models of the original pfc and added them to the cloned Collection 
             _.each(pfc.models, function(pModel){
-                        
+                    
                 self.clonedCollection.add(pModel);
             })
-
+        
             $('.spinner').remove();
             $(this.el).find('#filters').append(this.createFilters());
 
@@ -92,7 +92,7 @@ define(function (require) {
             var self = this, 
                 filterOptions = $("<div/>");
             
-            self.available_filters = []
+            self.available_filters = [];
             
             _.each(self.getAttributes(), function(item){
                 
@@ -105,7 +105,8 @@ define(function (require) {
                         id: attr.toLowerCase(),
                         value: attr.toLowerCase(),
                         text: attr,
-                        class: 'selected ' + arg 
+                        class: 'selected',
+                        className: arg 
 
                     }).appendTo(filterOptions)
 
@@ -137,7 +138,8 @@ define(function (require) {
             var self = this, 
                 types = ['animal', 'sex', 'age', 'size'], 
                 attributes = {};
-            
+
+
             _.each(types, function(type){
                 var obj = _.uniq(pfc.pluck(type), false, function(attr){
                     return attr;
@@ -148,6 +150,9 @@ define(function (require) {
             
             return attributes;
         },
+        getCheckedAttribures: function(){
+             console.log(this.available_filters);
+        },
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
@@ -156,6 +161,7 @@ define(function (require) {
         },
 
         loadPet: function(e){
+            pfc.reset(this.clonedCollection.models);
             var petId = $(e.target).closest('.pet_container').attr('data-id');
 
             Router.navigate('pets/pet/'+ petId, true);
@@ -238,29 +244,55 @@ define(function (require) {
             self.pagination(1);
 
         },
+        filterCollection: function(){
+            console.log($(this.el).find('button[class="selected"]'))
+        },
+
         setFilter: function(e){
-            var self = this;
-                
+            var self = this,
+                remove = e.target.value
+
             $(e.target).toggleClass('selected');
-            filter = $(e.target).attr('class');
+     
+            this.filterCollection()
+            filter = $(e.target).attr('classname');               
             
+            //params = {animal: 'Cat', age: 'Adult', sex: ['Female', 'Male'] }
+            //console.log(pfc.filterData(params))
+
+            //params =  this.getAttributes();
+
+            //params[filter].splice(params[filter].indexOf(remove), 1 )
+            
+            //console.log(params[filter] )
+
+            //pfc.filterData(params);
+
+                    
+
             if($(e.target).hasClass('selected'))
             {
-                console.log(filter)
+                
+                //params[filter].push(remove)
+                //pfc.filterData(params);
+
                 switch(filter){
-                    case 'animal selected':
+                    case 'animal':
                         this.addAnimalFilter(e.target.value)
-                    case 'sex selected':
+                    case 'sex':
                         this.addSexFilter(e.target.value);
                     break;
-                    case 'age selected':
+                    case 'age':
                         this.addAgeFilter(e.target.value);
                     break;
-                    case 'size selected':
+                    case 'size':
                         this.addSizeFilter(e.target.value);
                     break;
                 }
-            }else{
+
+            }
+            
+            else{
 
                switch(filter){
                     case 'animal':
