@@ -94,14 +94,10 @@ define(function (require) {
             var self = this, 
                 filterOptions = $("<div/>");
             
-            //self.available_filters = [];
-            
             _.each(self.getAttributes(), function(item){
                 
                 arg = arguments[1]
                 _.each(item, function(attr){
-
-                    //self.available_filters.push(attr.toLowerCase())
 
                     var option = $("<button/>", {
                         id: attr.toLowerCase(),
@@ -160,10 +156,10 @@ define(function (require) {
                 $('button[classname="'+type+'"].selected').each(function(i){
 
                     temp[i] = $(this).attr('value');
-                    return temp
+                    return temp;
                     
-                }) 
-                checkedAttributes[type] = temp
+                }); 
+                checkedAttributes[type] = temp;
             });
             return checkedAttributes;
         },
@@ -171,7 +167,7 @@ define(function (require) {
         events:{
             "click #filter_menu h4" : "toggleFilters",
             "click #filters button" : "setFilter",
-            "click .pet_container" : "loadPet",
+            "click .pet_container" : "loadPet"
         },
 
         loadPet: function(e){
@@ -225,17 +221,18 @@ define(function (require) {
 
         },
         setFilter: function(e){
+            
             $(e.target).toggleClass('selected');
 
             var self = this,
-                remove = e.target.value,
+                filterSelected = e.target.value,
                 filter = $(e.target).attr('classname'),
                 params = this.getAttributes(),
-                indexOfRemove = params[filter].indexOf(remove);
+                indexOfRemove = params[filter].indexOf(filterSelected);
             
             if($(e.target).attr('class') === "selected") {
                 //filter selected 
-                params[filter].push(remove );
+                params[filter].push(filterSelected );
                 this.trigger('selectEvent',  params );
                 
             }
