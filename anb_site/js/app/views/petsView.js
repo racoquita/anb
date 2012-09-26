@@ -37,9 +37,7 @@ define(function (require) {
                  }
             }, 500);
             
-            //this.on("click:filterAnimal", self.filterByAnimal, self);  
             this.on("selectEvent", self.onSelectFilter, self)
-            this.on("unselectEvent", self.onDeSelectFilter, self)
         },
         
         render: function(){
@@ -96,14 +94,14 @@ define(function (require) {
             var self = this, 
                 filterOptions = $("<div/>");
             
-            self.available_filters = [];
+            //self.available_filters = [];
             
             _.each(self.getAttributes(), function(item){
                 
                 arg = arguments[1]
                 _.each(item, function(attr){
 
-                    self.available_filters.push(attr.toLowerCase())
+                    //self.available_filters.push(attr.toLowerCase())
 
                     var option = $("<button/>", {
                         id: attr.toLowerCase(),
@@ -128,16 +126,13 @@ define(function (require) {
                
             });
             this.renderPetDetail(thispet);
-
         },
-
         renderPetDetail: function(item){            
             var petDetailView = new PetDetailView({model : item}) 
             
             $(this.el).find('#results_container').html(petDetailView.render().el);
 
         },
-
         getAttributes: function(){
             var self = this, 
                 types = ['animal', 'sex', 'age', 'size'], 
@@ -154,14 +149,14 @@ define(function (require) {
             return attributes;
         },
         getCheckedAttributes: function(){
-             //console.log(this.available_filters);
-        
+
              var checkedAttributes = {},
                  types = ['animal', 'sex', 'age', 'size']; 
 
             _.each(types,  function(type) { 
                     
-                var temp = {}
+                var temp = {};
+
                 $('button[classname="'+type+'"].selected').each(function(i){
 
                     temp[i] = $(this).attr('value');
@@ -182,7 +177,6 @@ define(function (require) {
         loadPet: function(e){
             pfc.reset(this.clonedCollection.models);
             var petId = $(e.target).closest('.pet_container').attr('data-id');
-
             Router.navigate('pets/pet/'+ petId, true);
         },
 
@@ -192,7 +186,6 @@ define(function (require) {
         },
         filterData: function(params){
             //console.log(params)
-           
             var self = this;
             pfc.reset(self.clonedCollection.models)
             for(var key in params){
@@ -211,11 +204,13 @@ define(function (require) {
                         union = union.concat(matched);
                     }
                     pfc.models = union;
-                }else{
+                }
+                else{
 
                     var results = _.filter(pfc.models, function(item){
                         return item.get(key) == val;
                     });
+                    
                     pfc.models = results;
                 }
             }
@@ -223,19 +218,12 @@ define(function (require) {
         },
         
         onSelectFilter: function(e){
-            var self = this;
+           
             var checkedAttributes = this.getCheckedAttributes();
-            self.filterData(checkedAttributes);
+            this.filterData(checkedAttributes);
             this.pagination(1);
 
         },
-        onDeSelectFilter: function(e){
-
-            var checkedAttributes = this.getCheckedAttributes();
-            this.filterData(checkedAttributes)
-            this.pagination(1)
-        },
-
         setFilter: function(e){
             $(e.target).toggleClass('selected');
 
@@ -246,15 +234,15 @@ define(function (require) {
                 indexOfRemove = params[filter].indexOf(remove);
             
             if($(e.target).attr('class') === "selected") {
-                //console.log('filter checked');
+                //filter selected 
                 params[filter].push(remove );
-                this.trigger('selectEvent',  params )
+                this.trigger('selectEvent',  params );
                 
             }
             else{
-                //console.log('filter unchecked')
-                params[filter].splice(indexOfRemove, 1 )
-                this.trigger('unselectEvent', params )
+                //filter unselected
+                params[filter].splice(indexOfRemove, 1 );
+                this.trigger('selectEvent', params );
 
             }             
         }

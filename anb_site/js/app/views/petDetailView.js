@@ -10,11 +10,10 @@ define( function (require) {
 
 	    template: petDetailTemplate,
         
-        initialize: function(options){
-        	this.render();
+      initialize: function(options){
+      	this.render();
 
-        },
-	        
+      },  
 	    render: function(){
 	    	var tmpl = _.template(this.template);
 
@@ -23,36 +22,35 @@ define( function (require) {
 	    	return this;
 	    },
 
-        events: {
-            'click .detail_adopt':'handleAdopt',
-            'click .backToPets' : 'returnToPets'
-        },
+      events: {
+          'click .detail_adopt':'handleAdopt',
+          'click .backToPets' : 'returnToPets'
+      },
 
-        handleAdopt: function(e){
-            var self = this;
+      handleAdopt: function(e){
+          var self = this;
 
-            e.preventDefault();
+          e.preventDefault();
 
-            var fosterView = new fView();
-            
-            Router.navigate('#foster', true);
-            
-            var pobj = {
-                'name':this.model.attributes.name,
-                'id':this.model.id,
-                'photo':this.model.attributes.photo
-            }
+          var fosterView = new fView();
+          
+          Router.navigate('#foster', true);
+          
+          var pobj = {
+              'name':this.model.attributes.name,
+              'id':this.model.id,
+              'photo':this.model.attributes.photo
+          }
 
-            fosterView.ifPet(pobj);
+          fosterView.ifPet(pobj);
 
-        },
-        returnToPets: function(e){
-          e.preventDefault()
-          Router.navigate('#pets', true)
-          pfc.trigger('click:all')
+      },
+      returnToPets: function(e){
+        e.preventDefault()
+        Router.navigate('#pets', true)
+        pfc.trigger('click:all')
 
-        }
-
+      }
     });
     return PetDetailView;
 })
