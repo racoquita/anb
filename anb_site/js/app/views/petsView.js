@@ -25,7 +25,7 @@ define(function (require) {
             self.clonedCollection.on("add", function(pModel) {
                     //console.log("adding " + pModel.get("name") + "to the cloned collection"); 
             });
-            
+           
             requestTimeout(function(){
                 if(pfc.length != 0) {
                     self.renderPetList();
@@ -54,6 +54,7 @@ define(function (require) {
             _.each(pfc.models, function(pModel){
                     
                 self.clonedCollection.add(pModel);
+               
             })
         
             $('.spinner').remove();
@@ -141,8 +142,6 @@ define(function (require) {
             var self = this, 
                 types = ['animal', 'sex', 'age', 'size'], 
                 attributes = {};
-
-
 
             _.each(types, function(type){
                 var obj = _.uniq(pfc.pluck(type), false, function(attr){
@@ -266,8 +265,9 @@ define(function (require) {
         },
         unfilterData: function(params){
             console.log(params)
-    
-           var self = this;
+            var self = this;
+            pfc.reset(self.clonedCollection.models)
+           
             for(var key in params){
                 var val = params[key];
 
@@ -278,15 +278,16 @@ define(function (require) {
 
                         var subval = val[k];
                         
-                        var matched = _.filter(self.clonedCollection.models, function(item){
+                        var matched = _.filter(pfc.models, function(item){
                             return item.get(key) == subval
                         });
                         union = union.concat(matched);
+                        console.log(union)
                     }
                     pfc.models = union;
                 }else{
 
-                    var results = _.filter(self.clonedCollection.models, function(item){
+                    var results = _.filter(pfc.models, function(item){
                         return item.get(key) == val;
                     });
                     pfc.models = results;
@@ -301,7 +302,7 @@ define(function (require) {
             var self = this;
             var checkedAttributes = this.getCheckedAttributes();
             
-            pfc.reset(self.unfilterData(checkedAttributes));
+            self.unfilterData(checkedAttributes);
             this.pagination(1);
  
 
@@ -312,7 +313,7 @@ define(function (require) {
             var checkedAttributes = this.getCheckedAttributes();
            
            
-            pfc.reset(pfc.filterData(checkedAttributes));
+            pfc.reset(pfc.filterData(checkedAttributes), {silent: true});
             this.pagination(1)
         },
 
@@ -322,17 +323,17 @@ define(function (require) {
             var self = this,
                 remove = e.target.value,
                 filter = $(e.target).attr('classname'),
-                 params = this.getAttributes(),
-                 indexOfRemove = params[filter].indexOf(remove);
+                params = this.getAttributes(),
+                indexOfRemove = params[filter].indexOf(remove);
             
             if($(e.target).attr('class') === "selected") {
-                alert('checked');
+                console.log('filter checked');
                 params[filter].push(remove );
                 this.trigger('selectEvent',  params )
                 
             }
             else{
-                alert('unchecked')
+                console.log('filter unchecked')
                 params[filter].splice(indexOfRemove, 1 )
                 this.trigger('unselectEvent', params )
 

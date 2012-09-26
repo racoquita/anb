@@ -10,11 +10,20 @@ define(function (require) {
 			typeof(options) != 'undefined' || (options = {});
     		this.page = 1;
     		typeof(this.perPage) != 'undefined' || (this.perPage = 16);
+    		 _.each(this.models, function(pModel){
+                    
+                
+                this.originalModels.add(pModel);
+            })
+        
+
+    		
 		},
 		model: petModel,
         url: 'xhr/get_shelter.php',
     	parse: function(response){
     		this.total = response.pets.pet.length;
+
     		return response.pets.pet;
     	},
     	pageInfo: function(pageNum){
@@ -64,8 +73,7 @@ define(function (require) {
 		filterData: function(params){
 			console.log(params)
 			var self = this;
-			this.originalModels = this.models.slice()
-            
+			
             for(var key in params){
                 var val = params[key];
 
