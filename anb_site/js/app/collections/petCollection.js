@@ -63,36 +63,39 @@ define(function (require) {
 		},
 		filterData: function(params){
 			console.log(params)
-			this.originalModels = this.models.slice();
-			for(var key in params){
-				var val = params[key];
+			var self = this;
+			this.originalModels = this.models.slice()
+            
+            for(var key in params){
+                var val = params[key];
 
-				if(typeof val === "object"){
+                if(typeof val === "object"){
 
-					var union = [];
-					for(var k in val){
+                    var union = [];
+                    for(var k in val){
 
-						var subval = val[k];
-						
-						var matched = _.filter(this.models, function(item){
-							return item.get(key) == subval;
-						});
-						union = union.concat(matched);
-					}
-					this.models = union;
-				}else{
+                        var subval = val[k];
+                        
+                        var matched = _.filter(this.models, function(item){
+                            return item.get(key) == subval
+                        });
+                        union = union.concat(matched);
+                    }
+                    this.models = union;
+                }else{
 
-					var results = _.filter(this.models, function(item){
-						return item.get(key) == val;
-					});
-					this.models = results;
-				}
-			}
-			return this.reset(this.models);
-
+                    var results = _.filter(this.models, function(item){
+                        return item.get(key) == val;
+                    });
+                    this.models = results;
+                }
+            }
+            return this.models;
 		},
 		clearFilters: function(){
-			return this.reset(this.originalModels)
+			console.log(this.originalModels)
+			return this.originalModels
+
 		}
 
 	});

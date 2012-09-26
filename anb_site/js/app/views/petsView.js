@@ -38,6 +38,8 @@ define(function (require) {
             }, 500);
             
             //this.on("click:filterAnimal", self.filterByAnimal, self);  
+            this.on("selectEvent", self.onSelectFilter, self)
+            this.on("unselectEvent", self.onDeSelectFilter, self)
         },
         
         render: function(){
@@ -89,6 +91,7 @@ define(function (require) {
         },
 
         createFilters: function(){
+
             var self = this, 
                 filterOptions = $("<div/>");
             
@@ -103,7 +106,7 @@ define(function (require) {
 
                     var option = $("<button/>", {
                         id: attr.toLowerCase(),
-                        value: attr.toLowerCase(),
+                        value: attr,
                         text: attr,
                         class: 'selected',
                         className: arg 
@@ -140,6 +143,7 @@ define(function (require) {
                 attributes = {};
 
 
+
             _.each(types, function(type){
                 var obj = _.uniq(pfc.pluck(type), false, function(attr){
                     return attr;
@@ -150,14 +154,30 @@ define(function (require) {
             
             return attributes;
         },
-        getCheckedAttribures: function(){
-             console.log(this.available_filters);
+        getCheckedAttributes: function(){
+             //console.log(this.available_filters);
+        
+             var checkedAttributes = {},
+                 types = ['animal', 'sex', 'age', 'size']; 
+
+            _.each(types,  function(type) { 
+                    
+                var temp = {}
+                $('button[classname="'+type+'"].selected').each(function(i){
+
+                    temp[i] = $(this).attr('value');
+                    return temp
+                    
+                }) 
+                checkedAttributes[type] = temp
+            });
+            return checkedAttributes;
         },
 
         events:{
             "click #filter_menu h4" : "toggleFilters",
             "click #filters button" : "setFilter",
-            "click .pet_container" : "loadPet"
+            "click .pet_container" : "loadPet",
         },
 
         loadPet: function(e){
@@ -207,7 +227,7 @@ define(function (require) {
 
              var filtered = _.filter(self.clonedCollection.models, function(item){
 
-                return item.get(filter).toLowerCase() == selectedValue;
+                return item.get(filter) == selectedValue;
                
             });
             _.each(filtered, function(fModel){
@@ -236,7 +256,7 @@ define(function (require) {
             
             var filtered = _.filter(pfc.models, function(item){
                 
-                return item.get(filter).toLowerCase() != unselectedValue;
+                return item.get(filter) != unselectedValue;
             });
 
             pfc.reset(filtered, {silent: true});
@@ -244,24 +264,112 @@ define(function (require) {
             self.pagination(1);
 
         },
-        filterCollection: function(){
-            console.log($(this.el).find('button[class="selected"]'))
+        unfilterData: function(params){
+            console.log(params)
+    
+           var self = this;
+            for(var key in params){
+                var val = params[key];
+
+                if(typeof val === "object"){
+
+                    var union = [];
+                    for(var k in val){
+
+                        var subval = val[k];
+                        
+                        var matched = _.filter(self.clonedCollection.models, function(item){
+                            return item.get(key) == subval
+                        });
+                        union = union.concat(matched);
+                    }
+                    pfc.models = union;
+                }else{
+
+                    var results = _.filter(self.clonedCollection.models, function(item){
+                        return item.get(key) == val;
+                    });
+                    pfc.models = results;
+                }
+            }
+            return pfc.models;
+
+        },
+        onSelectFilter: function(e){
+            pfc.clearFilters();
+            console.log(e, 'onSelect');
+            var self = this;
+            var checkedAttributes = this.getCheckedAttributes();
+            
+            pfc.reset(self.unfilterData(checkedAttributes));
+            this.pagination(1);
+ 
+
+        },
+        onDeSelectFilter: function(e){
+            
+            pfc.clearFilters();
+            var checkedAttributes = this.getCheckedAttributes();
+           
+           
+            pfc.reset(pfc.filterData(checkedAttributes));
+            this.pagination(1)
         },
 
         setFilter: function(e){
-            var self = this,
-                remove = e.target.value
-
             $(e.target).toggleClass('selected');
-     
-            this.filterCollection()
-            filter = $(e.target).attr('classname');               
+
+            var self = this,
+                remove = e.target.value,
+                filter = $(e.target).attr('classname'),
+                 params = this.getAttributes(),
+                 indexOfRemove = params[filter].indexOf(remove);
+            
+            if($(e.target).attr('class') === "selected") {
+                alert('checked');
+                params[filter].push(remove );
+                this.trigger('selectEvent',  params )
+                
+            }
+            else{
+                alert('unchecked')
+                params[filter].splice(indexOfRemove, 1 )
+                this.trigger('unselectEvent', params )
+
+            }              
             
             //params = {animal: 'Cat', age: 'Adult', sex: ['Female', 'Male'] }
             //console.log(pfc.filterData(params))
+            // indexOfRemove = params[filter].indexOf(remove);
+            // console.log(indexOfRemove)
+            
+            // if(indexOfRemove !== -1){
+            //     alert('removing')
+                
+            //     params[filter].splice(indexOfRemove, 1 )
+                
+            //     pfc.filterData(params);
+                
+            //     //pfc.reset(self.filterData(params))
+            //     self.pagination(1)
+            // }
+            // else{
+            //     pfc.clearFilters();
+            //     alert('adding')
+                
+                
+            //     params[filter].push(remove);
+                
+            //     //this.addAnimalFilter(e.target.value)
+            //     //this.addSexFilter(e.target.value)
+            //     //newParams = self.unfilterData(params)
+            //     //pfc.reset(newParams)
+            //     pfc.filterData(params);
+            //     self.pagination(1)
 
-            //params =  this.getAttributes();
-
+            // }
+            
+            //console.log(params[filter], remove)
             //params[filter].splice(params[filter].indexOf(remove), 1 )
             
             //console.log(params[filter] )
@@ -270,47 +378,6 @@ define(function (require) {
 
                     
 
-            if($(e.target).hasClass('selected'))
-            {
-                
-                //params[filter].push(remove)
-                //pfc.filterData(params);
-
-                switch(filter){
-                    case 'animal':
-                        this.addAnimalFilter(e.target.value)
-                    case 'sex':
-                        this.addSexFilter(e.target.value);
-                    break;
-                    case 'age':
-                        this.addAgeFilter(e.target.value);
-                    break;
-                    case 'size':
-                        this.addSizeFilter(e.target.value);
-                    break;
-                }
-
-            }
-            
-            else{
-
-               switch(filter){
-                    case 'animal':
-                        this.animalFilter(e.target.value);
-                    break;
-                    case 'age':
-                        this.ageFilter(e.target.value);
-                    break;
-                    case 'sex':
-                        this.sexFilter(e.target.value);
-                    break;
-                    case 'size':
-                        this.sizeFilter(e.target.value);
-                    break;
-                }
-            }
-         
-            //this.trigger('click:filterAnimal')
         }
     });
 
