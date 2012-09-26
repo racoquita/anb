@@ -190,84 +190,11 @@ define(function (require) {
             $(this.el).find('#filters').toggleClass('open').slideToggle(250);
             $('#filters').hasClass('open') ? $('h4 span').text(',') : $('h4 span').text('+');
         },
-        animalFilter: function(animalSelected){
+        filterData: function(params){
+            //console.log(params)
            
-            this.removeSelectedFilter('animal', animalSelected);
-
-            // requestTimeout(function(){
-                
-            //     pfc.reset(self.clonedCollection.models);
-            //     self.pagination(1);
-            // }, 3000);
-        },
-        ageFilter: function(ageSelected){
-           
-            this.removeSelectedFilter('age', ageSelected)
-        },
-        addAnimalFilter: function(animalSelected){
-
-            this.addSelectedFilter('animal', animalSelected )
-        },
-        addSexFilter: function(sexSelected){
-
-            this.addSelectedFilter('sex', sexSelected )
-        },
-        addAgeFilter: function(ageSelected){
-
-            this.addSelectedFilter('age', ageSelected )
-        },
-        addSizeFilter: function(sizeSelected){
-
-            this.addSelectedFilter('size', sizeSelected )
-        },
-        addSelectedFilter: function(filter, selectedValue){
-
-            var self = this;
-
-             var filtered = _.filter(self.clonedCollection.models, function(item){
-
-                return item.get(filter) == selectedValue;
-               
-            });
-            _.each(filtered, function(fModel){
-                
-                pfc.add(fModel);
-            })   
-            
-            pfc.reset(pfc.models);
-            
-            self.pagination(1);
-
-        },
-        sexFilter: function(sexSelected){
-            var self = this;
-
-            this.removeSelectedFilter('sex', sexSelected)
-        },
-        sizeFilter: function(sizeSelected){
-            
-            this.removeSelectedFilter('size', sizeSelected);
-
-        },
-        removeSelectedFilter: function(filter, unselectedValue){
-
-            var self = this;
-            
-            var filtered = _.filter(pfc.models, function(item){
-                
-                return item.get(filter) != unselectedValue;
-            });
-
-            pfc.reset(filtered, {silent: true});
-            
-            self.pagination(1);
-
-        },
-        unfilterData: function(params){
-            console.log(params)
             var self = this;
             pfc.reset(self.clonedCollection.models)
-           
             for(var key in params){
                 var val = params[key];
 
@@ -282,7 +209,6 @@ define(function (require) {
                             return item.get(key) == subval
                         });
                         union = union.concat(matched);
-                        console.log(union)
                     }
                     pfc.models = union;
                 }else{
@@ -294,26 +220,19 @@ define(function (require) {
                 }
             }
             return pfc.models;
-
         },
+        
         onSelectFilter: function(e){
-            pfc.clearFilters();
-            console.log(e, 'onSelect');
             var self = this;
             var checkedAttributes = this.getCheckedAttributes();
-            
-            self.unfilterData(checkedAttributes);
+            self.filterData(checkedAttributes);
             this.pagination(1);
- 
 
         },
         onDeSelectFilter: function(e){
-            
-            pfc.clearFilters();
+
             var checkedAttributes = this.getCheckedAttributes();
-           
-           
-            pfc.reset(pfc.filterData(checkedAttributes), {silent: true});
+            this.filterData(checkedAttributes)
             this.pagination(1)
         },
 
@@ -327,58 +246,17 @@ define(function (require) {
                 indexOfRemove = params[filter].indexOf(remove);
             
             if($(e.target).attr('class') === "selected") {
-                console.log('filter checked');
+                //console.log('filter checked');
                 params[filter].push(remove );
                 this.trigger('selectEvent',  params )
                 
             }
             else{
-                console.log('filter unchecked')
+                //console.log('filter unchecked')
                 params[filter].splice(indexOfRemove, 1 )
                 this.trigger('unselectEvent', params )
 
-            }              
-            
-            //params = {animal: 'Cat', age: 'Adult', sex: ['Female', 'Male'] }
-            //console.log(pfc.filterData(params))
-            // indexOfRemove = params[filter].indexOf(remove);
-            // console.log(indexOfRemove)
-            
-            // if(indexOfRemove !== -1){
-            //     alert('removing')
-                
-            //     params[filter].splice(indexOfRemove, 1 )
-                
-            //     pfc.filterData(params);
-                
-            //     //pfc.reset(self.filterData(params))
-            //     self.pagination(1)
-            // }
-            // else{
-            //     pfc.clearFilters();
-            //     alert('adding')
-                
-                
-            //     params[filter].push(remove);
-                
-            //     //this.addAnimalFilter(e.target.value)
-            //     //this.addSexFilter(e.target.value)
-            //     //newParams = self.unfilterData(params)
-            //     //pfc.reset(newParams)
-            //     pfc.filterData(params);
-            //     self.pagination(1)
-
-            // }
-            
-            //console.log(params[filter], remove)
-            //params[filter].splice(params[filter].indexOf(remove), 1 )
-            
-            //console.log(params[filter] )
-
-            //pfc.filterData(params);
-
-                    
-
+            }             
         }
     });
 

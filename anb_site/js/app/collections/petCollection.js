@@ -10,14 +10,7 @@ define(function (require) {
 			typeof(options) != 'undefined' || (options = {});
     		this.page = 1;
     		typeof(this.perPage) != 'undefined' || (this.perPage = 16);
-    		 _.each(this.models, function(pModel){
-                    
-                
-                this.originalModels.add(pModel);
-            })
-        
 
-    		
 		},
 		model: petModel,
         url: 'xhr/get_shelter.php',
@@ -69,43 +62,7 @@ define(function (require) {
 		  }
 		  this.page = this.page - 1;
 		    return this.fetch();
-		},
-		filterData: function(params){
-			console.log(params)
-			var self = this;
-			
-            for(var key in params){
-                var val = params[key];
-
-                if(typeof val === "object"){
-
-                    var union = [];
-                    for(var k in val){
-
-                        var subval = val[k];
-                        
-                        var matched = _.filter(this.models, function(item){
-                            return item.get(key) == subval
-                        });
-                        union = union.concat(matched);
-                    }
-                    this.models = union;
-                }else{
-
-                    var results = _.filter(this.models, function(item){
-                        return item.get(key) == val;
-                    });
-                    this.models = results;
-                }
-            }
-            return this.models;
-		},
-		clearFilters: function(){
-			console.log(this.originalModels)
-			return this.originalModels
-
 		}
-
 	});
 	
 	return PetCollection;
