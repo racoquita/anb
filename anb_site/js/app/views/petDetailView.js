@@ -8,6 +8,7 @@ define( function (require) {
    
    var PetDetailView = Backbone.View.extend({
 
+
 	    template: petDetailTemplate,
         
       initialize: function(options){
@@ -16,7 +17,6 @@ define( function (require) {
       },  
 	    render: function(){
 	    	var tmpl = _.template(this.template);
-
 	    	$(this.el).html(tmpl(this.model.toJSON()));
 	    	
 	    	return this;
@@ -24,7 +24,8 @@ define( function (require) {
 
       events: {
           'click .detail_adopt':'handleAdopt',
-          'click .backToPets' : 'returnToPets'
+          'click .backToPets' : 'returnToPets',
+          'click .thumbs img' : 'switchImg'
       },
 
       handleAdopt: function(e){
@@ -49,6 +50,13 @@ define( function (require) {
         e.preventDefault()
         Router.navigate('#pets', true)
         pfc.trigger('click:all')
+
+      },
+      switchImg: function(e){
+        e.preventDefault();
+        $(this.el).find('img.active').removeClass('active');
+        $(e.currentTarget).addClass('active')
+        $(this.el).find('.pPhoto img').attr('src' , $(e.currentTarget).attr('src') );
 
       }
     });

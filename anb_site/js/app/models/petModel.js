@@ -46,18 +46,18 @@ define(function (require){
 
     		if(data.media.photos) {
     			obj.photo = data.media.photos.photo[0]
-    			//obj.photos = data.media.photos.photo
-                obj.photos = this.uniquePhotosX(data.media.photos)
+                obj.photos = this.uniquePhotosX(obj.photo, data.media.photos)
 
     		}
     		
     		return obj;
     	},
-        uniquePhotosX: function(obj){
+        uniquePhotosX: function(mainPhoto, mediaObj){
+            var self= this;
             var photosXArr = [];
             var htmlString = ''
-            _.each(obj, function(photoObj){
-                //console.log($.unique(photoObj))
+            _.each(mediaObj, function(photoObj){
+                
                 _.each(photoObj, function(photo){
 
                     var photoString = photo.substr(0, photo.lastIndexOf('-'));
@@ -66,7 +66,15 @@ define(function (require){
             })
             
             _.each($.unique(photosXArr), function(photoSt){
-                htmlString += '<li><img width="100" src="'+photoSt+'-x.jpg" /></li>'
+                var photoThumb = photoSt+'-x.jpg';
+                
+                if(photoThumb === mainPhoto){
+                    htmlString += '<li><img class="active" width="100" src="'+photoThumb+'" /></li>'
+                }else{
+
+                    htmlString += '<li><img width="100" src="'+photoThumb+'" /></li>'
+                }
+                
             })
             return htmlString;
         }

@@ -126,7 +126,7 @@ define(function (require) {
         renderPetDetail: function(item){            
             var petDetailView = new PetDetailView({model : item}) 
             
-            $(this.el).find('#results_container').html(petDetailView.render().el);
+            $(this.el).find('#inner_container').html(petDetailView.render().el);
 
         },
         getAttributes: function(){

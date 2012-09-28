@@ -1051,14 +1051,23 @@ td{
 }
 .thumbs li{
     list-style-type: none;
-     
      display: inline-block;
 }
+.thumbs img{
+    border: 2px solid white;
+}
+.thumbs img:hover, .thumbs img.active{
+    /*border: 2px solid rgba(170, 218, 245, 1);*/
+    border: 2px solid black;
+    cursor: pointer;
+}
+
 .pImage .pPhoto{
  
     width: 60%;
     float: left;
     margin-top: 0px;
+    height: 400px;
 }
 .pDescription{
     clear: both;
@@ -1084,6 +1093,9 @@ td{
 }
 #pDetailActions{
     clear: both;
+}
+.white_container.petDetails{
+    overflow: hidden;
 }
 
 /* ------------------------------ foster ------------------------------ */
