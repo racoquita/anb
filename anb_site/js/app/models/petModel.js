@@ -46,11 +46,31 @@ define(function (require){
 
     		if(data.media.photos) {
     			obj.photo = data.media.photos.photo[0]
-    			obj.photos = data.media.photos.photo
+    			//obj.photos = data.media.photos.photo
+                obj.photos = this.uniquePhotosX(data.media.photos)
+
     		}
     		
     		return obj;
-    	}
+    	},
+        uniquePhotosX: function(obj){
+            var photosXArr = [];
+            var htmlString = ''
+            _.each(obj, function(photoObj){
+                //console.log($.unique(photoObj))
+                _.each(photoObj, function(photo){
+
+                    var photoString = photo.substr(0, photo.lastIndexOf('-'));
+                    photosXArr.push(photoString)
+                })
+            })
+            
+            _.each($.unique(photosXArr), function(photoSt){
+                htmlString += '<li><img width="100" src="'+photoSt+'-x.jpg" /></li>'
+            })
+            return htmlString;
+        }
+
 	});
 
 	return petModel;

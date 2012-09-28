@@ -890,7 +890,14 @@ td{
     line-height: 135px;
     border: none;
     background: url(../images/buttons_sprite.png) no-repeat;
+
+   /* background-border-radius:40px;
+    -webkit-box-shadow:  2px 2px 5px 4px rgba(170, 218, 215, .8);
+        
+    background-box-shadow:  2px 2px 5px 4px rgba(170, 218, 215, .8);*/
+  
 }
+
 #filters #dog {
     background-position: -300px -85px;
 }
