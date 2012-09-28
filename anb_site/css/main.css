@@ -1097,6 +1097,23 @@ td{
 .white_container.petDetails{
     overflow: hidden;
 }
+.backToPets , .pContact a {
+    font-family: "HelveticaNeue";
+    text-decoration: none;
+    color: #2D93BF;
+}
+.backToPets{
+    display: block;
+    float: right;
+    margin-right: 20px;
+    width: 20%;
+}
+#pBack{
+    height: 20px;
+}
+.backToPets:hover, .pContact a:hover{
+    text-decoration: underline;
+}
 
 /* ------------------------------ foster ------------------------------ */
 
