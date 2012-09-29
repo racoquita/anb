@@ -3,11 +3,10 @@ define(function (require){
 	var $ = require('jquery');
 	var _ = require('underscore');
 	var Backbone = require('backbone');
+    var Moment = require('moment.min');
 
 	var petModel = Backbone.Model.extend({
-	
 		defaults: {
-    		
     		photo: 'images/placeholder.png',
     		photos : '',
     		age: "",
@@ -24,14 +23,20 @@ define(function (require){
 			email: "",
             contact: {},
             options: {}
-
     	},
         
     	parse: function(data){
+            var new_desc, update = data.lastUpdate.replace(/T.*$/,''), update = update.split('-');
+            var a = moment([2012, 9, 27]), b = moment([update[0], update[1], update[2]]), test = b.diff(a);
+
+            test < 0 ? 
+                new_desc = $(data.description.substr(0, data.description.lastIndexOf('<center>'))).text() + helper.getDonate() : 
+                new_desc = data.description;
+
     		obj = {
     			age: data.age,
     			animal: data.animal,
-                description : data.description,
+                description : new_desc,
     			id: data.id,
     			name: data.name,
     			sex: data.sex == 'M' ? 'Male' : 'Female',
@@ -41,23 +46,21 @@ define(function (require){
                 mix: data.mix,
                 contact: data.contact,
                 options: data.options
-
     		}
 
     		if(data.media.photos) {
-    			obj.photo = data.media.photos.photo[0]
-                obj.photos = this.uniquePhotosX(obj.photo, data.media.photos)
-
+    			obj.photo = data.media.photos.photo[0];
+                obj.photos = this.uniquePhotosX(obj.photo, data.media.photos);
     		}
     		
     		return obj;
     	},
+
         uniquePhotosX: function(mainPhoto, mediaObj){
             var self= this;
             var photosXArr = [];
             var htmlString = ''
             _.each(mediaObj, function(photoObj){
-                
                 _.each(photoObj, function(photo){
 
                     var photoString = photo.substr(0, photo.lastIndexOf('-'));

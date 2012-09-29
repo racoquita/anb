@@ -8,7 +8,6 @@ define( function (require) {
    
    var PetDetailView = Backbone.View.extend({
 
-
 	    template: petDetailTemplate,
         
       initialize: function(options){
@@ -18,7 +17,7 @@ define( function (require) {
 	    render: function(){
 	    	var tmpl = _.template(this.template);
 	    	$(this.el).html(tmpl(this.model.toJSON()));
-	    	
+
 	    	return this;
 	    },
 
