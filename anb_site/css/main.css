@@ -86,15 +86,6 @@ input[type="submit"] {
     background: linear-gradient(to bottom,  #f7fbfb 0%,#8bceca 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7fbfb', endColorstr='#8bceca',GradientType=0 );
 }
-input[type="checkbox"] {
-    width: 25px;
-    height: 25px;
-    border: 1px solid #D2D2D2;
-    border-radius: 5px;
-    box-shadow: inset 0px 1px 2px 0px rgba(128, 130, 133, .5);
-    vertical-align: middle;
-    -webkit-appearance: none;
-}
 input[type="radio"] {
     color: green;
 }
