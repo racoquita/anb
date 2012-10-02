@@ -167,13 +167,23 @@ define(function (require) {
         events:{
             "click #filter_menu h4" : "toggleFilters",
             "click #filters button" : "setFilter",
-            "click .pet_container" : "loadPet"
+            "click .pet_container" : "loadPet",
+            "mouseenter .pet_container" : "enterPet",
+            "mouseleave .pet_container" : "leavePet"
         },
 
         loadPet: function(e){
             pfc.reset(this.clonedCollection.models);
             var petId = $(e.target).closest('.pet_container').attr('data-id');
             Router.navigate('pets/pet/'+ petId, true);
+        },
+
+        enterPet: function(e){
+            $(e.target).closest('.pet_container').addClass('pulse');
+        },
+
+        leavePet: function(e){
+            $(e.target).closest('.pet_container').removeClass('pulse');
         },
 
         toggleFilters: function(){
