@@ -73,9 +73,18 @@
 	    Due to many bounced checks, we now require that adoption donations be cash only! However, if you would like to make a general donation to the organization (not associated with the adoption of a pet) we do accept checks and Paypal
 		</p>
 
-		<div id="green_btn_container">
-	        <button class="green_button">Donate</button>
-		</div>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="sbigthumbs1@aol.com">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="A New Beginning Pet Rescue Inc">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="bn" value="PP-DonationsBF:paypal.png:NonHostedGuest">
+			<div id="green_btn_container">
+		        <input type="submit" class="green_button" value="Donate"/>
+			</div>
+		</form>
         
 	</div>
 </div>

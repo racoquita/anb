@@ -294,7 +294,7 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#898989',GradientType=0 );
     
 }
-.green_button {
+input.green_button {
     color: white;
     font-family: "Century Gothic";
     font-size: 1.2em;
@@ -1067,6 +1067,7 @@ center {
     margin-right: 10px;
     border-top: 1px dotted gray;
     margin-top: 5px;
+    font-size: 13px;
 }
 .pDescription form {
     float: left;
@@ -1160,10 +1161,11 @@ form {
     width: 400px;
     float: right;
 }
-label[for="agree"] {
-    width: 200px;
+label[for="agree_to"] {
+    width: 440px;
     height: 40px;
-    line-height: 40px;
+    font-size: 10px;
+    /*line-height: 40px;*/
 }
 label[for="petname"] {
     width: 185px;
@@ -1205,6 +1207,11 @@ label[for="petname"] {
     resize: none;
     border-radius: 3px;
     border-color: gray;
+}
+fieldset ul{
+    font-family: "HelveticaNeue";
+    color:gray;
+    font-size: 12px;
 }
 
 
