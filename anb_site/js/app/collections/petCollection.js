@@ -12,13 +12,14 @@ define(function (require) {
     		typeof(this.perPage) != 'undefined' || (this.perPage = 16);
 
 		},
+
 		model: petModel,
         url: 'xhr/get_shelter.php',
     	parse: function(response){
-    		this.total = response.pets.pet.length;
-
-    		return response.pets.pet;
+    		this.total = response.petfinder.pets.pet.length;
+    		return response.petfinder.pets.pet;
     	},
+
     	pageInfo: function(pageNum){
     		var info = {
     			total: this.total,
