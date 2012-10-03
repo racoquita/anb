@@ -33,21 +33,9 @@ define(function (require) {
 			loadedView.renderSection(id);
 		},
 
-		//this loads the pets page results dont erase
+		//this loads the pets page results
 		loadPetResults: function(page, num){
 			loadedView.pagination(num);
-		},
-
-		filterAnimal: function(animal){
-			console.log(animal + " filtering")
-			var pview = new (require('views/petsView'));
-			
-			pview.filterAnimal = animal;
-			pview.trigger('click:filterAnimal')
-		},
-		
-		filterByAge: function(age){
-			console.log(age);
 		}
 	
 	});

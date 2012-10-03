@@ -28,11 +28,38 @@ define(function (require) {
         events: {
             "change input[type='radio']" : "changeForm",
             "focus #phone, #email" : "clearField",
-            "click #submit" : "submitForm"
+            "click #submit" : "submitForm",
         },
 
         changeForm: function(e){
-            e.target.value == 'foster' ? $('#petname_label').text('The pet I want to foster is') : $('#petname_label').text('The pet I want to adopt is');            
+
+            switch(e.target.value) {
+                case 'foster':
+                    $('#petname_label').text('The pet I want to foster is');
+
+                    if($('#form1').css('display') == 'none') {
+                        $('#form2').fadeOut(500, function(){
+                            $('#form1').fadeIn(500);
+                        });
+                    }
+                break;
+                case 'adopt':
+                    $('#petname_label').text('The pet I want to adopt is');
+
+                    if($('#form1').css('display') == 'none') {
+                        $('#form2').fadeOut(500, function(){
+                            $('#form1').fadeIn(500);
+                        });
+                    }
+                break;
+                case 'sponsor':
+                    if($('#form1').css('display') == 'block') {
+                        $('#form1').fadeOut(500, function(){
+                            $('#form2').fadeIn(500);
+                        });
+                    }
+
+            }
         },
 
         clearField: function(e){

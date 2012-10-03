@@ -20,39 +20,29 @@ define(function (require) {
             self.render();
             self.load();
             this.clonedCollection = new Backbone.Collection;
-
-            //this is just to let us know when the collection is beign cloned
-            self.clonedCollection.on("add", function(pModel) {
-                    //console.log("adding " + pModel.get("name") + "to the cloned collection"); 
-            });
            
             requestTimeout(function(){
                 if(pfc.length != 0) {
                     self.renderPetList();
-                   
-                 } 
-                 else {
-                     $('#pet_results').append(helper.showSpinner());
-                     pfc.on("petEvent", self.renderPetList, self);
-                 }
+                } 
+                else {
+                    $('#pet_results').append(helper.showSpinner());
+                    pfc.on("petEvent", self.renderPetList, self);
+                }
             }, 500);
             
             this.on("selectEvent", self.onSelectFilter, self)
         },
         
         render: function(){
-            var self = this;
-
             $(this.el).html(petsTemplate);
         },
 
         renderPetList: function(){
             var self = this;
-            //Here I looped thru the models of the original pfc and added them to the cloned Collection 
+
             _.each(pfc.models, function(pModel){
-                    
                 self.clonedCollection.add(pModel);
-               
             })
         
             $('.spinner').remove();
@@ -109,7 +99,7 @@ define(function (require) {
                     }).appendTo(filterOptions)
 
                 });
-            });         
+            });
 
             return filterOptions;
         },
@@ -119,16 +109,23 @@ define(function (require) {
 
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
-               
             });
+
             this.renderPetDetail(thispet);
         },
-        renderPetDetail: function(item){            
-            var petDetailView = new PetDetailView({model : item}) 
-            
-            $(this.el).find('#inner_container').html(petDetailView.render().el);
 
+        renderPetDetail: function(item){            
+            var petDetailView = new PetDetailView({model:item}), self = this;
+
+            $(this.el).find('#inner_container').addClass('fadeOutLeft');
+
+            requestTimeout(function(){
+                $(self.el).find('#inner_container').html(petDetailView.render().el);
+                $('#inner_container').removeClass('fadeOutLeft').addClass('fadeInRight');
+            }, 500);
+            
         },
+
         getAttributes: function(){
             var self = this, 
                 types = ['animal', 'sex', 'age', 'size'], 
@@ -144,6 +141,7 @@ define(function (require) {
             
             return attributes;
         },
+
         getCheckedAttributes: function(){
 
              var checkedAttributes = {},
@@ -190,6 +188,7 @@ define(function (require) {
             $(this.el).find('#filters').toggleClass('open').slideToggle(250);
             $('#filters').hasClass('open') ? $('h4 span').text(',') : $('h4 span').text('+');
         },
+
         filterData: function(params){
             //console.log(params)
             var self = this;
@@ -230,6 +229,7 @@ define(function (require) {
             this.pagination(1);
 
         },
+
         setFilter: function(e){
             
             $(e.target).toggleClass('selected');

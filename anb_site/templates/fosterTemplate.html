@@ -8,14 +8,16 @@
             <p class="copy">Not sure you're ready to adopt?! That's ok, you can help the shelter by fostering a pet until we have found them a new home. Just make sure the "foster" button is check before you submit the following form. Not only will this provide much needed help to our shelter, but it will give you the time to see if your new pet is the right fit for you and your family!</p>
         </div>
         <div id="form_container">
-        	<form method="post" action="xhr/send_form_email.php">
-        		<div id="choose">
-        			<h5>I would like to</h5>
-                    <label for="adopt_choice">Adopt</label>
-                    <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"/>
-                    <label for="foster_choice">Foster</label>
-        			<input id="foster_choice" type="radio" name="choice" value="foster"/>
-        		</div>
+            <div id="choose">
+                <h5>I would like to</h5>
+                <label for="adopt_choice">Adopt</label>
+                <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"/>
+                <label for="foster_choice">Foster</label>
+                <input id="foster_choice" type="radio" name="choice" value="foster"/>
+                <label for="sponsor_choice">Sponsor</label>
+                <input id="sponsor_choice" type="radio" name="choice" value="sponsor"/>
+            </div>
+        	<form method="post" action="xhr/send_form_email.php" id="form1">
                 <fieldset>
                     <label for="petname" id="petname_label">The pet I want to adopt is</label>
                     <input type="text" id="petname" value=""/>
@@ -73,6 +75,11 @@
     	    		<input type="submit" value="Submit" id="submit"/>
     	    	</div>
         	</form>
+            <form method="" action="" id="form2">
+                <fieldset>
+                    Test
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>

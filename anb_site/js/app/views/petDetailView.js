@@ -13,7 +13,8 @@ define( function (require) {
       initialize: function(options){
       	this.render();
 
-      },  
+      },
+      
 	    render: function(){
 	    	var tmpl = _.template(this.template);
 	    	$(this.el).html(tmpl(this.model.toJSON()));
