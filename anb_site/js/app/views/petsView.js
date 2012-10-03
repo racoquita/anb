@@ -88,7 +88,7 @@ define(function (require) {
                 
                 arg = arguments[1]
                 _.each(item, function(attr){
-                    console.log(attr);
+                   // console.log(attr);
 
                     var option = $("<button/>", {
                         id: attr.toLowerCase(),
