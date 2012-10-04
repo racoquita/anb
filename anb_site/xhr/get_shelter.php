@@ -36,8 +36,7 @@ function get_shelter_pets(){
 		'key'	=> '3eabe8f8401bab71f5a49fa27935fef1',
 		'id'	=> 'FL163',
 		'count' => '150',
-		'output' => 'full',
-		'format' => 'json'
+		'output' => 'full'
 	);
 	
 	$encoded_params = array();
@@ -48,9 +47,9 @@ function get_shelter_pets(){
 	}
 
 	$url = "http://api.petfinder.com/shelter.getPets?".implode('&', $encoded_params);
-	$rsp = file_get_contents($url);
+	$rsp = simplexml_load_file($url, 'SimpleXMLElement', LIBXML_NOCDATA);
 
-	return $rsp;
+	return json_encode($rsp, true);
 }
 
 

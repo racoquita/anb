@@ -26,7 +26,7 @@ define(function (require){
     	},
         
     	parse: function(data){
-            var new_desc, update = data.lastUpdate.$t.replace(/T.*$/,''), update = update.split('-');
+            var new_desc, update = data.lastUpdate.replace(/T.*$/,''), update = update.split('-');
             var a = moment([2012, 9, 27]), b = moment([update[0], update[1], update[2]]), test = b.diff(a);
 
             test < 0 ? 
@@ -62,7 +62,8 @@ define(function (require){
             var htmlString = ''
             _.each(mediaObj, function(photoObj){
                 _.each(photoObj, function(photo){
-                    var photoString = photo.$t.substr(0, photo.$t.lastIndexOf('-'));
+
+                    var photoString = photo.substr(0, photo.lastIndexOf('-'));
                     photosXArr.push(photoString)
                 })
             })
