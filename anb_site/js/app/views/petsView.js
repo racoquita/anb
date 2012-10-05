@@ -20,6 +20,7 @@ define(function (require) {
             self.render();
             self.load();
             this.clonedCollection = new Backbone.Collection;
+            this.selectedFilteredCollection = new Backbone.Collection;
            
             requestTimeout(function(){
                 if(pfc.length != 0) {
@@ -106,16 +107,21 @@ define(function (require) {
 
        //renders petDetailsPage as a section of this (i'll explain why as a section)
         renderSection: function(section){
-
+            var self = this;
+           
+           
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
             });
-
-            this.renderPetDetail(thispet);
+           
+            this.renderPetDetail(thispet, this.selectedFilteredCollection);
         },
 
-        renderPetDetail: function(item){            
-            var petDetailView = new PetDetailView({model:item}), self = this;
+        renderPetDetail: function(item, coll){    
+
+            var petDetailView = new PetDetailView({model:item, collection: coll}), 
+                self = this;
+
 
             $(this.el).find('#inner_container').addClass('fadeOutLeft');
 
@@ -223,9 +229,13 @@ define(function (require) {
         },
         
         onSelectFilter: function(e){
-           
+            var self = this;
             var checkedAttributes = this.getCheckedAttributes();
             this.filterData(checkedAttributes);
+             _.each(pfc.models, function(pModel){
+                
+                self.selectedFilteredCollection.add(pModel);
+            })
             this.pagination(1);
 
         },

@@ -11,6 +11,11 @@ define( function (require) {
 	    template: petDetailTemplate,
         
       initialize: function(options){
+       // this.setElement(this.model)
+        console.log(this.collection.indexOf(this.model) )
+        var self = this
+        
+      
       	this.render();
 
       },
@@ -18,6 +23,7 @@ define( function (require) {
 	    render: function(){
 	    	var tmpl = _.template(this.template);
 	    	$(this.el).html(tmpl(this.model.toJSON()));
+       
 
 	    	return this;
 	    },
@@ -25,7 +31,9 @@ define( function (require) {
       events: {
           'click .detail_adopt':'handleAdopt',
           'click .backToPets' : 'returnToPets',
-          'click .thumbs img' : 'switchImg'
+          'click .thumbs img' : 'switchImg',
+          'click #prevPet' : 'prevPet',
+          'click #nextPet' : 'nextPet'
       },
 
       handleAdopt: function(e){
@@ -58,7 +66,26 @@ define( function (require) {
         $(e.currentTarget).addClass('active')
         $(this.el).find('.pPhoto img').attr('src' , $(e.currentTarget).attr('src') );
 
+      },
+      nextPet: function(e){
+        e.preventDefault()
+        var self = this,
+            ind = this.collection.indexOf(this.model) + 1;
+
+        this.model = this.collection.at(ind)
+        console.log(this.model.id)
+        Router.navigate('pets/pet/'+ this.model.id, true);
+        
+      },
+      prevPet: function(e){
+        e.preventDefault();
+        var self = this,
+            ind = this.collection.indexOf(this.model) - 1 
+        this.model = this.collection.at(ind);
+        Router.navigate('pets/pet/'+ this.model.id, true);
+        
       }
+      
     });
     return PetDetailView;
 })
