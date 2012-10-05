@@ -10,15 +10,18 @@ define(function (require) {
 			typeof(options) != 'undefined' || (options = {});
     		this.page = 1;
     		typeof(this.perPage) != 'undefined' || (this.perPage = 16);
-
 		},
+
 		model: petModel,
+        
         url: 'xhr/get_shelter.php',
+    	
     	parse: function(response){
     		this.total = response.pets.pet.length;
 
     		return response.pets.pet;
     	},
+    	
     	pageInfo: function(pageNum){
     		var info = {
     			total: this.total,
@@ -27,7 +30,6 @@ define(function (require) {
     			pages: Math.ceil(this.total / this.perPage),
     			prev: false,
     			next: false
-
     		};
     		
     		var max = Math.min(this.total, this.page * this.perPage);
@@ -49,13 +51,15 @@ define(function (require) {
 		    return info;
 
     	},
-    	 nextPage: function() {
+    	
+    	nextPage: function() {
 		    if (!this.pageInfo().next) {
 		      return false;
 		    }
 		    this.page = this.page + 1;
 		    return this.fetch();
 		},
+		
 		previousPage: function() {
 		  if (!this.pageInfo().prev) {
 		      return false;
