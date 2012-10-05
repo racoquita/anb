@@ -12,11 +12,11 @@ define( function (require) {
         
       initialize: function(options){
        // this.setElement(this.model)
-        console.log(this.collection.indexOf(this.model) )
-        var self = this
-        
-      
-      	this.render();
+        if (this.collection.length == 0){
+          this.collection = pfc;
+        }
+      //console.log(this.collection.indexOf(this.model) )
+        this.render();
 
       },
       
