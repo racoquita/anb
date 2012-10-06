@@ -881,14 +881,11 @@ input.green_button {
 .about_content.active {
     display: block;
 }
-
 .about_content p{
     font: 13px/1.2em Helvetica, arial sans-serif;
     color: gray;
-    padding: 20px;
-
+    padding: 0px 20px;
 }
-
 .about_content ul{
     font: 1em/1.2em Helvetica, arial sans-serif;
     color: gray;
@@ -903,18 +900,16 @@ input.green_button {
     border: 0;
     height: 100%;
 }
-
-td{
+td {
     text-align: center;
     border:0;
     border-top: 1px solid white;
     background-color: rgba(170, 218, 215, .2); /*light green*/
 }
-.about_content table tr{  
+.about_content table tr {  
     height: 26px
 }
-
-.table_animal{
+.table_animal {
      text-align: left;
 
 }
@@ -925,6 +920,27 @@ td{
     font-weight: bold;
     color: white;
     font-size: 12px;
+}
+#vet_list {
+    margin-top: 40px;
+}
+#vet_list li {
+    margin-bottom: 15px;
+    list-style: circle;
+    width: 280px;
+    float: left;
+}
+.vet_info {
+    font-size: 12px;
+}
+.vet_info a {
+    color: #2D93BF;
+    text-decoration: none;
+    font-family: "Rockwell";
+    font-size: 12px;
+}0px 
+#ourveterinarians p {
+    clear: both;
 }
 
 /* ------------------------------ pets ------------------------------ */
