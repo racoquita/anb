@@ -15,16 +15,23 @@ define( function (require) {
         if (this.collection.length == 0){
           this.collection = pfc;
         }
+
+
       //console.log(this.collection.indexOf(this.model) )
         this.render();
+       
+        
 
       },
       
 	    render: function(){
+
 	    	var tmpl = _.template(this.template);
 	    	$(this.el).html(tmpl(this.model.toJSON()));
-       
+        if(this.collection.indexOf(this.model) == 0){
+          $(this.el).find('div').find('a#prevPet').css({'display': 'none'})
 
+        }
 	    	return this;
 	    },
 
@@ -78,7 +85,12 @@ define( function (require) {
         
       },
       prevPet: function(e){
+        
+        if(this.collection.indexOf(this.model) == 0){
+          alert('index of model is 0 ')  
+        }
         e.preventDefault();
+
         var self = this,
             ind = this.collection.indexOf(this.model) - 1 
         this.model = this.collection.at(ind);
