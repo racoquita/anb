@@ -766,7 +766,7 @@ input.green_button {
 /* ------------------------------ Home ------------------------------ */
 #ps_logo{
 
-    background: url(../images/petsmart_logo.svg) no-repeat center center;
+    background: url(../images/petsmart_logo.png) no-repeat center center;
     background-size: 220px;
     margin: 0 auto;
     height: 75px;
@@ -842,6 +842,7 @@ input.green_button {
 }
 #inner_container .green_note p.sec_content{
     color: white;
+    margin-top: 0px;
 }
 
 /* ------------------------------ about ------------------------------ */
@@ -867,12 +868,12 @@ input.green_button {
     margin: 12px;
 }
 #about_menu span:hover {
-    background: url(../images/about_indicator.svg) no-repeat;
+    background: url(../images/about_indicator.png) no-repeat;
     background-position: center right;
     cursor: pointer;
 }
 #about_menu span.active{
-    background: url(../images/about_indicator.svg) no-repeat;
+    background: url(../images/about_indicator.png) no-repeat;
     background-position: center right;
 }
 .about_content {
@@ -1107,7 +1108,7 @@ td {
     position: relative;
     width: 215px;
     height: 130px;
-    background: url(../images/dog_tag.svg) no-repeat;
+    background: url(../images/dog_tag.png) no-repeat;
     background-position: center center;
     float: left;
     margin-left: 20px;
