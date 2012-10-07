@@ -459,8 +459,9 @@ label {
 
 /* ------------------------------ classes ------------------------------ */
 
-.spinner {
-    
+.clear {
+    clear: both;
+    height: 40px;
 }
 .icon {
     color: #BEBEC1;
@@ -567,6 +568,9 @@ input.green_button {
     color: #BEBEC1;
     text-decoration: none;
     vertical-align: middle;
+}
+.sponsor_link {
+    margin: 10px 10px 5px 10px;
 }
 
 /* ------------------------------ header ------------------------------ */
@@ -1364,10 +1368,8 @@ center {
     color: #2D93BF;
 }
 .backToPets{
-    display: block;
     float: right;
     margin-right: 20px;
-    width: 20%;
 }
 #pBack{
     height: 20px;
