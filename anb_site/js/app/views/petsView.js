@@ -108,8 +108,6 @@ define(function (require) {
        //renders petDetailsPage as a section of this (i'll explain why as a section)
         renderSection: function(section){
             var self = this;
-           
-           
             var thispet = _.find(pfc.models, function(item){
                 return item.id == section;
             });
@@ -117,19 +115,24 @@ define(function (require) {
             this.renderPetDetail(thispet, this.selectedFilteredCollection);
         },
 
-        renderPetDetail: function(item, coll){ 
+        renderPetDetail: function(item, coll){
+            var petDetailView = new PetDetailView({model:item, collection: coll}), self = this;
 
-            var petDetailView = new PetDetailView({model:item, collection: coll}), 
-                self = this;
+            if(direction == 'left') {
+                $(self.el).find('#inner_container').removeClass().addClass('fadeOutLeft');
 
+                requestTimeout(function(){
+                    $(self.el).find('#inner_container').html(petDetailView.render().el);
+                    $('#inner_container').removeClass().addClass('fadeInRight');
+                }, 500);
+            } else {
+                $(self.el).find('#inner_container').removeClass().addClass('fadeOutRight');
 
-            $(this.el).find('#inner_container').addClass('fadeOutLeft');
-
-            requestTimeout(function(){
-                $(self.el).find('#inner_container').html(petDetailView.render().el);
-                $('#inner_container').removeClass('fadeOutLeft').addClass('fadeInRight');
-            }, 500);
-            
+                requestTimeout(function(){
+                    $(self.el).find('#inner_container').html(petDetailView.render().el);
+                    $('#inner_container').removeClass().addClass('fadeInLeft');
+                }, 500);
+            }
         },
 
         getAttributes: function(){

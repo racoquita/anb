@@ -34,8 +34,6 @@ define(function (require){
                 new_desc = $(data.description.substr(0, data.description.lastIndexOf('<center>'))).text() + helper.getDonate() : 
                 new_desc = data.description;
 
-            console.log(data.contact.email);
-
     		obj = {
     			age: data.age,
     			animal: data.animal,
@@ -44,14 +42,11 @@ define(function (require){
     			name: data.name,
     			sex: data.sex == 'M' ? 'Male' : 'Female',
     			size: data.size,
-    			
     			breeds: data.breeds.breed,
                 mix: data.mix,
                 contact: data.contact,
                 options: data.options
     		};
-
-            console.log(typeof data.contact.email);
 
             if(typeof data.contact.email === 'string') obj.email = data.contact.email;
             if(typeof data.contact.phone === 'string') obj.phone = data.contact.phone;
