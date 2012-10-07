@@ -1,24 +1,32 @@
+<p id="pBack"><a href="" class="backToPets" >&lt;&lt; Back to our pets</a></p>
+<p>
+	<a id="prevPet" href="#" ></a>
+	<a id="nextPet" href="#" ></a>
+</p>
 <div  class="white_container petDetails" id="<%= id %>" >
 	<div class="heading_container">
-		<span class="icon">2</span><h3><%= name %> Details </h3>
+		<span class="icon">-</span><h3><%= name %> Details </h3>
 	</div>
 	<div >
-		<p id="pBack"><a href="" class="backToPets" >&lt;&lt; Back to our pets</a></p>
-		<p ><a id="prevPet" href="#" > Previous</a><a id="nextPet" href="#" > Next</a></p>
+		
 		<div class="pImage">
 			<p class="pName"><%= name %></p>
+			<div class="pGlanceDetail">
+				<span><%= size == "s" ? "Small" : size %></span>&nbsp; &bull; &nbsp;<span><%= age %></span>&nbsp; &bull; &nbsp;<span><%= sex %></span>
+			</div>
 			<p class="pPhoto"><img src="<%= photo %>" width="390"/></p>
 			
 			<ul class="thumbs">
 				<%= photos %>
 			</ul>	
-			
-			<div class="pGlanceDetail">
-				<span><%= size == "s" ? "Small" : size %></span> | <span><%= age %></span> | <span><%= sex %></span>
-			</div>
 
 			<div id="pDetailActions">
 				<a href="#foster" class="blue_button selected detail_adopt">Adopt Me!</a>
+				<a href="#"><em class="action_icon">)</em></a>
+				<a href="#"><em class="action_icon">$</em></a>
+				<a href="#"><em class="action_icon">%</em></a>
+				<a href="#"><em class="action_icon">*</em></a>
+
 			</div>
 
 			<div class="pDescription">
@@ -32,24 +40,24 @@
 			
 			<div class="pContact">
 				<h4>Pet Contact Info: </h4>
-				<p class="pContact"><a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a></p>
-
+				<p class="pContact">
+					<a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a>
+				</p>
+				<p class="pContact">
+					<a href="tel:<%= phone %>"><%= phone %></a>
+				</p>
 			</div>
 			<div class="pBreeds">
 				<h4>Pet Breeds: </h4>
 				<p ><%= breeds[0] %></p>
 				<p ><%= breeds[1] %></p>
 			</div>
-			<div class="pMix">
-				<h4>Mixed: </h4>
-				<p ><%= mix %></p>
-				
-			</div>
+
 			<div class="pOptions">
 				<h4>Other Information: </h4>
-				<p ><%= options.option[0] %></p>
-				<p ><%= options.option[1]  %></p>
-				<p ><%= options.option[2]  %></p>
+				<p><em class="info_icon">#</em><%= options.option[0] %></p>
+				<p><em class="info_icon">!</em><%= options.option[1] %></p>
+				<p><em class="info_icon">"</em><%= options.option[2] %></p>
 			</div>						
 		</div>
 	</div>

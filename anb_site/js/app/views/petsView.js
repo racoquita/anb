@@ -117,7 +117,7 @@ define(function (require) {
             this.renderPetDetail(thispet, this.selectedFilteredCollection);
         },
 
-        renderPetDetail: function(item, coll){    
+        renderPetDetail: function(item, coll){ 
 
             var petDetailView = new PetDetailView({model:item, collection: coll}), 
                 self = this;

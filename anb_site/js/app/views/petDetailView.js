@@ -26,10 +26,10 @@ define( function (require) {
       
 	    render: function(){
 
-	    	var tmpl = _.template(this.template);
+	    	var tmpl = _.template(this.template), self = this;
 	    	$(this.el).html(tmpl(this.model.toJSON()));
         if(this.collection.indexOf(this.model) == 0){
-          $(this.el).find('div').find('a#prevPet').css({'display': 'none'})
+          $(self.el).find('#prevPet').addClass('hidden');
 
         }
 	    	return this;
@@ -61,29 +61,31 @@ define( function (require) {
           fosterView.ifPet(pobj);
 
       },
+
       returnToPets: function(e){
         e.preventDefault()
         Router.navigate('#pets', true)
         pfc.trigger('click:all')
 
       },
+
       switchImg: function(e){
         e.preventDefault();
         $(this.el).find('img.active').removeClass('active');
-        $(e.currentTarget).addClass('active')
+        $(e.currentTarget).addClass('active');
         $(this.el).find('.pPhoto img').attr('src' , $(e.currentTarget).attr('src') );
 
       },
+
       nextPet: function(e){
         e.preventDefault()
-        var self = this,
-            ind = this.collection.indexOf(this.model) + 1;
+        var self = this, ind = this.collection.indexOf(this.model) + 1;
 
-        this.model = this.collection.at(ind)
-        console.log(this.model.id)
+        this.model = this.collection.at(ind);
+
         Router.navigate('pets/pet/'+ this.model.id, true);
-        
       },
+
       prevPet: function(e){
         
         if(this.collection.indexOf(this.model) == 0){

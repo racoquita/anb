@@ -452,6 +452,13 @@ input.green_button {
     background: linear-gradient(to bottom,  #cae2eb 0%,#3094bf 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cae2eb', endColorstr='#3094bf',GradientType=0 );
 }
+.action_icon {
+    font-family: "icomoon";
+    font-size: 30px;
+    color: #BEBEC1;
+    text-decoration: none;
+    vertical-align: middle;
+}
 
 /* ------------------------------ header ------------------------------ */
 
@@ -540,6 +547,9 @@ input.green_button {
     background: url(../images/pattern-bg.jpg) repeat;
     padding: 2%;
     float: left;
+}
+#who_info_window .icon {
+    font-size: 55px;
 }
 #animals {
     position: absolute;
@@ -734,7 +744,6 @@ input.green_button {
 #inner_container {
     width: 960px;
     margin: 0px auto 0px auto;
-    overflow: hidden;
     padding-bottom: 20px;
 }
 #adoptions, #events, #help {
@@ -1164,7 +1173,7 @@ td {
 center {
     text-align: left;
 }
-p #prevPet.hidden{
+#prevPet.hidden{
     display: none;
 }
 .pDetails, .pImage{
@@ -1176,23 +1185,23 @@ p #prevPet.hidden{
 .pDetails h4, .pDescription h4{
     margin-left: 0;
 }
-.pImage  .thumbs{
+.pImage .thumbs {
     float: left;
     width: 105px;
-    margin-top: 0;
-    height: 300px;
-    margin-left: 10px;
+    margin: 0;
+    max-height: 300px;
+    margin-left: -20px;
+    overflow: scroll;
 }
 .thumbs li{
     list-style-type: none;
      display: inline-block;
 }
 .thumbs img{
-    border: 2px solid white;
+    opacity: .5;
 }
 .thumbs img:hover, .thumbs img.active{
-    /*border: 2px solid rgba(170, 218, 245, 1);*/
-    border: 2px solid black;
+    opacity: 1;
     cursor: pointer;
 }
 .pImage .pPhoto{
@@ -1214,23 +1223,31 @@ p #prevPet.hidden{
 .pDescription form {
     float: left;
 }
-
-.pGlanceDetail{
-    clear: both;
-    float: left;
-    padding-top: 20px;
-    margin-bottom: 5px;
+.pName {
+    margin: 20px 0px 0px 0px;
 }
-.pImage{
+.pGlanceDetail{
+    margin-bottom: 20px;
+}
+.pImage {
     float: left;
     width: 570px;
-    border-bottom: 1px dotted gray;
+    border: 1px solid #BEBEC1;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 }
 #pDetailActions{
     clear: both;
 }
 .white_container.petDetails{
     overflow: hidden;
+}
+#pDetailActions a:not(:first-child) {
+    color: #BEBEC1;
+    text-decoration: none;
 }
 .backToPets , .pContact a {
     font-family: "HelveticaNeue";
@@ -1248,6 +1265,50 @@ p #prevPet.hidden{
 }
 .backToPets:hover, .pContact a:hover{
     text-decoration: underline;
+}
+.info_icon {
+    font-family: "icomoon";
+    font-size: 20px;
+}
+.pOptions p {
+    margin: 0px;
+    text-transform: capitalize;
+}
+.info_icon {
+    font-family: "icomoon";
+    font-size: 40px;
+    vertical-align: middle;
+    margin-left: -10px;
+}
+.pName {
+    font-size: 24px;
+}
+#prevPet {
+    width: 55px;
+    height: 267px;
+    background: url(../images/prev_arrow.png) no-repeat;
+    background-position: center left;
+    position: absolute;
+    left: -70px;
+    top: 240px;
+}
+#prevPet:hover {
+    background-position: center right;
+}
+#nextPet {
+    width: 55px;
+    height: 267px;
+    background: url(../images/next_arrow.png) no-repeat;
+    background-position: center left;
+    position: absolute;
+    right: -70px;
+    top: 240px;
+}
+#nextPet:hover {
+    background-position: center right;
+}
+.pContact {
+    margin-top: 20px;
 }
 
 /* ------------------------------ foster ------------------------------ */
