@@ -14,7 +14,6 @@
 	font-family: 'icomoon';
 	src: url('fonts/icomoon.eot');
 	src: url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.svg#icomoon') format('svg'),
 		url('fonts/icomoon.woff') format('woff'),
 		url('fonts/icomoon.ttf') format('truetype');
 	font-weight: normal;
@@ -24,7 +23,6 @@
 	font-family: 'HelveticaNeue';
 	src: url('fonts/HelveticaNeue.eot');
 	src: url('fonts/HelveticaNeue.eot?#iefix') format('embedded-opentype'),
-		url('fonts/HelveticaNeue.svg#icomoon') format('svg'),
 		url('fonts/HelveticaNeue.woff') format('woff'),
 		url('fonts/HelveticaNeue.ttf') format('truetype');
 	font-weight: normal;
@@ -34,80 +32,8 @@
 	font-family: 'HelveticaNeueBold';
 	src: url('fonts/HelveticaNeueBold.eot');
 	src: url('fonts/HelveticaNeueBold.eot?#iefix') format('embedded-opentype'),
-		url('fonts/HelveticaNeueBold.svg#icomoon') format('svg'),
 		url('fonts/HelveticaNeueBold.woff') format('woff'),
 		url('fonts/HelveticaNeueBold.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
-}
-
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-	font-family: 'icomoon';
-	content: attr(data-icon);
-	speak: none;
-}
-
-/* Use the following CSS code if you want to have a class per icon */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-	font-family: 'icomoon';
-	font-style: normal;
-	speak: none;
-}
-.icon-baby:before {
-	content: "\21";
-}
-.icon-adult:before {
-	content: "\22";
-}
-.icon-paw:before {
-	content: "\23";
-}
-.icon-other:before {
-	content: "\24";
-}
-.icon-male:before {
-	content: "\25";
-}
-.icon-female:before {
-	content: "\26";
-}
-.icon-dog:before {
-	content: "\27";
-}
-.icon-cat:before {
-	content: "\28";
-}
-.icon-up_arrow:before {
-	content: "\2b";
-}
-.icon-down_arrow:before {
-	content: "\2c";
-}
-.icon-twitter:before {
-	content: "\2a";
-}
-.icon-print:before {
-	content: "\29";
-}
-.icon-paw-2:before {
-	content: "\2d";
-}
-.icon-house:before {
-	content: "\2e";
-}
-.icon-heart:before {
-	content: "\2f";
-}
-.icon-facebook:before {
-	content: "\30";
-}
-.icon-email:before {
-	content: "\31";
-}
-.icon-circle_paw:before {
-	content: "\32";
-}
-.icon-calendar:before {
-	content: "\33";
 }

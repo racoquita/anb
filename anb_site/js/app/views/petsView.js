@@ -3,6 +3,7 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
+    var jsrender = require('jsrender');
     
     var PetItemView = require('views/petItemView');
     var PetDetailView = require('views/petDetailView');
@@ -67,23 +68,17 @@ define(function (require) {
             }
 
             $('#pet_results').append(petsHTML);
-
             $(this.el).find('#pagination').html(new paginator({model: this.model, page: num}).render().el);
 
             return this;
         },
 
         renderPet: function(item){
-            var petItemView = new PetItemView({ model: item }), 
-                singlePet = petItemView.render().el;
-            
-            return $(singlePet).html();
+            return $(petItemTemplate).render(item.attributes);
         },
 
         createFilters: function(){
-
-            var self = this, 
-                filterOptions = $("<div/>");
+            var self = this, filterOptions = $("<div/>");
             
             _.each(self.getAttributes(), function(item){
                 

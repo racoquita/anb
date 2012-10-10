@@ -1,14 +1,16 @@
-<div class="pet_container" data-id="<%= id %>">
-    <div class="heading">
-        <span class="name"><%= name %></span>
-        <span class="type"><%= animal %></span>
-    </div>
-    <div class="info">
-        <img src="<%= photo %>" alt="<%= name %>" />
-        <div class="details">
-            <span>Animal: <%= animal %></span>
-            <span>Age: <%= age %></span>
-            <span>Sex: <%= sex %></span>
+<script type="text/x-jsrender">
+    <div class="pet_container" data-id="{{:id}}">
+        <div class="heading">
+            <span class="name">{{:name}}</span>
+            <span class="type">{{:animal}}</span>
+        </div>
+        <div class="info">
+            <img src="{{:photo}}" alt="{{:name}}" />
+            <div class="details">
+                <span>Animal: {{:animal}}</span>
+                <span>Age: {{:age}}</span>
+                <span>Sex: {{:sex}}</span>
+            </div>
         </div>
     </div>
-</div>
+</script>
