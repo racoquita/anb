@@ -34,6 +34,14 @@ define(function (require){
                 new_desc = $(data.description.substr(0, data.description.lastIndexOf('<center>'))).text() + helper.getDonate() : 
                 new_desc = data.description;
 
+            if(data.size == 'L') {
+                data.size = "Large";
+            } else if(data.size == 'M') {
+                data.size = "Medium";
+            } else {
+                data.size = "Small"
+            }
+
     		obj = {
     			age: data.age,
     			animal: data.animal,

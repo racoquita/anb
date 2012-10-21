@@ -1,0 +1,965 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"email",
+				"email_btn"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"filter",
+				"filterSelected"
+			],
+			[
+				"landing",
+				"landing_content"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"items",
+				"itemsJson"
+			],
+			[
+				"head",
+				"header_right"
+			],
+			[
+				"set",
+				"setHeader"
+			],
+			[
+				"req",
+				"requestTimeout"
+			],
+			[
+				"requ",
+				"requestTimeout"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"header",
+				"header_center"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"profile_h",
+				"profile_home_container"
+			],
+			[
+				"din",
+				"DinMedium"
+			],
+			[
+				"user",
+				"user_address_2"
+			],
+			[
+				"profile",
+				"profile_home"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"DIn",
+				"DinBold"
+			],
+			[
+				"Din",
+				"DinMedium"
+			],
+			[
+				"ebe",
+				"e8ebef"
+			],
+			[
+				"backgrou",
+				"background-color"
+			],
+			[
+				"render",
+				"renderUser"
+			],
+			[
+				"searc",
+				"search_list"
+			],
+			[
+				"sea",
+				"search_items"
+			],
+			[
+				"ico",
+				"icomoon"
+			],
+			[
+				"backgroun",
+				"background-position"
+			],
+			[
+				"app_",
+				"app_header"
+			],
+			[
+				"app",
+				"app_header"
+			],
+			[
+				"search",
+				"searchItemTemplate"
+			],
+			[
+				"sp",
+				"splashView"
+			],
+			[
+				"land",
+				"landing_page"
+			],
+			[
+				"return",
+				"returnedView"
+			],
+			[
+				"sec",
+				"sectionLoadPage"
+			],
+			[
+				"load",
+				"loadWithSection"
+			],
+			[
+				"get",
+				"getProjectsData"
+			],
+			[
+				"pets",
+				"pets_in"
+			],
+			[
+				"re",
+				"renderPet"
+			],
+			[
+				"petI",
+				"petItemTemplate"
+			],
+			[
+				"fade",
+				"fadeInRight"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"bac",
+				"background-position"
+			],
+			[
+				"ic",
+				"icomoon"
+			],
+			[
+				"vet",
+				"vet_list"
+			],
+			[
+				"d",
+				"disc"
+			],
+			[
+				"pet",
+				"petCallback"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"fo",
+				"form2"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"scale",
+				"scaleIn"
+			],
+			[
+				"e",
+				"el"
+			],
+			[
+				"new",
+				"new_desc"
+			],
+			[
+				"content",
+				"content_list"
+			],
+			[
+				"Trade",
+				"TradeGothicLTBC"
+			],
+			[
+				"arr",
+				"arrow_large"
+			],
+			[
+				"player",
+				"player_key"
+			],
+			[
+				"pla",
+				"player"
+			],
+			[
+				"temp",
+				"temp_array"
+			],
+			[
+				"event",
+				"event_array"
+			],
+			[
+				"eve",
+				"event_array"
+			],
+			[
+				"deta",
+				"detail_page_template"
+			],
+			[
+				"link",
+				"link_title"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"lis",
+				"list-style-type"
+			],
+			[
+				"i",
+				"inline"
+			],
+			[
+				"pD",
+				"pDetailActions"
+			],
+			[
+				"ema",
+				"email_from"
+			],
+			[
+				"chec",
+				"check_email_address"
+			],
+			[
+				"clea",
+				"clean_string"
+			],
+			[
+				"em",
+				"email_message"
+			],
+			[
+				"sub",
+				"submitForm"
+			],
+			[
+				"form",
+				"form_container"
+			],
+			[
+				"fil",
+				"filtered"
+			],
+			[
+				"pagin",
+				"pagination"
+			],
+			[
+				"ren",
+				"renderPetList"
+			],
+			[
+				"petEv",
+				"petEventHandler"
+			],
+			[
+				"renderPet",
+				"renderPetList"
+			],
+			[
+				"petE",
+				"petEventHandler"
+			],
+			[
+				"petEve",
+				"petEvent"
+			],
+			[
+				"custom",
+				"customEventHandler"
+			],
+			[
+				"test",
+				"testCollection"
+			],
+			[
+				"helper",
+				"helper_model"
+			],
+			[
+				"co",
+				"colorsModel"
+			],
+			[
+				"colo",
+				"colorsCollection"
+			],
+			[
+				"res",
+				"results_container"
+			],
+			[
+				"about",
+				"about_content"
+			],
+			[
+				"sel",
+				"selected"
+			],
+			[
+				"remov",
+				"removeClass"
+			],
+			[
+				"create",
+				"createFilters"
+			],
+			[
+				"crea",
+				"createFilters"
+			],
+			[
+				"attr",
+				"attributes"
+			],
+			[
+				"sex",
+				"sex_types"
+			],
+			[
+				"to",
+				"toLowerCase"
+			],
+			[
+				"retu",
+				"returnedView"
+			],
+			[
+				"sign",
+				"signin_msg_container"
+			],
+			[
+				"p",
+				"pcollection"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"cl",
+				"closeFold"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"nav",
+				"nav_list"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"clic",
+				"clicked_item"
+			],
+			[
+				"rad",
+				"radial_shadow"
+			],
+			[
+				"he",
+				"Helvetica"
+			],
+			[
+				"b",
+				"bottom"
+			],
+			[
+				"simple",
+				"simplexml_load_file"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"Video",
+				"VideoItem"
+			],
+			[
+				"video",
+				"videoItemModel"
+			],
+			[
+				"m",
+				"MasterView"
+			],
+			[
+				"pageIte",
+				"pageItemTemplate"
+			],
+			[
+				"pageItem",
+				"pageItemCollection"
+			],
+			[
+				"PageO",
+				"PageItemCollection"
+			],
+			[
+				"Page",
+				"PageItemModel"
+			],
+			[
+				"page",
+				"pageTwo"
+			],
+			[
+				"Collec",
+				"CollectionTwo"
+			],
+			[
+				"v",
+				"View"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "anb_site/css/main.css",
+			"settings":
+			{
+				"buffer_size": 34265,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "anb_site/js/app/views/petDetailView.js",
+			"settings":
+			{
+				"buffer_size": 3266,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "anb_site/templates/petDetailTemplate.html",
+			"settings":
+			{
+				"buffer_size": 1983,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "anb_site/js/app/views/fosterView.js",
+			"settings":
+			{
+				"buffer_size": 3777,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"chec",
+				"SVN: Checkout…"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/petsView.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/petsTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/models/petModel.js",
+		"/Applications/MAMP/htdocs/loykal/templates/splashTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/templates/baseTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/js/app/views/profileView.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/views/searchView.js",
+		"/Applications/MAMP/htdocs/loykal/json/items.json",
+		"/Applications/MAMP/htdocs/loykal/templates/itemTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/js/app/views/splashView.js",
+		"/Applications/MAMP/htdocs/loykal/json/user.json",
+		"/Applications/MAMP/htdocs/loykal/js/router.js",
+		"/Applications/MAMP/htdocs/loykal/IcoMoon.json",
+		"/Applications/MAMP/htdocs/loykal/css/animation.css",
+		"/Applications/MAMP/htdocs/loykal/css/style.css",
+		"/Applications/MAMP/htdocs/loykal/js/app/views/landingView.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/models/helperModel.js",
+		"/Users/rstovall/Downloads/fabrik42-facebook-user.js-fd7d325/src/FacebookUser.js",
+		"/Applications/MAMP/htdocs/loykal/templates/profileItemTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/templates/profileTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/json/search.json",
+		"/Applications/MAMP/htdocs/loykal/templates/searchItemTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/templates/searchTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/js/app.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/main.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/views/signinView.js",
+		"/Applications/MAMP/htdocs/loykal/templates/landingTemplate.html",
+		"/Applications/MAMP/htdocs/loykal/templates/signinTemplate.html",
+		"/Users/rstovall/Library/Application Support/Sublime Text 2/Packages/User/SVN.sublime-settings",
+		"/Applications/MAMP/htdocs/portfolio_site/js/main.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/petItemTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/css/fonts.css",
+		"/Applications/MAMP/htdocs/publicine/page_templates/homePage.html",
+		"/Applications/MAMP/htdocs/publicine/js/app/page_views/homeView.js",
+		"/Applications/MAMP/htdocs/publicine/js/app/models/helperModel.js",
+		"/Users/rstovall/Desktop/temp",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/fosterTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/aboutTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/petDetailView.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/petDetailTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/css/main.css",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/temp.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/homeTemplate.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/xhr/get_shelter.php",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/collections/petCollection.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/index.html",
+		"/Users/rstovall/Downloads/Animal_Report_FL163_2012_10_05.csv",
+		"/Users/rstovall/Downloads/jsonwrapper 2/jsonwrapper_inner.php",
+		"/Users/rstovall/Library/Caches/Cleanup At Startup/Transmit/F2977747-0D15-4190-AFDA-95EFD80C4BE8/test.php",
+		"/Users/rstovall/Library/Caches/Cleanup At Startup/Transmit/28DE9A7B-9DF9-4268-98D1-401B10D4E591/index.html",
+		"/Users/rstovall/Desktop/index.html",
+		"/Users/rstovall/Dropbox/a_new_beginning/server_test/test.php",
+		"/Users/rstovall/Dropbox/a_new_beginning/server_test/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/models/helperModel.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/fosterView.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/router.js",
+		"/Applications/MAMP/htdocs/mcafee/index.html",
+		"/Applications/MAMP/htdocs/mcafee/js/jqtouch.js",
+		"/Applications/MAMP/htdocs/mcafee/css/main.css",
+		"/Applications/MAMP/htdocs/mcafee/json/mcafee_partners.json",
+		"/Applications/MAMP/htdocs/mcafee/css/fonts.css",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/main.js",
+		"/Users/rstovall/Dropbox/a_new_beginning/documents/Form_text.txt",
+		"/Users/rstovall/Dropbox/a_new_beginning/documents/ANB ADOPTION APPLICATION X1 - DOG - Copy_files/themedata.xml",
+		"/Users/rstovall/Dropbox/a_new_beginning/documents/ANB ADOPTION APPLICATION X1 - DOG - Copy_files/header.htm",
+		"/Users/rstovall/Dropbox/a_new_beginning/documents/ANB ADOPTION APPLICATION X1 - DOG - Copy_files/filelist.xml",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/xhr/send_form_email.php",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/xhr/send_form_email_old.php",
+		"/System/Library/LaunchDaemons/org.postfix.master.plist",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/xhr/formtoemail.php",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/homeView.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/collections/testCollection.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/aboutView.js",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/templates/footerTemplate.html",
+		"/Applications/MAMP/htdocs/zions_bank/iPhone/js/app/main.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/collections/colorsCollection.js",
+		"/Applications/MAMP/htdocs/loykal/js/app/models/colorsModel.js",
+		"/Applications/MAMP/htdocs/loykal/json/colors.json",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/css/main.css",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/dd_page.html",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/news_page.html",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/search_page.html",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/index.html",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/mobile.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/news.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/search.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/mobile_fella.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/jquery.mobile-1.0.min.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/jquery-1.7.1.min.js",
+		"/Users/rstovall/Desktop/stovall_richard_Project/mobileFella/MobileFella/MobileFella/www/js/dd.js",
+		"/Users/rstovall/Desktop/stovall_richard_finalProject/mobileFella/MobileFella/MobileFella/www/css/main.css",
+		"/Users/rstovall/Desktop/stovall_richard_finalProject/mobileFella/MobileFella/MobileFella/www/js/mobile_fella.js",
+		"/Users/rstovall/Desktop/stovall_richard_finalProject/mobileFella/MobileFella/MobileFella/www/js/mobile.js",
+		"/Users/rstovall/Desktop/stovall_richard_finalProject/mobileFella/MobileFella/MobileFella/www/js/news.js",
+		"/Users/rstovall/Desktop/stovall_richard_finalProject/mobileFella/MobileFella/MobileFella/www/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/petItemView.js",
+		"/Users/rstovall/Dropbox/a_new_beginning/tag/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/anb_site/js/app/views/donateView.js",
+		"/Applications/MAMP/htdocs/publicine/js/app.js",
+		"/Applications/MAMP/htdocs/publicine/js/router.js",
+		"/Users/rstovall/Dropbox/a_new_beginning/page_template/index.html",
+		"/Applications/MAMP/htdocs/zions_bank/iPad/js/app/views/tvView.js",
+		"/Users/rstovall/Dropbox/a_new_beginning/assets/custom_button.svg",
+		"/Users/rstovall/Web/wspqbc/index.html",
+		"/Users/rstovall/Web/wspqbc/css/style.css",
+		"/Users/rstovall/Web/wspqIphone/www/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/css/main.css",
+		"/Applications/MAMP/htdocs/a_new_beginning/page_template/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/images/logotype.svg",
+		"/Applications/MAMP/htdocs/a_new_beginning/images/logo.svg",
+		"/Applications/MAMP/htdocs/a_new_beginning/menu/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/footer/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/header/index.html",
+		"/Users/rstovall/Desktop/arrow-with-dropshadow-lighter.svg",
+		"/Applications/MAMP/htdocs/a_new_beginning/css/fonts.css",
+		"/Applications/MAMP/htdocs/a_new_beginning/footer/foter.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/css/style.css",
+		"/Users/rstovall/Downloads/icomoon24006/style.css",
+		"/Users/rstovall/Downloads/Richard Stovall.s3lic",
+		"/Applications/MAMP/htdocs/a_new_beginning/tag/index.html",
+		"/Applications/MAMP/htdocs/a_new_beginning/tag/main.css",
+		"/Users/rstovall/Dropbox/a_new_beginning/tag/main.css",
+		"/Users/rstovall/Dropbox/a_new_beginning/tag/FD73E893217DC9E0.png",
+		"/Users/rstovall/.ssh/id_rsa.pub",
+		"/Users/rstovall/Dropbox/zion/iPhone/blog.html",
+		"/Users/rstovall/Desktop/lunchNLearn/sass/screen.scss",
+		"/Users/rstovall/Desktop/lunchNLearn/stylesheets/screen.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"/Applications/MAMP/htdocs/a_new_beginning/anb_site",
+			"/Applications/MAMP/htdocs/loykal"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"h4",
+			"inner_c",
+			";\n",
+			"svg",
+			"PetCollection",
+			"form ",
+			"\";\n",
+			"foster",
+			"pPhoto",
+			"+",
+			"'",
+			"pdescription ce",
+			"tradegothic",
+			" class=\"page",
+			"video_item_template",
+			";\n",
+			"button",
+			"dog",
+			"input",
+			"results",
+			"pfc",
+			"container",
+			"$(this).load();",
+			"var self = this;",
+			"page_views",
+			"cae2eb",
+			"3094bf",
+			"cae2eb",
+			"3094bf",
+			"#cae2eb",
+			"volunt",
+			"center",
+			"'",
+			"#3094bf",
+			";\n",
+			"path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"h6",
+			"",
+			"'",
+			"                        ",
+			"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" id=\"paypal_form\">' +\n    '<input type=\"hidden\" name=\"cmd\" value=\"_donations\">' +\n    '<input type=\"hidden\" name=\"business\" value=\"sbigthumbs1@aol.com\">' +\n    '<input type=\"hidden\" name=\"lc\" value=\"US\">' +\n    '<input type=\"hidden\" name=\"item_name\" value=\"A New Beginning Pet Rescue Inc\">' +\n    '<input type=\"hidden\" name=\"no_note\" value=\"0\">' +\n    '<input type=\"hidden\" name=\"currency_code\" value=\"USD\">' +\n    '<input type=\"hidden\" name=\"bn\" value=\"PP-DonationsBF:paypal.png:NonHostedGuest\">' +\n    '<input type=\"image\" src=\"http://members.petfinder.com/~FL163/images/paypal.png\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\">' +\n    '<img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\" width=\"1\" height=\"1\">' +\n'</form>'",
+			"petData",
+			"f7fbfb",
+			"8bceca",
+			"dddddd",
+			"898989",
+			"#3094bf",
+			"left",
+			"",
+			"#cae2eb"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "anb_site/css/main.css",
+					"settings":
+					{
+						"buffer_size": 34265,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13295,
+								13295
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8087.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "anb_site/js/app/views/petDetailView.js",
+					"settings":
+					{
+						"buffer_size": 3266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1144,
+								1144
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "anb_site/templates/petDetailTemplate.html",
+					"settings":
+					{
+						"buffer_size": 1983,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								934,
+								934
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 79.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "anb_site/js/app/views/fosterView.js",
+					"settings":
+					{
+						"buffer_size": 3777,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2865,
+								2865
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 949.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true
+}

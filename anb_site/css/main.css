@@ -568,6 +568,7 @@ input.green_button {
     color: #BEBEC1;
     text-decoration: none;
     vertical-align: middle;
+    font-style: normal;
 }
 .sponsor_link {
     margin: 10px 10px 5px 10px;
@@ -858,6 +859,7 @@ input.green_button {
     width: 960px;
     margin: 0px auto 0px auto;
     padding-bottom: 20px;
+    overflow: hidden;
 }
 #adoptions, #events, #help {
     width: 298px;
@@ -1204,22 +1206,22 @@ td {
 #filters #baby.selected {
     background-position: -480px 0px;
 }
-#filters #l {
+#filters #large {
     background-position: 0px -85px;
 }
-#filters #l.selected {
+#filters #large.selected {
     background-position: 0px 0px;
 }
-#filters #m {
+#filters #medium {
     background-position: -60px -85px;
 }
-#filters #m.selected {
+#filters #medium.selected {
     background-position: -60px 0px;
 }
-#filters #s {
+#filters #small {
     background-position: -120px -85px;
 }
-#filters #s.selected {
+#filters #small.selected {
     background-position: -120px 0px;
 }
 
@@ -1377,10 +1379,6 @@ center {
 .backToPets:hover, .pContact a:hover{
     text-decoration: underline;
 }
-.info_icon {
-    font-family: "icomoon";
-    font-size: 20px;
-}
 .pOptions p {
     margin: 0px;
     text-transform: capitalize;
@@ -1390,6 +1388,7 @@ center {
     font-size: 40px;
     vertical-align: middle;
     margin-left: -10px;
+    font-style: normal;
 }
 .pName {
     font-size: 24px;

@@ -239,11 +239,11 @@ define(function (require) {
         },
 
         setFilter: function(e){
+            var filterSelected = e.target.value;
             
             $(e.target).toggleClass('selected');
-
+            
             var self = this,
-                filterSelected = e.target.value,
                 filter = $(e.target).attr('classname'),
                 params = this.getAttributes(),
                 indexOfRemove = params[filter].indexOf(filterSelected);

@@ -26,6 +26,13 @@ define( function (require) {
             if(this.collection.indexOf(this.model) == 0){
                 $(self.el).find('#prevPet').addClass('hidden');
             }
+
+            var mailto = "mailto:?" + 
+                "subject=This animal is available for adoption from A New Beginning Pet Rescue.&" +
+                "body=This animal is available for adoption from A New Beginning Pet Rescue. %0A%0A Click the link below to learn more about him/her! %0A%0A http://www.petfinder.com/petdetail/" + this.model.id;
+
+            $(self.el).find('#email_btn').attr('href', mailto);
+
         	return this;
         },
 
@@ -34,7 +41,12 @@ define( function (require) {
             'click .backToPets' : 'returnToPets',
             'click .thumbs img' : 'switchImg',
             'click #prevPet' : 'prevPet',
-            'click #nextPet' : 'nextPet'
+            'click #nextPet' : 'nextPet',
+            'click #print_btn': 'print'
+        },
+
+        print: function(){
+            window.print();
         },
 
         handleAdopt: function(e){
