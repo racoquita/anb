@@ -1,0 +1,85 @@
+<div id="inner_container">
+    <div id="foster" class="white_container">
+        <div class="heading_container">
+            <div><span class="icon">-</span><h3>A New Beginning Pet Rescue Inc “Sponsor-A-Pet” Program</h3></div>
+        </div>
+        <div class="foster_info">
+            <p class="copy">ANB is a non-profit, no-kill rescue!</p>
+            <p class="copy">Not sure you're ready to adopt?! That's ok, you can help the shelter by fostering a pet until we have found them a new home. Just make sure the "foster" button is check before you submit the following form. Not only will this provide much needed help to our shelter, but it will give you the time to see if your new pet is the right fit for you and your family!</p>
+        </div>
+        <div id="form_container">
+            <div id="choose">
+                <h5>I would like to</h5>
+                <label for="adopt_choice">Adopt</label>
+                <input id="adopt_choice" type="radio" name="choice" value="adopt" checked="checked"/>
+                <label for="foster_choice">Foster</label>
+                <input id="foster_choice" type="radio" name="choice" value="foster"/>
+                <label for="sponsor_choice">Sponsor</label>
+                <input id="sponsor_choice" type="radio" name="choice" value="sponsor"/>
+            </div>
+        	<form method="post" action="xhr/send_form_email.php" id="form1">
+                <fieldset>
+                    <label for="petname" id="petname_label">The pet I want to adopt is</label>
+                    <input type="text" id="petname" value=""/>
+                    <p class="sec_content">Haven't found your pet yet? <a href="#pets">Click here</a> to browser our shelters pets!</p>
+                </fieldset>
+        		<fieldset>
+        			<label for="firstname">First Name</label>
+        			<input type="text" id="firstname"/>
+        			<label for="lastname">Last Name</label>
+        			<input type="text" id="lastname"/><br/>
+                    <label for="yourAge">Your Age</label>
+                    <input type="text" id="age"/><br>
+        		</fieldset>
+        		<fieldset>
+        			<label for="address">Address</label>
+        			<input type="text" id="address"/><br/>
+        			<label for="city">City</label>
+        			<input type="text" id="city"/><br/>
+        			<label for="state">State</label>
+        			<input type="text" id="state"/><br/>
+        			<label for="zip">Zip Code</label>
+        			<input type="text" id="zip"/>
+                    <label for="county">County</label>
+                    <input type="text" id="county"/>
+        		</fieldset>
+        		<fieldset>
+        			<label for="phone">Contact #</label>
+        			<input type="text" id="phone" value="xxx-xxx-xxxx"/><br/>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" value="example@domain.com"/>
+        		</fieldset>
+                <fieldset>
+                    <p class="sec_content">Please read and agree to the following before submitting your request!</p>
+                    <p class="sec_content">A New Beginning's pets come in many shapes, sizes, breeds, personalities, ages, and more! Each animal has it's own special needs. Before submitting this form please consider some of the following information.</p>
+                    <ul>
+                        <li>Are you prepared for a 10-15 year commitment?</li>
+                        <li>How will your animal be housed when you are not at home or away on vacation?</li>
+                        <li>How long will the animal be alone during the day/night?</li>
+                        <li>Is your residence appropriate for the animal?</li>
+                        <li>Does the animal you wish to adopt need to be outdoors? If so, do you have a fence? If yes, what type of fence?</li>
+                        <li>Do you own or rent? Do you know what types of pets are allowed in your residence?</li>
+                        <li>Does anyone in your household have pet allergies?</li>
+                        <li>Are there other animals already living in your household? How will they react to the new pet? How will the new pet react to them?</li>
+                        <li>Do you plan to use a heartworm preventative (e.g. Heartguard) and flea/tick preventative (e.g. Frontline)?</li>
+                        <li>Are you prepared to handle the cost of a veternarian should the animal need medical attention?</li>
+                    </ul>
+                    <p class="sec_content">Submitting this form to A New Beginning Pet Rescue (ANB) does NOT constitute a guarantee that you will you be allowed to adopt/foster a pet. ANB screens applicants to ensure that all animals being adopted/fostered are going to appropriate homes. Submitting this form is only the first step of the process. After submission a representative from ANB will contact you to ask some additional questions pertaining to adopting/sheltering an animal.</p>
+                </fieldset>
+                <fieldset>
+                    <label for="agree_to" class="expanded_label">I have read and agree to the above terms and considerations and would like to continue.</label>
+                    <input type="checkbox" id="agree_to" value="unchecked"/>
+                </fieldset>
+                <div id="response_info"></div>
+        		<div id="submit_container">
+    	    		<input type="submit" value="Submit" id="submit"/>
+    	    	</div>
+        	</form>
+            <form method="" action="" id="form2">
+                <fieldset>
+                    <a href=""><img class="sponsor_link" src="http://members.petfinder.com/~FL163/images/paypal.png" /></a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

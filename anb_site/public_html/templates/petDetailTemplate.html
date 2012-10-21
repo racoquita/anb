@@ -1,0 +1,66 @@
+<!-- <p id="pBack"><a href="" class="backToPets" >&lt;&lt; Back to our pets</a></p> -->
+<p>
+	<a id="prevPet" href="#" ></a>
+	<a id="nextPet" href="#" ></a>
+</p>
+<div  class="white_container petDetails" id="<%= id %>" >
+	<div class="heading_container">
+		<span class="icon">-</span><h3><%= name %> Details<a href="" class="backToPets" >&lt;&lt; Back to our pets</a></h3>
+	</div>
+	<div >
+		
+		<div class="pImage">
+			<p class="pName"><%= name %></p>
+			<div class="pGlanceDetail">
+				<span><%= size == "s" ? "Small" : size %></span>&nbsp; &bull; &nbsp;<span><%= age %></span>&nbsp; &bull; &nbsp;<span><%= sex %></span>
+			</div>
+			<p class="pPhoto"><img src="<%= photo %>" width="390"/></p>
+			
+			<ul class="thumbs">
+				<%= photos %>
+			</ul>	
+
+			<div id="pDetailActions">
+				<a href="#foster" class="blue_button selected detail_adopt">Adopt Me!</a>
+				<a href="#" id="print_btn"><em class="action_icon">)</em></a>
+				<a href="" id="email_btn">
+					<em class="action_icon">$</em>
+				</a>
+				<a href="#" id="facebook_btn"><em class="action_icon">%</em></a>
+				<a href="#" id="twitter_btn"><em class="action_icon">*</em></a>
+
+			</div>
+
+			<div class="pDescription">
+				<h4>Pet Description: </h4>
+				<p ><%= description %></p>
+				
+			</div>
+		</div>		
+
+		<div class="pDetails">
+			
+			<div class="pContact">
+				<h4>Pet Contact Info: </h4>
+				<p class="pContact">
+					<a href="mailto:<%= email %>?subject=<%= name %> <%= id %> Information "><%= email %></a>
+				</p>
+				<p class="pContact">
+					<a href="tel:<%= phone %>"><%= phone %></a>
+				</p>
+			</div>
+			<div class="pBreeds">
+				<h4>Pet Breeds: </h4>
+				<p ><%= breeds[0] %></p>
+				<p ><%= breeds[1] %></p>
+			</div>
+
+			<div class="pOptions">
+				<h4>Other Information: </h4>
+				<p><em class="info_icon">#</em><%= options.option[0] %></p>
+				<p><em class="info_icon">!</em><%= options.option[1] %></p>
+				<p><em class="info_icon">"</em><%= options.option[2] %></p>
+			</div>						
+		</div>
+	</div>
+</div>
