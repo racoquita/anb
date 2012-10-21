@@ -94,7 +94,7 @@ label {
     font-size: 14px;
     font-family: "Century Gothic";
     font-weight: lighter;
-    width: 100px;
+    width: 90px;
     display: inline-block;
 }
 
@@ -1485,9 +1485,33 @@ label[for="sponsor_choice"] {
     display: inline-block;
 }
 label[for="agree_to"] {
-    width: 440px;
-    height: 40px;
-    font-size: 10px;
+    width: 500px;
+    color: #8A9B0F;
+}
+.anb_check {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    color: #808285;
+    border: 1px solid #D2D2D2;
+    box-shadow: inset 0px 1px 2px 0px rgba(128, 130, 133, .5);
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-right: 20px;
+}
+.anb_check:active, .anb_check:checked:active {
+    background-color: #8A9B0F;
+}
+.anb_check:checked {
+    background-color: white;
+}
+.anb_check:checked:after {
+    content: '\2714';
+    font-size: 15px;
+    position: absolute;
+    left: 3px;
+    color: #8A9B0F;
 }
 label[for="petname"] {
     width: 185px;
@@ -1508,6 +1532,7 @@ label[for="petname"] {
 }
 #response_info .success {
     color: #8A9B0F;
+    margin-left: 10px;
 }
 #questions{
     padding-left: 0;

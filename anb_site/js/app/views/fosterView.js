@@ -83,30 +83,34 @@ define(function (require) {
                 'zip':$('#zip').val(),
                 'county': $('#county').val()
             };
-            
-            $.ajax({
-                url: "xhr/send_form_email.php",
-                type: "POST",
-                data: email_obj,
-                success: function(response){
-                    response = $.parseJSON(response);
 
-                    if(response.status == 0) {
-                        $('#response_info').html('<p class="error">' + response.message + '</p>');
-                    } else if(response.status == 1) {
-                        $('#response_info').html('<p class="success">' + response.message + '</p>');
-                        $('#submit_container').remove();
-                    } else {
-                        $('#response_info').html(
-                            '<div>' +
-                                '<p>' + response.error_1 + '</p>' +
-                                '<p class="error">' + response.error_msg + '</p>' +
-                                '<p>' + response.error_2 + '</p>' +
-                            '</div>'
-                        );
+            if($('#agree_to').attr('checked')) {
+                $.ajax({
+                    url: "xhr/send_form_email.php",
+                    type: "POST",
+                    data: email_obj,
+                    success: function(response){
+                        response = $.parseJSON(response);
+
+                        if(response.status == 0) {
+                            $('#response_info').html('<p class="error">' + response.message + '</p>');
+                        } else if(response.status == 1) {
+                            $('#response_info').html('<p class="success">' + response.message + '</p>');
+                            $('#submit_container').remove();
+                        } else {
+                            $('#response_info').html(
+                                '<div>' +
+                                    '<p>' + response.error_1 + '</p>' +
+                                    '<p class="error">' + response.error_msg + '</p>' +
+                                    '<p>' + response.error_2 + '</p>' +
+                                '</div>'
+                            );
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                alert('You must agree to the Terms and Considerations before submitting the form.');
+            }
         }
 	});
 

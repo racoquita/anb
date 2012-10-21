@@ -57,9 +57,9 @@
 
 			<div class="pOptions">
 				<h4>Other Information: </h4>
-				<p><em class="info_icon">#</em><%= options.option[0] %></p>
-				<p><em class="info_icon">!</em><%= options.option[1] %></p>
-				<p><em class="info_icon">"</em><%= options.option[2] %></p>
+				<% if(options.option[0]) { %> <p><em class="info_icon">#</em><%= options.option[0] %></p><% } %>
+				<% if(options.option[1]) { %> <p><em class="info_icon">!</em><%= options.option[1] %></p><% } %>
+				<% if(options.option[2]) { %> <p><em class="info_icon">"</em><%= options.option[2] %></p><% } %>
 			</div>						
 		</div>
 	</div>

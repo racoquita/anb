@@ -22,7 +22,8 @@
 
 	    $choice = $_POST['choice'];
 	    $firstname = $_POST['firstname']; 
-	    $lastname = $_POST['lastname']; 
+	    $lastname = $_POST['lastname'];
+	    $age = $_POST['age'];
 	    $email_from = $_POST['email']; 
 	    $phone = $_POST['phone']; 
 	    $petname = $_POST['petname']; 
@@ -75,6 +76,10 @@
 			$error_message .= 'The Last Name you entered does not appear to be valid. ';
 		}
 
+		if($age < 18) {
+			$error_message .= 'You must be at least 18 years of age to adopt a pet from A New Beginning Pet Rescue. ';
+		}
+
 		if(strlen($petname) < 2) {
 			$error_message .= 'The Name of the Pet you entered do not appear to be valid. ';
 		}
@@ -84,7 +89,6 @@
 		}
 
 		$email_subject = "I'm interested in " .$choice. "ing a pet from your shelter";
-
 		$email_message = "Form details below.\n\n";
 
 		function clean_string($string) {
@@ -96,6 +100,7 @@
     	$email_message .= "Pet Name: ".clean_string($petname)."\n"; 
     	$email_message .= "First Name: ".clean_string($firstname)."\n";
 		$email_message .= "Last Name: ".clean_string($lastname)."\n";
+		$email_message .= "Age: ".clean_string($age)."\n";
 		$email_message .= "Email: ".clean_string($email_from)."\n";
 		$email_message .= "Phone: ".clean_string($phone)."\n";
 		$email_message .= "Address: ".clean_string($address)."\n";
