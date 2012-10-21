@@ -1,10 +1,10 @@
 <?php 
-print_r($_POST);
-die();
+
+	require 'jsonwrapper.php';
 
 	if(isset($_POST['petname'])) {
 
-		$email_to = "racoquita@me.com";
+		$email_to = "rstovall@me.com";
 
 		function died($error) {
 			echo json_encode(array(
