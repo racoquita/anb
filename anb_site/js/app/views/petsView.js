@@ -3,7 +3,6 @@ define(function (require) {
     var $ = require('jquery');
     var _ = require('underscore');
     var Backbone = require('backbone');
-    var jsrender = require('jsrender');
     
     var PetItemView = require('views/petItemView');
     var PetDetailView = require('views/petDetailView');
@@ -12,7 +11,7 @@ define(function (require) {
     var petItemTemplate = require('text!templates/petItemTemplate.html');
     var petDetailTemplate = require('text!templates/petDetailTemplate.html');
 
-	var petsView = Backbone.View.extend({
+    var petsView = Backbone.View.extend({
         id: 'pets_view',
     
         initialize: function(){
@@ -68,17 +67,23 @@ define(function (require) {
             }
 
             $('#pet_results').append(petsHTML);
+
             $(this.el).find('#pagination').html(new paginator({model: this.model, page: num}).render().el);
 
             return this;
         },
 
         renderPet: function(item){
-            return $(petItemTemplate).render(item.attributes);
+            var petItemView = new PetItemView({ model: item }), 
+                singlePet = petItemView.render().el;
+            
+            return $(singlePet).html();
         },
 
         createFilters: function(){
-            var self = this, filterOptions = $("<div/>");
+
+            var self = this, 
+                filterOptions = $("<div/>");
             
             _.each(self.getAttributes(), function(item){
                 
@@ -239,11 +244,11 @@ define(function (require) {
         },
 
         setFilter: function(e){
-            var filterSelected = e.target.value;
             
             $(e.target).toggleClass('selected');
-            
+
             var self = this,
+                filterSelected = e.target.value,
                 filter = $(e.target).attr('classname'),
                 params = this.getAttributes(),
                 indexOfRemove = params[filter].indexOf(filterSelected);
