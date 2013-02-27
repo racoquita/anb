@@ -2,3 +2,8 @@ a_new_beginning.sublime-project
 a_new_beginning.sublime-workspace
 *.sublime-project
 *.sublime-workspace
+*.bash_profile
+*.bash_logout
+*.bashrc
+*.emacs
+*.gtkrc
